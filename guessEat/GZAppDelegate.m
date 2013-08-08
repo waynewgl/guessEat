@@ -21,6 +21,9 @@
     } else {
         self.viewController = [[GZViewController alloc] initWithNibName:@"GZViewController_iPad" bundle:nil];
     }
+    
+    NSLog(@"test");
+    
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
     return YES;
