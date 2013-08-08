@@ -19,6 +19,7 @@
     [super viewDidLoad];
     
     NSLog(@"test another user");
+    NSLog(@"my edition");
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
