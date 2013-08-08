@@ -17,6 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSLog(@"test another user");
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
