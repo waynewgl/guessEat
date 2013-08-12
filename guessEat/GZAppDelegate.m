@@ -26,6 +26,18 @@
     
     self.window.rootViewController = self.viewController;
     [self.window makeKeyAndVisible];
+    
+    GZHomeViewController *logo=[[GZHomeViewController alloc]init];
+    logo.title=@"图标";
+    UIViewController *voice=[[UIViewController alloc]init];
+    voice.title=@"声音";
+    UIViewController *achievement=[[UIViewController alloc]init];
+    achievement.title=@"成就";
+    NSArray *viewControllers=@[logo,voice,achievement];
+    UITabBarController *tabBarController=[[UITabBarController alloc] init];
+    [tabBarController setViewControllers:viewControllers animated:YES];
+    
+    self.window.rootViewController=tabBarController;
     return YES;
 }
 

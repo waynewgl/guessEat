@@ -7,7 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 
-@interface GZViewController : UIViewController
+@interface GZViewController : UIViewController{
+
+//    IBOutlet UIImageView *screenImageView;
+
+    
+}
 
 @end

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		048176B817B8E66100DD13D8 /* UIDevice+Resolutions.m in Sources */ = {isa = PBXBuildFile; fileRef = 048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */; };
+		048176BC17B8F99500DD13D8 /* GZGameTagController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048176BA17B8F99400DD13D8 /* GZGameTagController.m */; };
+		048176BD17B8F99500DD13D8 /* GZGameTagController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048176BB17B8F99500DD13D8 /* GZGameTagController.xib */; };
+		048176C617B8FBCB00DD13D8 /* GZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048176C417B8FBCA00DD13D8 /* GZHomeViewController.m */; };
+		048176C717B8FBCB00DD13D8 /* GZHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048176C517B8FBCA00DD13D8 /* GZHomeViewController.xib */; };
 		7686BF7417B39FC000616237 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7686BF7317B39FC000616237 /* UIKit.framework */; };
 		7686BF7617B39FC000616237 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7686BF7517B39FC000616237 /* Foundation.framework */; };
 		7686BF7817B39FC000616237 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7686BF7717B39FC000616237 /* CoreGraphics.framework */; };
@@ -22,6 +27,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		048176B617B8E61700DD13D8 /* UIDevice+Resolutions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Resolutions.h"; sourceTree = "<group>"; };
+		048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Resolutions.m"; sourceTree = "<group>"; };
+		048176B917B8F99400DD13D8 /* GZGameTagController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGameTagController.h; sourceTree = "<group>"; };
+		048176BA17B8F99400DD13D8 /* GZGameTagController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZGameTagController.m; sourceTree = "<group>"; };
+		048176BB17B8F99500DD13D8 /* GZGameTagController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZGameTagController.xib; sourceTree = "<group>"; };
+		048176C317B8FBC900DD13D8 /* GZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZHomeViewController.h; sourceTree = "<group>"; };
+		048176C417B8FBCA00DD13D8 /* GZHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZHomeViewController.m; sourceTree = "<group>"; };
+		048176C517B8FBCA00DD13D8 /* GZHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZHomeViewController.xib; sourceTree = "<group>"; };
 		7686BF7017B39FC000616237 /* guessEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guessEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7686BF7317B39FC000616237 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7686BF7517B39FC000616237 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -85,12 +98,20 @@
 		7686BF7917B39FC000616237 /* guessEat */ = {
 			isa = PBXGroup;
 			children = (
+				048176B617B8E61700DD13D8 /* UIDevice+Resolutions.h */,
+				048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */,
 				7686BF8217B39FC000616237 /* GZAppDelegate.h */,
 				7686BF8317B39FC000616237 /* GZAppDelegate.m */,
 				7686BF8B17B39FC000616237 /* GZViewController.h */,
 				7686BF8C17B39FC000616237 /* GZViewController.m */,
 				7686BF8E17B39FC000616237 /* GZViewController_iPhone.xib */,
 				7686BF9117B39FC000616237 /* GZViewController_iPad.xib */,
+				048176B917B8F99400DD13D8 /* GZGameTagController.h */,
+				048176BA17B8F99400DD13D8 /* GZGameTagController.m */,
+				048176BB17B8F99500DD13D8 /* GZGameTagController.xib */,
+				048176C317B8FBC900DD13D8 /* GZHomeViewController.h */,
+				048176C417B8FBCA00DD13D8 /* GZHomeViewController.m */,
+				048176C517B8FBCA00DD13D8 /* GZHomeViewController.xib */,
 				7686BF7A17B39FC000616237 /* Supporting Files */,
 			);
 			path = guessEat;
@@ -168,6 +189,8 @@
 				7686BF8A17B39FC000616237 /* Default-568h@2x.png in Resources */,
 				7686BF9017B39FC000616237 /* GZViewController_iPhone.xib in Resources */,
 				7686BF9317B39FC000616237 /* GZViewController_iPad.xib in Resources */,
+				048176BD17B8F99500DD13D8 /* GZGameTagController.xib in Resources */,
+				048176C717B8FBCB00DD13D8 /* GZHomeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,6 +204,9 @@
 				7686BF8017B39FC000616237 /* main.m in Sources */,
 				7686BF8417B39FC000616237 /* GZAppDelegate.m in Sources */,
 				7686BF8D17B39FC000616237 /* GZViewController.m in Sources */,
+				048176B817B8E66100DD13D8 /* UIDevice+Resolutions.m in Sources */,
+				048176BC17B8F99500DD13D8 /* GZGameTagController.m in Sources */,
+				048176C617B8FBCB00DD13D8 /* GZHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +339,7 @@
 				7686BF9817B39FC000616237 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
