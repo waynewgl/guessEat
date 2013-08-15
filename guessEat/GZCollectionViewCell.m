@@ -4,13 +4,13 @@
 //
 
 
-#import "UXCollectionViewCell.h"
+#import "GZCollectionViewCell.h"
 
-@interface UXCollectionViewCell ()
+@interface GZCollectionViewCell ()
 @property (nonatomic, strong) UIImageView *imgView;
 @end
 
-@implementation UXCollectionViewCell
+@implementation GZCollectionViewCell
 @synthesize imgView;
 
 - (id)initWithFrame:(CGRect)frame

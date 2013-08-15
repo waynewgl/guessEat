@@ -8,7 +8,8 @@
 
 #import "GZAppDelegate.h"
 #import "GZViewController.h"
-#import "UXCollectionViewController.h"
+#import "GZCollectionViewController.h"
+#import "GZGamePageViewController.h"
 
 @implementation GZAppDelegate
 
@@ -29,11 +30,22 @@
     
     GZHomeViewController *logo=[[GZHomeViewController alloc]init];
     logo.title=@"图标";
-    UXCollectionViewController *voice=[[UXCollectionViewController alloc]init];
+    
+    
+
+    GZCollectionViewController *voice=[[GZCollectionViewController alloc]init];
     voice.title=@"声音";
+
+    GZGamePageViewController *gzGamePageViewController = [[GZGamePageViewController alloc]init];
+    
+    gzGamePageViewController.title=@"游戏";
+    
+    UINavigationController *collectionNavigationController = [[UINavigationController alloc]initWithRootViewController:gzGamePageViewController];
+
+    
     UIViewController *achievement=[[UIViewController alloc]init];
     achievement.title=@"成就";
-    NSArray *viewControllers=@[logo,voice,achievement];
+    NSArray *viewControllers=@[logo,collectionNavigationController,achievement];
     UITabBarController *tabBarController=[[UITabBarController alloc] init];
     [tabBarController setViewControllers:viewControllers animated:YES];
     

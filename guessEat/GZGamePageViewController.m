@@ -1,52 +1,100 @@
 //
-//  UXCollectionViewController.m
-//  iOS6_NEW_FEATURES
+//  GZGamePageViewController.m
+//  guessEat
+//
+//  Created by Guiwei LIN on 8/15/13.
+//  Copyright (c) 2013 net. All rights reserved.
+//
 
-
-#import "UXCollectionViewController.h"
-#import "UXCollectionViewCell.h"
+#import "GZGamePageViewController.h"
+#import "GZCollectionViewCell.h"
+#import "RGMPageView.h"
+#import "GZCollectionViewController.h"
 
 static NSString *kCellIdentifer = @"CELL_ID";
 
-@interface UXCollectionViewController ()
-@property (strong, nonatomic) UICollectionView *imgsCollectionView;
-- (void)goBack:(id)sender;
+
+@interface GZGamePageViewController ()
+
 @end
 
-@implementation UXCollectionViewController
+static NSString *reuseIdentifier = @"RGMPageReuseIdentifier";
+static NSInteger numberOfPages = 2;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-    self.view.backgroundColor = [UIColor blackColor];
-}
+@implementation GZGamePageViewController
 
-- (void)loadView
+
+- (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
+    [self.pagingScrollView registerClass:[RGMPageView class] forCellReuseIdentifier:reuseIdentifier];
+    
+    UIImage *image = [UIImage imageNamed:@"indicator.png"];
+    UIImage *imageActive = [UIImage imageNamed:@"indicator-active.png"];
+    
+    RGMPageControl *indicator = [[RGMPageControl alloc] initWithItemImage:image activeImage:imageActive];
+    indicator.numberOfPages = numberOfPages;
+    [indicator addTarget:self action:@selector(pageIndicatorValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:indicator];
+    self.pageIndicator = indicator;
+    
+    
+    
+    // comment out for horizontal scrolling and indicator orientation (defaults)
+    self.pagingScrollView.scrollDirection = RGMScrollDirectionHorizontal;
+    self.pageIndicator.orientation = RGMPageIndicatorHorizontal;
+    
+    
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+
+- (IBAction)pageIndicatorValueChanged:(RGMPageControl *)sender
+{
+    [self.pagingScrollView setCurrentPage:sender.currentPage animated:YES];
+}
+
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
     
-    [super loadView];
+    CGRect bounds = self.view.bounds;
     
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
-                                                                 style:UIBarButtonSystemItemCancel
-                                                                target:self
-                                                                action:@selector(goBack:)];
-    UINavigationItem *navItem = [[UINavigationItem alloc] initWithTitle:@"UICollectionView"];
-    navItem.leftBarButtonItem = backItem;
+    [self.pageIndicator sizeToFit];
     
-    UINavigationBar *navBar = [[UINavigationBar alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 44.0f)];
-    navBar.items = @[navItem];
-    [self.view addSubview:navBar];
+    CGRect frame = self.pageIndicator.frame;
+    const CGFloat inset = 20.0f;
     
+    switch (self.pageIndicator.orientation) {
+        case RGMPageIndicatorHorizontal: {
+            frame.origin.x = floorf((bounds.size.width - frame.size.width) / 2.0f);
+            frame.origin.y = bounds.size.height - frame.size.height - inset;
+            frame.size.width = MIN(frame.size.width, bounds.size.width);
+            break;
+        }
+        case RGMPageIndicatorVertical: {
+            frame.origin.x = bounds.origin.x + inset;
+            frame.origin.y = floorf((bounds.size.height - frame.size.height) / 2.0f);
+            frame.size.height = MIN(frame.size.height, bounds.size.height);
+            break;
+        }
+    }
+    
+    self.pageIndicator.frame = frame;
+}
+
+
+- (NSInteger)pagingScrollViewNumberOfPages:(RGMPagingScrollView *)pagingScrollView
+{
+    return numberOfPages;
+}
+
+- (UIView *)pagingScrollView:(RGMPagingScrollView *)pagingScrollView viewForIndex:(NSInteger)idx
+{
+
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     
     /**
@@ -58,7 +106,7 @@ static NSString *kCellIdentifer = @"CELL_ID";
     /* ################################################################### */
     
     // item 的大小
-    flowLayout.itemSize = CGSizeMake(60.0f, 60.0f);
+    flowLayout.itemSize = CGSizeMake(30.0f, 30.0f);
     
     // UICollectionView 的滑动方向
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -86,24 +134,37 @@ static NSString *kCellIdentifer = @"CELL_ID";
     /* ################################################################### */
     
     _imgsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10.0f,
-                                                                             44.0f,
+                                                                             24.0f,
                                                                              self.view.bounds.size.width - 20.0f,
-                                                                             self.view.bounds.size.height - 20.0f)
+                                                                             self.view.bounds.size.height - 400.0f)
                                              collectionViewLayout:flowLayout];
     _imgsCollectionView.dataSource = self;
     _imgsCollectionView.delegate = self;
     _imgsCollectionView.backgroundColor = [UIColor grayColor];
     
-    [self.imgsCollectionView registerClass:[UXCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifer];
+    [self.imgsCollectionView registerClass:[GZCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifer];
+
     
-    [self.view addSubview:_imgsCollectionView];
+    
+    return _imgsCollectionView;
 }
+
+#pragma mark - RGMPagingScrollViewDelegate
+
+- (void)pagingScrollView:(RGMPagingScrollView *)pagingScrollView scrolledToPage:(NSInteger)idx
+{
+    self.pageIndicator.currentPage = idx;
+}
+
+
+
+
 
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 4;
+    return 1;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -134,7 +195,7 @@ static NSString *kCellIdentifer = @"CELL_ID";
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UXCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifer forIndexPath:indexPath];
+    GZCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifer forIndexPath:indexPath];
     
     if (indexPath.section % 2 == 0) {
         cell.backgroundColor = [UIColor yellowColor];
@@ -155,15 +216,11 @@ static NSString *kCellIdentifer = @"CELL_ID";
     NSLog(@"section: %d row: %d", indexPath.section, indexPath.row);
 }
 
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-- (void)goBack:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

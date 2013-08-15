@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UXCollectionViewCell : UICollectionViewCell
+@class GZCollectionViewCell;
+
+@interface GZCollectionViewCell : UICollectionViewCell
 - (void)setImage:(UIImage *)image;
 @end
