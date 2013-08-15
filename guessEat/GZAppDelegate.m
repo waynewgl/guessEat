@@ -7,8 +7,8 @@
 //
 
 #import "GZAppDelegate.h"
-
 #import "GZViewController.h"
+#import "UXCollectionViewController.h"
 
 @implementation GZAppDelegate
 
@@ -29,7 +29,7 @@
     
     GZHomeViewController *logo=[[GZHomeViewController alloc]init];
     logo.title=@"图标";
-    UIViewController *voice=[[UIViewController alloc]init];
+    UXCollectionViewController *voice=[[UXCollectionViewController alloc]init];
     voice.title=@"声音";
     UIViewController *achievement=[[UIViewController alloc]init];
     achievement.title=@"成就";
@@ -40,6 +40,9 @@
     self.window.rootViewController=tabBarController;
     return YES;
 }
+
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
