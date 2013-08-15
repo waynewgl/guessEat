@@ -24,6 +24,10 @@
 		7686BF8D17B39FC000616237 /* GZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7686BF8C17B39FC000616237 /* GZViewController.m */; };
 		7686BF9017B39FC000616237 /* GZViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7686BF8E17B39FC000616237 /* GZViewController_iPhone.xib */; };
 		7686BF9317B39FC000616237 /* GZViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7686BF9117B39FC000616237 /* GZViewController_iPad.xib */; };
+		76B2FDDA17BCC5AA00B9282A /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FDD117BCC5AA00B9282A /* img.png */; };
+		76B2FDDB17BCC5AA00B9282A /* img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FDD217BCC5AA00B9282A /* img@2x.png */; };
+		76B2FDDE17BCC5AA00B9282A /* UXCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B2FDD717BCC5AA00B9282A /* UXCollectionViewCell.m */; };
+		76B2FDDF17BCC5AA00B9282A /* UXCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B2FDD917BCC5AA00B9282A /* UXCollectionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,12 @@
 		7686BF8C17B39FC000616237 /* GZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZViewController.m; sourceTree = "<group>"; };
 		7686BF8F17B39FC000616237 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GZViewController_iPhone.xib; sourceTree = "<group>"; };
 		7686BF9217B39FC000616237 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GZViewController_iPad.xib; sourceTree = "<group>"; };
+		76B2FDD117BCC5AA00B9282A /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
+		76B2FDD217BCC5AA00B9282A /* img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img@2x.png"; sourceTree = "<group>"; };
+		76B2FDD617BCC5AA00B9282A /* UXCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewCell.h; sourceTree = "<group>"; };
+		76B2FDD717BCC5AA00B9282A /* UXCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXCollectionViewCell.m; sourceTree = "<group>"; };
+		76B2FDD817BCC5AA00B9282A /* UXCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UXCollectionViewController.h; sourceTree = "<group>"; };
+		76B2FDD917BCC5AA00B9282A /* UXCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UXCollectionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,10 +108,47 @@
 		7686BF7917B39FC000616237 /* guessEat */ = {
 			isa = PBXGroup;
 			children = (
-				048176B617B8E61700DD13D8 /* UIDevice+Resolutions.h */,
-				048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */,
+				76B2FDE517BCC6E900B9282A /* thrid_party */,
+				76B2FDE317BCC6B000B9282A /* helper */,
+				76B2FDE217BCC69100B9282A /* models */,
+				76B2FDE117BCC68200B9282A /* controllers */,
+				76B2FDE017BCC67400B9282A /* views */,
 				7686BF8217B39FC000616237 /* GZAppDelegate.h */,
 				7686BF8317B39FC000616237 /* GZAppDelegate.m */,
+				7686BF7A17B39FC000616237 /* Supporting Files */,
+			);
+			path = guessEat;
+			sourceTree = "<group>";
+		};
+		7686BF7A17B39FC000616237 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				76B2FDE417BCC6C900B9282A /* images */,
+				7686BF7B17B39FC000616237 /* guessEat-Info.plist */,
+				7686BF7C17B39FC000616237 /* InfoPlist.strings */,
+				7686BF7F17B39FC000616237 /* main.m */,
+				7686BF8117B39FC000616237 /* guessEat-Prefix.pch */,
+				7686BF8517B39FC000616237 /* Default.png */,
+				7686BF8717B39FC000616237 /* Default@2x.png */,
+				7686BF8917B39FC000616237 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		76B2FDE017BCC67400B9282A /* views */ = {
+			isa = PBXGroup;
+			children = (
+				76B2FDD617BCC5AA00B9282A /* UXCollectionViewCell.h */,
+				76B2FDD717BCC5AA00B9282A /* UXCollectionViewCell.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		76B2FDE117BCC68200B9282A /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				76B2FDD817BCC5AA00B9282A /* UXCollectionViewController.h */,
+				76B2FDD917BCC5AA00B9282A /* UXCollectionViewController.m */,
 				7686BF8B17B39FC000616237 /* GZViewController.h */,
 				7686BF8C17B39FC000616237 /* GZViewController.m */,
 				7686BF8E17B39FC000616237 /* GZViewController_iPhone.xib */,
@@ -112,23 +159,40 @@
 				048176C317B8FBC900DD13D8 /* GZHomeViewController.h */,
 				048176C417B8FBCA00DD13D8 /* GZHomeViewController.m */,
 				048176C517B8FBCA00DD13D8 /* GZHomeViewController.xib */,
-				7686BF7A17B39FC000616237 /* Supporting Files */,
 			);
-			path = guessEat;
+			name = controllers;
 			sourceTree = "<group>";
 		};
-		7686BF7A17B39FC000616237 /* Supporting Files */ = {
+		76B2FDE217BCC69100B9282A /* models */ = {
 			isa = PBXGroup;
 			children = (
-				7686BF7B17B39FC000616237 /* guessEat-Info.plist */,
-				7686BF7C17B39FC000616237 /* InfoPlist.strings */,
-				7686BF7F17B39FC000616237 /* main.m */,
-				7686BF8117B39FC000616237 /* guessEat-Prefix.pch */,
-				7686BF8517B39FC000616237 /* Default.png */,
-				7686BF8717B39FC000616237 /* Default@2x.png */,
-				7686BF8917B39FC000616237 /* Default-568h@2x.png */,
 			);
-			name = "Supporting Files";
+			name = models;
+			sourceTree = "<group>";
+		};
+		76B2FDE317BCC6B000B9282A /* helper */ = {
+			isa = PBXGroup;
+			children = (
+				048176B617B8E61700DD13D8 /* UIDevice+Resolutions.h */,
+				048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */,
+			);
+			name = helper;
+			sourceTree = "<group>";
+		};
+		76B2FDE417BCC6C900B9282A /* images */ = {
+			isa = PBXGroup;
+			children = (
+				76B2FDD117BCC5AA00B9282A /* img.png */,
+				76B2FDD217BCC5AA00B9282A /* img@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
+		76B2FDE517BCC6E900B9282A /* thrid_party */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = thrid_party;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,6 +255,8 @@
 				7686BF9317B39FC000616237 /* GZViewController_iPad.xib in Resources */,
 				048176BD17B8F99500DD13D8 /* GZGameTagController.xib in Resources */,
 				048176C717B8FBCB00DD13D8 /* GZHomeViewController.xib in Resources */,
+				76B2FDDA17BCC5AA00B9282A /* img.png in Resources */,
+				76B2FDDB17BCC5AA00B9282A /* img@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,6 +273,8 @@
 				048176B817B8E66100DD13D8 /* UIDevice+Resolutions.m in Sources */,
 				048176BC17B8F99500DD13D8 /* GZGameTagController.m in Sources */,
 				048176C617B8FBCB00DD13D8 /* GZHomeViewController.m in Sources */,
+				76B2FDDE17BCC5AA00B9282A /* UXCollectionViewCell.m in Sources */,
+				76B2FDDF17BCC5AA00B9282A /* UXCollectionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
