@@ -61,7 +61,7 @@ static NSString *kCellIdentifer = @"CELL_ID";
     flowLayout.itemSize = CGSizeMake(60.0f, 60.0f);
     
     // UICollectionView 的滑动方向
-    flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     // item 之间的距离.
     // (如何是纵向滑动, 左右 item 之间的距离).
@@ -75,10 +75,10 @@ static NSString *kCellIdentifer = @"CELL_ID";
     flowLayout.minimumLineSpacing = 10.0f;
     
     // section 头视图的大小
-    flowLayout.headerReferenceSize = CGSizeMake(300.0f, 40.0f);
+    flowLayout.headerReferenceSize = CGSizeMake(0.0f, 0.0f);
     
     // section 尾视图的大小
-    flowLayout.footerReferenceSize = CGSizeMake(300.0f, 40.0f);
+    flowLayout.footerReferenceSize = CGSizeMake(0.0f, 0.0f);
     
     // 调整 section 的边距. (top, left, bottom, right)
     flowLayout.sectionInset = UIEdgeInsetsMake(0.0f, 10.0f, 0.0f, 10.0f);
@@ -108,7 +108,7 @@ static NSString *kCellIdentifer = @"CELL_ID";
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 30;
+    return 24;
 }
 
 // Section HeaderView or Section FooterView
