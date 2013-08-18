@@ -21,13 +21,24 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "guessEat/GZAppDelegate.m"
-         timestampString = "397997809.27554"
+         timestampString = "398513975.557488"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "37"
-         endingLineNumber = "37"
+         startingLineNumber = "39"
+         endingLineNumber = "39"
          landmarkName = "-application:didFinishLaunchingWithOptions:"
          landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "guessEat/GZAppDelegate.m"
+         timestampString = "398513067.760248"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "13"
+         endingLineNumber = "13">
       </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>

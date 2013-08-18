@@ -11,7 +11,10 @@
 #import "GZCollectionViewController.h"
 #import "GZGamePageViewController.h"
 
+
 @implementation GZAppDelegate
+@synthesize navigationController;
+
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,13 +28,12 @@
     
     NSLog(@"test");
     
-    self.window.rootViewController = self.viewController;
-    [self.window makeKeyAndVisible];
+    
+    
+    
     
     GZHomeViewController *logo=[[GZHomeViewController alloc]init];
     logo.title=@"图标";
-    
-    
 
     GZCollectionViewController *voice=[[GZCollectionViewController alloc]init];
     voice.title=@"声音";
@@ -49,7 +51,11 @@
     UITabBarController *tabBarController=[[UITabBarController alloc] init];
     [tabBarController setViewControllers:viewControllers animated:YES];
     
-    self.window.rootViewController=tabBarController;
+    //use navigation controller to achieve page navigation, but it does not work
+    navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+    //self.window.rootViewController=navigationController;
+    [self.window addSubview:navigationController.view];
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
