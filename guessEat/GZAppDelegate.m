@@ -10,6 +10,7 @@
 #import "GZViewController.h"
 #import "GZCollectionViewController.h"
 #import "GZGamePageViewController.h"
+#import "GZGameSettingController.h"
 
 
 @implementation GZAppDelegate
@@ -32,22 +33,23 @@
     
     
     
-    GZHomeViewController *logo=[[GZHomeViewController alloc]init];
-    logo.title=@"图标";
+    GZHomeViewController *homepage=[[GZHomeViewController alloc]init];
+    homepage.title=@"游戏";
 
-    GZCollectionViewController *voice=[[GZCollectionViewController alloc]init];
-    voice.title=@"声音";
+//    GZCollectionViewController *game=[[GZCollectionViewController alloc]init];
 
-    GZGamePageViewController *gzGamePageViewController = [[GZGamePageViewController alloc]init];
+//    GZGamePageViewController *gzGamePageViewController = [[GZGamePageViewController alloc]init];
     
-    gzGamePageViewController.title=@"游戏";
+//    gzGamePageViewController.title=@"声音";
     
-    UINavigationController *collectionNavigationController = [[UINavigationController alloc]initWithRootViewController:gzGamePageViewController];
+//    UINavigationController *collectionNavigationController = [[UINavigationController alloc]initWithRootViewController:gzGamePageViewController];
 
     
-    UIViewController *achievement=[[UIViewController alloc]init];
-    achievement.title=@"成就";
-    NSArray *viewControllers=@[logo,collectionNavigationController,achievement];
+//    UIViewController *achievement=[[UIViewController alloc]init];
+//    achievement.title=@"成就";
+    GZGameSettingController *setController=[[GZGameSettingController alloc]init];
+    setController.title=@"设置";
+    NSArray *viewControllers=@[homepage,setController];
     UITabBarController *tabBarController=[[UITabBarController alloc] init];
     [tabBarController setViewControllers:viewControllers animated:YES];
     

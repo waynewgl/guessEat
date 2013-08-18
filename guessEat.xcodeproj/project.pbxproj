@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		04686E4817C0CFA800CA58AE /* GZGamingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04686E4617C0CFA700CA58AE /* GZGamingController.m */; };
 		04686E4917C0CFA800CA58AE /* GZGamingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04686E4717C0CFA800CA58AE /* GZGamingController.xib */; };
+		04686E4D17C0E98F00CA58AE /* GZGameSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04686E4B17C0E98E00CA58AE /* GZGameSettingController.m */; };
+		04686E4E17C0E98F00CA58AE /* GZGameSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04686E4C17C0E98F00CA58AE /* GZGameSettingController.xib */; };
 		048176B817B8E66100DD13D8 /* UIDevice+Resolutions.m in Sources */ = {isa = PBXBuildFile; fileRef = 048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */; };
 		048176BC17B8F99500DD13D8 /* GZGameTagController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048176BA17B8F99400DD13D8 /* GZGameTagController.m */; };
 		048176BD17B8F99500DD13D8 /* GZGameTagController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048176BB17B8F99500DD13D8 /* GZGameTagController.xib */; };
@@ -65,6 +67,9 @@
 		04686E4517C0CFA700CA58AE /* GZGamingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGamingController.h; sourceTree = "<group>"; };
 		04686E4617C0CFA700CA58AE /* GZGamingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZGamingController.m; sourceTree = "<group>"; };
 		04686E4717C0CFA800CA58AE /* GZGamingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZGamingController.xib; sourceTree = "<group>"; };
+		04686E4A17C0E98E00CA58AE /* GZGameSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGameSettingController.h; sourceTree = "<group>"; };
+		04686E4B17C0E98E00CA58AE /* GZGameSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZGameSettingController.m; sourceTree = "<group>"; };
+		04686E4C17C0E98F00CA58AE /* GZGameSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZGameSettingController.xib; sourceTree = "<group>"; };
 		048176B617B8E61700DD13D8 /* UIDevice+Resolutions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Resolutions.h"; sourceTree = "<group>"; };
 		048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Resolutions.m"; sourceTree = "<group>"; };
 		048176B917B8F99400DD13D8 /* GZGameTagController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGameTagController.h; sourceTree = "<group>"; };
@@ -253,6 +258,9 @@
 				04686E4517C0CFA700CA58AE /* GZGamingController.h */,
 				04686E4617C0CFA700CA58AE /* GZGamingController.m */,
 				04686E4717C0CFA800CA58AE /* GZGamingController.xib */,
+				04686E4A17C0E98E00CA58AE /* GZGameSettingController.h */,
+				04686E4B17C0E98E00CA58AE /* GZGameSettingController.m */,
+				04686E4C17C0E98F00CA58AE /* GZGameSettingController.xib */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -431,6 +439,7 @@
 				76B2FE3917BCE0E000B9282A /* indicator.png in Resources */,
 				76B2FE3A17BCE0E000B9282A /* indicator@2x.png in Resources */,
 				04686E4917C0CFA800CA58AE /* GZGamingController.xib in Resources */,
+				04686E4E17C0E98F00CA58AE /* GZGameSettingController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +474,7 @@
 				76B2FE2E17BCDFE000B9282A /* GZGamePageViewController.m in Sources */,
 				76B2FE3217BCE00200B9282A /* RGMPageView.m in Sources */,
 				04686E4817C0CFA800CA58AE /* GZGamingController.m in Sources */,
+				04686E4D17C0E98F00CA58AE /* GZGameSettingController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

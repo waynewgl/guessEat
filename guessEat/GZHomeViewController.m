@@ -9,6 +9,7 @@
 #import "GZHomeViewController.h"
 #import "GZAppDelegate.h"
 #import "GZGamingController.h"
+#import "GZGamePageViewController.h"
 
 @interface GZHomeViewController ()
 
@@ -21,6 +22,7 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
+        self.title=@"游戏";
         
     }
     return self;
@@ -28,15 +30,18 @@
 
 //achieve page navigate to GZGaming Controller, but it does not work.
 - (void)goToGamingpageController {
+    NSLog(@"Enter method");
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"BackToHomePage"
                                                                  style:UIBarButtonItemStyleBordered
                                                                 target:nil
                                                                 action:nil];
     self.navigationItem.backBarButtonItem = backItem;
     
-    GZGamingController *gamingController = [[GZGamingController alloc] init];
+    //GZGamingController *gamingController = [[GZGamingController alloc] init];
+    GZGamePageViewController *gamePageController=[[GZGamePageViewController alloc]init];
     GZAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate.navigationController pushViewController:gamingController animated:YES];
+    [appDelegate.navigationController pushViewController:gamePageController animated:YES];
+    
     //[self.navigationController pushViewController:gamingController animated:YES];
 }
 
