@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GZViewController.h"
 #import "GZHomeViewController.h"
 
 

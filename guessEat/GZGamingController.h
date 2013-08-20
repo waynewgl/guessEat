@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class TPKeyboardAvoidingScrollView;
+
 @interface GZGamingController : UIViewController
+
+
+@property(nonatomic,weak) IBOutlet TPKeyboardAvoidingScrollView *avoidScrollView;
 
 @end

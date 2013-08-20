@@ -9,12 +9,14 @@
 #import "GZGamePageViewController.h"
 #import "GZCollectionViewCell.h"
 #import "RGMPageView.h"
-#import "GZCollectionViewController.h"
+#import "GZGamingController.h"
 
 static NSString *kCellIdentifer = @"CELL_ID";
 
 
 @interface GZGamePageViewController ()
+
+@property(nonatomic,strong)GZGamingController *gamingController;
 
 @end
 
@@ -214,6 +216,11 @@ static NSInteger numberOfPages = 2;
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSLog(@"section: %d row: %d", indexPath.section, indexPath.row);
+    
+    
+    self.gamingController = [[GZGamingController alloc]init];
+    
+    [self.navigationController pushViewController: self.gamingController animated:YES];
 }
 
 

@@ -16,6 +16,8 @@
 		048176BD17B8F99500DD13D8 /* GZGameTagController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048176BB17B8F99500DD13D8 /* GZGameTagController.xib */; };
 		048176C617B8FBCB00DD13D8 /* GZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048176C417B8FBCA00DD13D8 /* GZHomeViewController.m */; };
 		048176C717B8FBCB00DD13D8 /* GZHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048176C517B8FBCA00DD13D8 /* GZHomeViewController.xib */; };
+		76748D1617C315450095FEA6 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76748D1317C315450095FEA6 /* TPKeyboardAvoidingScrollView.m */; };
+		76748D1717C315450095FEA6 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76748D1517C315450095FEA6 /* TPKeyboardAvoidingTableView.m */; };
 		7686BF7417B39FC000616237 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7686BF7317B39FC000616237 /* UIKit.framework */; };
 		7686BF7617B39FC000616237 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7686BF7517B39FC000616237 /* Foundation.framework */; };
 		7686BF7817B39FC000616237 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7686BF7717B39FC000616237 /* CoreGraphics.framework */; };
@@ -25,14 +27,9 @@
 		7686BF8617B39FC000616237 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 7686BF8517B39FC000616237 /* Default.png */; };
 		7686BF8817B39FC000616237 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7686BF8717B39FC000616237 /* Default@2x.png */; };
 		7686BF8A17B39FC000616237 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7686BF8917B39FC000616237 /* Default-568h@2x.png */; };
-		7686BF8D17B39FC000616237 /* GZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7686BF8C17B39FC000616237 /* GZViewController.m */; };
-		7686BF9017B39FC000616237 /* GZViewController_iPhone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7686BF8E17B39FC000616237 /* GZViewController_iPhone.xib */; };
-		7686BF9317B39FC000616237 /* GZViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7686BF9117B39FC000616237 /* GZViewController_iPad.xib */; };
 		76B2FDDA17BCC5AA00B9282A /* img.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FDD117BCC5AA00B9282A /* img.png */; };
 		76B2FDDB17BCC5AA00B9282A /* img@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FDD217BCC5AA00B9282A /* img@2x.png */; };
 		76B2FDDE17BCC5AA00B9282A /* GZCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B2FDD717BCC5AA00B9282A /* GZCollectionViewCell.m */; };
-		76B2FDDF17BCC5AA00B9282A /* GZCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B2FDD917BCC5AA00B9282A /* GZCollectionViewController.m */; };
-		76B2FDE717BCCB2100B9282A /* GZCollectionVIewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FDE617BCCB2100B9282A /* GZCollectionVIewController.xib */; };
 		76B2FDF317BCDE2A00B9282A /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FDEF17BCDE2A00B9282A /* LICENSE.txt */; };
 		76B2FDF417BCDE2A00B9282A /* SVProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FDF017BCDE2A00B9282A /* SVProgressHUD.bundle */; };
 		76B2FDF517BCDE2A00B9282A /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 76B2FDF217BCDE2A00B9282A /* SVProgressHUD.m */; };
@@ -78,6 +75,10 @@
 		048176C317B8FBC900DD13D8 /* GZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZHomeViewController.h; sourceTree = "<group>"; };
 		048176C417B8FBCA00DD13D8 /* GZHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZHomeViewController.m; sourceTree = "<group>"; };
 		048176C517B8FBCA00DD13D8 /* GZHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZHomeViewController.xib; sourceTree = "<group>"; };
+		76748D1217C315450095FEA6 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = thrid_party/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.h; sourceTree = SOURCE_ROOT; };
+		76748D1317C315450095FEA6 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = thrid_party/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.m; sourceTree = SOURCE_ROOT; };
+		76748D1417C315450095FEA6 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingTableView.h; path = thrid_party/TPKeyboardAvoiding/TPKeyboardAvoidingTableView.h; sourceTree = SOURCE_ROOT; };
+		76748D1517C315450095FEA6 /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingTableView.m; path = thrid_party/TPKeyboardAvoiding/TPKeyboardAvoidingTableView.m; sourceTree = SOURCE_ROOT; };
 		7686BF7017B39FC000616237 /* guessEat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = guessEat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7686BF7317B39FC000616237 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		7686BF7517B39FC000616237 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -91,17 +92,10 @@
 		7686BF8517B39FC000616237 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		7686BF8717B39FC000616237 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		7686BF8917B39FC000616237 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		7686BF8B17B39FC000616237 /* GZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GZViewController.h; sourceTree = "<group>"; };
-		7686BF8C17B39FC000616237 /* GZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GZViewController.m; sourceTree = "<group>"; };
-		7686BF8F17B39FC000616237 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GZViewController_iPhone.xib; sourceTree = "<group>"; };
-		7686BF9217B39FC000616237 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GZViewController_iPad.xib; sourceTree = "<group>"; };
 		76B2FDD117BCC5AA00B9282A /* img.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = img.png; sourceTree = "<group>"; };
 		76B2FDD217BCC5AA00B9282A /* img@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img@2x.png"; sourceTree = "<group>"; };
 		76B2FDD617BCC5AA00B9282A /* GZCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZCollectionViewCell.h; sourceTree = "<group>"; };
 		76B2FDD717BCC5AA00B9282A /* GZCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZCollectionViewCell.m; sourceTree = "<group>"; };
-		76B2FDD817BCC5AA00B9282A /* GZCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZCollectionViewController.h; sourceTree = "<group>"; };
-		76B2FDD917BCC5AA00B9282A /* GZCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZCollectionViewController.m; sourceTree = "<group>"; };
-		76B2FDE617BCCB2100B9282A /* GZCollectionVIewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZCollectionVIewController.xib; sourceTree = "<group>"; };
 		76B2FDEF17BCDE2A00B9282A /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE.txt; path = thrid_party/SVProgressHUD/LICENSE.txt; sourceTree = SOURCE_ROOT; };
 		76B2FDF017BCDE2A00B9282A /* SVProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = SVProgressHUD.bundle; path = thrid_party/SVProgressHUD/SVProgressHUD.bundle; sourceTree = SOURCE_ROOT; };
 		76B2FDF117BCDE2A00B9282A /* SVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SVProgressHUD.h; path = thrid_party/SVProgressHUD/SVProgressHUD.h; sourceTree = SOURCE_ROOT; };
@@ -165,6 +159,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76748D1117C3152C0095FEA6 /* TPKeyboardAvoidingScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				76748D1217C315450095FEA6 /* TPKeyboardAvoidingScrollView.h */,
+				76748D1317C315450095FEA6 /* TPKeyboardAvoidingScrollView.m */,
+				76748D1417C315450095FEA6 /* TPKeyboardAvoidingTableView.h */,
+				76748D1517C315450095FEA6 /* TPKeyboardAvoidingTableView.m */,
+			);
+			name = TPKeyboardAvoidingScrollView;
+			sourceTree = "<group>";
+		};
 		7686BF6717B39FC000616237 = {
 			isa = PBXGroup;
 			children = (
@@ -239,13 +244,6 @@
 		76B2FDE117BCC68200B9282A /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				76B2FDD817BCC5AA00B9282A /* GZCollectionViewController.h */,
-				76B2FDD917BCC5AA00B9282A /* GZCollectionViewController.m */,
-				76B2FDE617BCCB2100B9282A /* GZCollectionVIewController.xib */,
-				7686BF8B17B39FC000616237 /* GZViewController.h */,
-				7686BF8C17B39FC000616237 /* GZViewController.m */,
-				7686BF8E17B39FC000616237 /* GZViewController_iPhone.xib */,
-				7686BF9117B39FC000616237 /* GZViewController_iPad.xib */,
 				048176B917B8F99400DD13D8 /* GZGameTagController.h */,
 				048176BA17B8F99400DD13D8 /* GZGameTagController.m */,
 				048176BB17B8F99500DD13D8 /* GZGameTagController.xib */,
@@ -297,6 +295,7 @@
 		76B2FDE517BCC6E900B9282A /* thrid_party */ = {
 			isa = PBXGroup;
 			children = (
+				76748D1117C3152C0095FEA6 /* TPKeyboardAvoidingScrollView */,
 				76B2FDEE17BCDDEA00B9282A /* RGBScrollingView */,
 				76B2FDED17BCDDE600B9282A /* AFNetworking */,
 				76B2FDEC17BCDDE000B9282A /* Popover */,
@@ -421,13 +420,10 @@
 				7686BF8617B39FC000616237 /* Default.png in Resources */,
 				7686BF8817B39FC000616237 /* Default@2x.png in Resources */,
 				7686BF8A17B39FC000616237 /* Default-568h@2x.png in Resources */,
-				7686BF9017B39FC000616237 /* GZViewController_iPhone.xib in Resources */,
-				7686BF9317B39FC000616237 /* GZViewController_iPad.xib in Resources */,
 				048176BD17B8F99500DD13D8 /* GZGameTagController.xib in Resources */,
 				048176C717B8FBCB00DD13D8 /* GZHomeViewController.xib in Resources */,
 				76B2FDDA17BCC5AA00B9282A /* img.png in Resources */,
 				76B2FDDB17BCC5AA00B9282A /* img@2x.png in Resources */,
-				76B2FDE717BCCB2100B9282A /* GZCollectionVIewController.xib in Resources */,
 				76B2FDF317BCDE2A00B9282A /* LICENSE.txt in Resources */,
 				76B2FDF417BCDE2A00B9282A /* SVProgressHUD.bundle in Resources */,
 				76B2FE1117BCDE4F00B9282A /* AFHTTPRequestOperationLogger.podspec in Resources */,
@@ -452,12 +448,10 @@
 			files = (
 				7686BF8017B39FC000616237 /* main.m in Sources */,
 				7686BF8417B39FC000616237 /* GZAppDelegate.m in Sources */,
-				7686BF8D17B39FC000616237 /* GZViewController.m in Sources */,
 				048176B817B8E66100DD13D8 /* UIDevice+Resolutions.m in Sources */,
 				048176BC17B8F99500DD13D8 /* GZGameTagController.m in Sources */,
 				048176C617B8FBCB00DD13D8 /* GZHomeViewController.m in Sources */,
 				76B2FDDE17BCC5AA00B9282A /* GZCollectionViewCell.m in Sources */,
-				76B2FDDF17BCC5AA00B9282A /* GZCollectionViewController.m in Sources */,
 				76B2FDF517BCDE2A00B9282A /* SVProgressHUD.m in Sources */,
 				76B2FE0E17BCDE4F00B9282A /* AFHTTPClient.m in Sources */,
 				76B2FE0F17BCDE4F00B9282A /* AFHTTPRequestOperation.m in Sources */,
@@ -475,6 +469,8 @@
 				76B2FE3217BCE00200B9282A /* RGMPageView.m in Sources */,
 				04686E4817C0CFA800CA58AE /* GZGamingController.m in Sources */,
 				04686E4D17C0E98F00CA58AE /* GZGameSettingController.m in Sources */,
+				76748D1617C315450095FEA6 /* TPKeyboardAvoidingScrollView.m in Sources */,
+				76748D1717C315450095FEA6 /* TPKeyboardAvoidingTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -487,22 +483,6 @@
 				7686BF7D17B39FC000616237 /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		7686BF8E17B39FC000616237 /* GZViewController_iPhone.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7686BF8F17B39FC000616237 /* en */,
-			);
-			name = GZViewController_iPhone.xib;
-			sourceTree = "<group>";
-		};
-		7686BF9117B39FC000616237 /* GZViewController_iPad.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7686BF9217B39FC000616237 /* en */,
-			);
-			name = GZViewController_iPad.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

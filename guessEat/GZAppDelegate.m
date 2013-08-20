@@ -7,8 +7,6 @@
 //
 
 #import "GZAppDelegate.h"
-#import "GZViewController.h"
-#import "GZCollectionViewController.h"
 #import "GZGamePageViewController.h"
 #import "GZGameSettingController.h"
 
@@ -21,12 +19,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        self.viewController = [[GZViewController alloc] initWithNibName:@"GZViewController_iPhone" bundle:nil];
-    } else {
-        self.viewController = [[GZViewController alloc] initWithNibName:@"GZViewController_iPad" bundle:nil];
-    }
-    
+
     NSLog(@"test");
     
     
