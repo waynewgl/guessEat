@@ -56,7 +56,7 @@
     
     for (int i = 0; i < arr.count; i++)
     {
-        if((row%8 == 0) && (row > 0))
+        if((row%6 == 0) && (row >0))
         {
             row = 0;
             column++;
@@ -72,7 +72,7 @@
         
         NSLog(@"now we have row %d and column %d", row*30+20, column*30+310);
         
-        CGRect btnFrame = CGRectMake(row*30+20, column*30+310, 30, 30);//your button frame
+        CGRect btnFrame = CGRectMake(row*40+15, column*40+210, 40, 40);//your button frame
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTag:i];
         [button addTarget:self
