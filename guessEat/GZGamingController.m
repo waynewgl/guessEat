@@ -50,11 +50,40 @@
     [arr addObject:@"15"];
     [arr addObject:@"15"];
     [arr addObject:@"15"];
-    
+    [arr addObject:@"1"];
+    [arr addObject:@"2"];
+    [arr addObject:@"3"];
+    [arr addObject:@"4"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
     int row = 0;
     int column = 0;
     
-    for (int i = 0; i < arr.count; i++)
+    
+    NSLog(@"now we have row %d and column %d", row*40+15, column*40+210);
+    
+    CGRect btnFrame = CGRectMake(15 , column*40+280, 40, 40);//your button frame
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [button setTag:0];
+    [button addTarget:self
+               action:@selector(aMethod:)
+     forControlEvents:UIControlEventTouchDown];
+    [button setTitle:@"1" forState:UIControlStateNormal];
+    [button setFrame:btnFrame];
+    [self.avoidScrollView addSubview:button];
+    
+    for (int i = 1; i < arr.count; i++)
     {
         if((row%6 == 0) && (row >0))
         {
@@ -70,9 +99,9 @@
         [UIView setAnimationDuration: 0.2*i];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
-        NSLog(@"now we have row %d and column %d", row*30+20, column*30+310);
+        NSLog(@"now we have row %d and column %d", row*40+15, column*40+210);
         
-        CGRect btnFrame = CGRectMake(row*40+15, column*40+210, 40, 40);//your button frame
+        CGRect btnFrame = CGRectMake(row*40+15, column*40+280, 40, 40);//your button frame
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTag:i];
         [button addTarget:self
