@@ -65,9 +65,9 @@
         [UIView setAnimationDuration: 0.2*i];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
-        
         CGRect btnFrame = CGRectMake(row*50+10, column*50+210, 50, 50);//your button frame
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button setTag:i];
         [button addTarget:self
                    action:@selector(aMethod:)
          forControlEvents:UIControlEventTouchDown];
@@ -96,7 +96,10 @@
 
 
 - (void)aMethod:(id)sender {
-    NSLog(@"button clicked.");
+    
+    UIButton *instanceButton = (UIButton*)sender;
+    
+    NSLog(@"button clicked. %d", instanceButton.tag);
     //[self.navigationController pushViewController:gamingController animated:YES];
 }
 
