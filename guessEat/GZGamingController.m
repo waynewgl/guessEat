@@ -9,6 +9,7 @@
 #import "GZGamingController.h"
 #import "TPKeyboardAvoidingScrollView.h"
 
+
 @interface GZGamingController ()
 
 @end
@@ -61,8 +62,8 @@
         
         
         [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration: 3.20];
-        [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
+        [UIView setAnimationDuration: 0.2*i];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
         
         CGRect btnFrame = CGRectMake(row*50+10, column*50+210, 50, 50);//your button frame
@@ -87,30 +88,6 @@
     }
 
 
-    [UIView beginAnimations:nil context:NULL];
-    [UIView setAnimationDuration: 3.20];
-    [UIView setAnimationCurve:UIViewAnimationCurveEaseIn];
-    
-    
-    CGRect btnFrame = CGRectMake(29, 100, 50, 50);//your button frame
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button addTarget:self
-               action:@selector(aMethod:)
-     forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"title" forState:UIControlStateNormal];
-    [button setFrame:btnFrame];
-    button.hidden=true;
-    [self.avoidScrollView addSubview:button];
-
-    [UIView animateWithDuration:3.5
-                     animations: ^ {
-                         [button setAlpha:1.0];
-                     }
-                     completion: ^ (BOOL finished) {
-                         button.hidden=false;
-                     }];
-    
-    [UIView commitAnimations];
 
     // Do any additional setup after loading the view from its nib.
 }
