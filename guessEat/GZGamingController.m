@@ -44,14 +44,19 @@
     [arr addObject:@"15"];
     [arr addObject:@"15"];
     [arr addObject:@"15"];
-
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
+    [arr addObject:@"15"];
     
     int row = 0;
     int column = 0;
     
     for (int i = 0; i < arr.count; i++)
     {
-        if((row%5 == 0) && (row > 0))
+        if((row%8 == 0) && (row > 0))
         {
             row = 0;
             column++;
@@ -65,7 +70,9 @@
         [UIView setAnimationDuration: 0.2*i];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
-        CGRect btnFrame = CGRectMake(row*50+10, column*50+210, 50, 50);//your button frame
+        NSLog(@"now we have row %d and column %d", row, column);
+        
+        CGRect btnFrame = CGRectMake(row*30+20, column*30+210, 30, 30);//your button frame
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTag:i];
         [button addTarget:self
