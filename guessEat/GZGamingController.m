@@ -70,9 +70,9 @@
         [UIView setAnimationDuration: 0.2*i];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
-        NSLog(@"now we have row %d and column %d", row, column);
+        NSLog(@"now we have row %d and column %d", row*30+20, column*30+310);
         
-        CGRect btnFrame = CGRectMake(row*30+20, column*30+210, 30, 30);//your button frame
+        CGRect btnFrame = CGRectMake(row*30+20, column*30+310, 30, 30);//your button frame
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTag:i];
         [button addTarget:self
