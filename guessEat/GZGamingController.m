@@ -16,7 +16,8 @@
 
 @end
 
-@implementation GZGamingController
+@implementation GZGamingController;
+@synthesize nameLable,descripLable,click,image0,image1,image2,image3;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
