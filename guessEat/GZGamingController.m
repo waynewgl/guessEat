@@ -8,6 +8,8 @@
 
 #import "GZGamingController.h"
 #import "TPKeyboardAvoidingScrollView.h"
+#import "GZDatabaseController.h"
+
 
 
 @interface GZGamingController ()
@@ -123,11 +125,30 @@
         [UIView commitAnimations];
     }
 
-
-
     // Do any additional setup after loading the view from its nib.
 }
 
+-(IBAction)Click:(id)sender{
+    [self fetchFromDatabase];
+}
+
+-(void)fetchFromDatabase{
+    GZDatabaseController *databaseCrt=[[GZDatabaseController alloc] init];
+    [databaseCrt viewDidLoad];
+    NSArray *array=[[NSArray alloc] init];
+    array=[databaseCrt queryFromDataBase];
+    NSLog(@"from mydatabse: %@",array[0]);
+    NSLog(@"from mydatabse: %@",array[1]);
+    NSLog(@"from mydatabse: %@",array[2]);
+    image0=[UIImage imageNamed:@"image0.jpg"];
+    image0=[UIImage imageNamed:@"image1.jpg"];
+    image0=[UIImage imageNamed:@"image2.jpg"];
+    image0=[UIImage imageNamed:@"image3.jpg"];
+    
+
+    nameLable.text=array[1];
+    descripLable.text=array[2];
+}
 
 
 

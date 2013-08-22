@@ -16,6 +16,15 @@
 		048176BD17B8F99500DD13D8 /* GZGameTagController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048176BB17B8F99500DD13D8 /* GZGameTagController.xib */; };
 		048176C617B8FBCB00DD13D8 /* GZHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048176C417B8FBCA00DD13D8 /* GZHomeViewController.m */; };
 		048176C717B8FBCB00DD13D8 /* GZHomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048176C517B8FBCA00DD13D8 /* GZHomeViewController.xib */; };
+		04CC63B917C4A0C100D37518 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CC63B817C4A0C100D37518 /* libsqlite3.dylib */; };
+		04CC63BB17C4A30500D37518 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CC63BA17C4A30500D37518 /* libsqlite3.0.dylib */; };
+		04CC63C317C4B11700D37518 /* ios_eat in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63C217C4B11700D37518 /* ios_eat */; };
+		04CC63CB17C6166E00D37518 /* 1-0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63C717C6166E00D37518 /* 1-0.jpg */; };
+		04CC63CC17C6166E00D37518 /* 2-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63C817C6166E00D37518 /* 2-1.jpg */; };
+		04CC63CD17C6166E00D37518 /* 3-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63C917C6166E00D37518 /* 3-2.jpg */; };
+		04CC63CE17C6166E00D37518 /* 4-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63CA17C6166E00D37518 /* 4-3.jpg */; };
+		04CC63DD17C6182300D37518 /* GZDatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CC63DB17C6182300D37518 /* GZDatabaseController.m */; };
+		04CC63DE17C6182300D37518 /* GZDatabaseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63DC17C6182300D37518 /* GZDatabaseController.xib */; };
 		76748D1617C315450095FEA6 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76748D1317C315450095FEA6 /* TPKeyboardAvoidingScrollView.m */; };
 		76748D1717C315450095FEA6 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76748D1517C315450095FEA6 /* TPKeyboardAvoidingTableView.m */; };
 		7686BF7417B39FC000616237 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7686BF7317B39FC000616237 /* UIKit.framework */; };
@@ -75,6 +84,16 @@
 		048176C317B8FBC900DD13D8 /* GZHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZHomeViewController.h; sourceTree = "<group>"; };
 		048176C417B8FBCA00DD13D8 /* GZHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZHomeViewController.m; sourceTree = "<group>"; };
 		048176C517B8FBCA00DD13D8 /* GZHomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZHomeViewController.xib; sourceTree = "<group>"; };
+		04CC63B817C4A0C100D37518 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		04CC63BA17C4A30500D37518 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		04CC63C217C4B11700D37518 /* ios_eat */ = {isa = PBXFileReference; lastKnownFileType = file; name = ios_eat; path = ../../../ios_eat; sourceTree = "<group>"; };
+		04CC63C717C6166E00D37518 /* 1-0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-0.jpg"; sourceTree = "<group>"; };
+		04CC63C817C6166E00D37518 /* 2-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-1.jpg"; sourceTree = "<group>"; };
+		04CC63C917C6166E00D37518 /* 3-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-2.jpg"; sourceTree = "<group>"; };
+		04CC63CA17C6166E00D37518 /* 4-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-3.jpg"; sourceTree = "<group>"; };
+		04CC63DA17C6182300D37518 /* GZDatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZDatabaseController.h; sourceTree = "<group>"; };
+		04CC63DB17C6182300D37518 /* GZDatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZDatabaseController.m; sourceTree = "<group>"; };
+		04CC63DC17C6182300D37518 /* GZDatabaseController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZDatabaseController.xib; sourceTree = "<group>"; };
 		76748D1217C315450095FEA6 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = thrid_party/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.h; sourceTree = SOURCE_ROOT; };
 		76748D1317C315450095FEA6 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = thrid_party/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.m; sourceTree = SOURCE_ROOT; };
 		76748D1417C315450095FEA6 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingTableView.h; path = thrid_party/TPKeyboardAvoiding/TPKeyboardAvoidingTableView.h; sourceTree = SOURCE_ROOT; };
@@ -147,6 +166,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04CC63BB17C4A30500D37518 /* libsqlite3.0.dylib in Frameworks */,
+				04CC63B917C4A0C100D37518 /* libsqlite3.dylib in Frameworks */,
 				76B2FE2617BCDEB900B9282A /* QuartzCore.framework in Frameworks */,
 				76B2FE2417BCDEAF00B9282A /* SystemConfiguration.framework in Frameworks */,
 				76B2FE2217BCDEA700B9282A /* CFNetwork.framework in Frameworks */,
@@ -159,6 +180,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04CC63C617C6164C00D37518 /* Images of Dishes */ = {
+			isa = PBXGroup;
+			children = (
+				04CC63C717C6166E00D37518 /* 1-0.jpg */,
+				04CC63C817C6166E00D37518 /* 2-1.jpg */,
+				04CC63C917C6166E00D37518 /* 3-2.jpg */,
+				04CC63CA17C6166E00D37518 /* 4-3.jpg */,
+			);
+			name = "Images of Dishes";
+			sourceTree = "<group>";
+		};
 		76748D1117C3152C0095FEA6 /* TPKeyboardAvoidingScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -218,6 +250,9 @@
 		7686BF7A17B39FC000616237 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				04CC63C217C4B11700D37518 /* ios_eat */,
+				04CC63BA17C4A30500D37518 /* libsqlite3.0.dylib */,
+				04CC63B817C4A0C100D37518 /* libsqlite3.dylib */,
 				76B2FDE417BCC6C900B9282A /* images */,
 				7686BF7B17B39FC000616237 /* guessEat-Info.plist */,
 				7686BF7C17B39FC000616237 /* InfoPlist.strings */,
@@ -259,6 +294,9 @@
 				04686E4A17C0E98E00CA58AE /* GZGameSettingController.h */,
 				04686E4B17C0E98E00CA58AE /* GZGameSettingController.m */,
 				04686E4C17C0E98F00CA58AE /* GZGameSettingController.xib */,
+				04CC63DA17C6182300D37518 /* GZDatabaseController.h */,
+				04CC63DB17C6182300D37518 /* GZDatabaseController.m */,
+				04CC63DC17C6182300D37518 /* GZDatabaseController.xib */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -282,6 +320,7 @@
 		76B2FDE417BCC6C900B9282A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				04CC63C617C6164C00D37518 /* Images of Dishes */,
 				76B2FE3317BCE0E000B9282A /* indicator-active.png */,
 				76B2FE3417BCE0E000B9282A /* indicator-active@2x.png */,
 				76B2FE3517BCE0E000B9282A /* indicator.png */,
@@ -436,6 +475,12 @@
 				76B2FE3A17BCE0E000B9282A /* indicator@2x.png in Resources */,
 				04686E4917C0CFA800CA58AE /* GZGamingController.xib in Resources */,
 				04686E4E17C0E98F00CA58AE /* GZGameSettingController.xib in Resources */,
+				04CC63C317C4B11700D37518 /* ios_eat in Resources */,
+				04CC63CB17C6166E00D37518 /* 1-0.jpg in Resources */,
+				04CC63CC17C6166E00D37518 /* 2-1.jpg in Resources */,
+				04CC63CD17C6166E00D37518 /* 3-2.jpg in Resources */,
+				04CC63CE17C6166E00D37518 /* 4-3.jpg in Resources */,
+				04CC63DE17C6182300D37518 /* GZDatabaseController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -471,6 +516,7 @@
 				04686E4D17C0E98F00CA58AE /* GZGameSettingController.m in Sources */,
 				76748D1617C315450095FEA6 /* TPKeyboardAvoidingScrollView.m in Sources */,
 				76748D1717C315450095FEA6 /* TPKeyboardAvoidingTableView.m in Sources */,
+				04CC63DD17C6182300D37518 /* GZDatabaseController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
