@@ -137,17 +137,19 @@
     [databaseCrt viewDidLoad];
     NSArray *array=[[NSArray alloc] init];
     array=[databaseCrt queryFromDataBase];
+    nameLable.text=array[1];
+    descripLable.text=array[2];
     NSLog(@"from mydatabse: %@",array[0]);
     NSLog(@"from mydatabse: %@",array[1]);
     NSLog(@"from mydatabse: %@",array[2]);
-    image0=[UIImage imageNamed:@"image0.jpg"];
-    image0=[UIImage imageNamed:@"image1.jpg"];
-    image0=[UIImage imageNamed:@"image2.jpg"];
-    image0=[UIImage imageNamed:@"image3.jpg"];
+    [image0 setImage:[UIImage imageNamed:@"1-0.jpg"]];
+    [image1 setImage:[UIImage imageNamed:@"1-1.jpg"]];
+    [image2 setImage:[UIImage imageNamed:@"1-2.jpg"]];
+    [image3 setImage:[UIImage imageNamed:@"1-3.jpg"]];
+
     
 
-    nameLable.text=array[1];
-    descripLable.text=array[2];
+
 }
 
 

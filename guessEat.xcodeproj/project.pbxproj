@@ -20,9 +20,9 @@
 		04CC63BB17C4A30500D37518 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 04CC63BA17C4A30500D37518 /* libsqlite3.0.dylib */; };
 		04CC63C317C4B11700D37518 /* ios_eat in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63C217C4B11700D37518 /* ios_eat */; };
 		04CC63CB17C6166E00D37518 /* 1-0.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63C717C6166E00D37518 /* 1-0.jpg */; };
-		04CC63CC17C6166E00D37518 /* 2-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63C817C6166E00D37518 /* 2-1.jpg */; };
-		04CC63CD17C6166E00D37518 /* 3-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63C917C6166E00D37518 /* 3-2.jpg */; };
-		04CC63CE17C6166E00D37518 /* 4-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63CA17C6166E00D37518 /* 4-3.jpg */; };
+		04CC63CC17C6166E00D37518 /* 1-1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63C817C6166E00D37518 /* 1-1.jpg */; };
+		04CC63CD17C6166E00D37518 /* 1-2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63C917C6166E00D37518 /* 1-2.jpg */; };
+		04CC63CE17C6166E00D37518 /* 1-3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63CA17C6166E00D37518 /* 1-3.jpg */; };
 		04CC63DD17C6182300D37518 /* GZDatabaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CC63DB17C6182300D37518 /* GZDatabaseController.m */; };
 		04CC63DE17C6182300D37518 /* GZDatabaseController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63DC17C6182300D37518 /* GZDatabaseController.xib */; };
 		76748D1617C315450095FEA6 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76748D1317C315450095FEA6 /* TPKeyboardAvoidingScrollView.m */; };
@@ -88,9 +88,9 @@
 		04CC63BA17C4A30500D37518 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		04CC63C217C4B11700D37518 /* ios_eat */ = {isa = PBXFileReference; lastKnownFileType = file; name = ios_eat; path = ../../../ios_eat; sourceTree = "<group>"; };
 		04CC63C717C6166E00D37518 /* 1-0.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-0.jpg"; sourceTree = "<group>"; };
-		04CC63C817C6166E00D37518 /* 2-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "2-1.jpg"; sourceTree = "<group>"; };
-		04CC63C917C6166E00D37518 /* 3-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "3-2.jpg"; sourceTree = "<group>"; };
-		04CC63CA17C6166E00D37518 /* 4-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "4-3.jpg"; sourceTree = "<group>"; };
+		04CC63C817C6166E00D37518 /* 1-1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-1.jpg"; sourceTree = "<group>"; };
+		04CC63C917C6166E00D37518 /* 1-2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-2.jpg"; sourceTree = "<group>"; };
+		04CC63CA17C6166E00D37518 /* 1-3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "1-3.jpg"; sourceTree = "<group>"; };
 		04CC63DA17C6182300D37518 /* GZDatabaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZDatabaseController.h; sourceTree = "<group>"; };
 		04CC63DB17C6182300D37518 /* GZDatabaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZDatabaseController.m; sourceTree = "<group>"; };
 		04CC63DC17C6182300D37518 /* GZDatabaseController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZDatabaseController.xib; sourceTree = "<group>"; };
@@ -184,9 +184,9 @@
 			isa = PBXGroup;
 			children = (
 				04CC63C717C6166E00D37518 /* 1-0.jpg */,
-				04CC63C817C6166E00D37518 /* 2-1.jpg */,
-				04CC63C917C6166E00D37518 /* 3-2.jpg */,
-				04CC63CA17C6166E00D37518 /* 4-3.jpg */,
+				04CC63C817C6166E00D37518 /* 1-1.jpg */,
+				04CC63C917C6166E00D37518 /* 1-2.jpg */,
+				04CC63CA17C6166E00D37518 /* 1-3.jpg */,
 			);
 			name = "Images of Dishes";
 			sourceTree = "<group>";
@@ -477,9 +477,9 @@
 				04686E4E17C0E98F00CA58AE /* GZGameSettingController.xib in Resources */,
 				04CC63C317C4B11700D37518 /* ios_eat in Resources */,
 				04CC63CB17C6166E00D37518 /* 1-0.jpg in Resources */,
-				04CC63CC17C6166E00D37518 /* 2-1.jpg in Resources */,
-				04CC63CD17C6166E00D37518 /* 3-2.jpg in Resources */,
-				04CC63CE17C6166E00D37518 /* 4-3.jpg in Resources */,
+				04CC63CC17C6166E00D37518 /* 1-1.jpg in Resources */,
+				04CC63CD17C6166E00D37518 /* 1-2.jpg in Resources */,
+				04CC63CE17C6166E00D37518 /* 1-3.jpg in Resources */,
 				04CC63DE17C6182300D37518 /* GZDatabaseController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
