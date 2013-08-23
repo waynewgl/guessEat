@@ -10,7 +10,7 @@
 #import "TPKeyboardAvoidingScrollView.h"
 #import "GZDatabaseController.h"
 #import "GZDatabaseHelper.h"
-
+#import "GZDish.h"
 
 
 @interface GZGamingController ()
@@ -117,7 +117,7 @@
         [UIView setAnimationDuration: 0.2*i];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
-        NSLog(@"now we have row %d and column %d", row*40+15, column*40+210);
+       // NSLog(@"now we have row %d and column %d", row*40+15, column*40+210);
         
         CGRect btnFrame = CGRectMake(row*40+15, column*40+280, 40, 40);//your button frame
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -157,15 +157,14 @@
 
 -(void)fetchFromDatabase{
     
-    NSArray *array=[[NSArray alloc] init];
-    array=[[GZDatabaseHelper sharedInstance] queryFromDataBase];
-    NSLog(@"db in %d" , [array count]);
+    NSArray *dish_array=[[NSArray alloc] init];
+    dish_array=[[GZDatabaseHelper sharedInstance] queryFromDataBase];
+    NSLog(@"db in %d" , [dish_array count]);
     
     
-    for (NSString *dish in array){
+    for (GZDish *dish in dish_array){
         
-        
-        NSLog(@"dish found ... %@", dish);
+        NSLog(@"dish found id %@ ..name: %@", dish.dish_id, dish.dish_name);
     }
     
     /*
@@ -174,6 +173,8 @@
     [image2 setImage:[UIImage imageNamed:@"1-2.jpg"]];
     image3.transform = CGAffineTransformMakeScale(0.3,0.3);
     [image3 setImage:[UIImage imageNamed:@"1-3.jpg"]];*/
+    
+    
 }
 
 - (void)aMethod:(id)sender {

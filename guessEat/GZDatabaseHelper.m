@@ -7,6 +7,7 @@
 //
 
 #import "GZDatabaseHelper.h"
+#import "GZDish.h"
 
 @implementation GZDatabaseHelper
 
@@ -64,7 +65,7 @@
 {
     const char *dbpath = [myDatabasePath UTF8String];
     sqlite3_stmt *statement;
-    NSArray *array=[[NSArray alloc]init];
+    NSMutableArray *dish_array=[[NSMutableArray alloc]initWithCapacity:5];
     
     if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
     {
@@ -72,27 +73,36 @@
         const char *query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
-            if (sqlite3_step(statement) == SQLITE_ROW)
+            while (sqlite3_step(statement) == SQLITE_ROW)
             {
+                GZDish *dish  = [[GZDish alloc]init];
+                
                 NSString *dishesID = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
-                NSLog(@"id is: %@", dishesID);
+               // NSLog(@"id is: %@", dishesID);
+                
+                dish.dish_id = dishesID;
                 
                 NSString *dishesName = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 1    )];
-                NSLog(@"name is: %@", dishesName);
+               // NSLog(@"name is: %@", dishesName);
                 
-                NSString *dishDescription = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 2    )];
-                NSLog(@"description is: %@", dishDescription);
-                array= [NSArray arrayWithObjects:dishesID,dishesName,dishDescription,nil];
+                dish.dish_name = dishesName;
+
+                
+                NSString *dish_description = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 2    )];
+                //NSLog(@"description is: %@", dish_description);
+                
+                dish.dish_description = dish_description;
+
+                [dish_array addObject:dish];
+                
             }
-            else {
-                NSLog(@"query failed");
-            }
+
             sqlite3_finalize(statement);
         }
         
         sqlite3_close(contactDB);
     }
-    return array;
+    return dish_array;
 }
 
 - (NSString *)searchDataBase:(int)dishID
