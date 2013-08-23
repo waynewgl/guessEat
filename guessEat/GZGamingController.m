@@ -8,7 +8,8 @@
 
 #import "GZGamingController.h"
 #import "TPKeyboardAvoidingScrollView.h"
-
+#import "GZDatabaseController.h"
+#import "GZDatabaseHelper.h"
 
 
 
@@ -17,7 +18,6 @@
 @end
 
 @implementation GZGamingController;
-@synthesize nameLable,descripLable,click,image0,image1,image2,image3,testField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,6 +33,19 @@
 {
     [super viewDidLoad];
 
+    
+    [self setUpGamingSection];
+    
+    // Do any additional setup after loading the view from its nib.
+    //do we need to release memory after I create object databaseCrt in memory???????????????/
+
+    
+    [self fetchFromDatabase];
+}
+
+
+-(void)setUpGamingSection{
+    
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     
@@ -116,7 +129,7 @@
         [button setFrame:btnFrame];
         button.hidden=true;
         [self.avoidScrollView addSubview:button];
-
+        
         [UIView animateWithDuration:3.5
                          animations: ^ {
                              [button setAlpha:1.0];
@@ -128,10 +141,8 @@
         [UIView commitAnimations];
     }
 
-    // Do any additional setup after loading the view from its nib.
-    //do we need to release memory after I create object databaseCrt in memory???????????????/
-    self->databaseCrt=[[GZDatabaseController alloc] init];
-    [databaseCrt viewDidLoad];
+    
+    
 }
 
 -(IBAction)Click:(id)sender{
@@ -145,27 +156,18 @@
 
 
 -(void)fetchFromDatabase{
+    
     NSArray *array=[[NSArray alloc] init];
-    array=[databaseCrt queryFromDataBase];
-    nameLable.text=array[1];
-    descripLable.text=array[2];
-    NSLog(@"from mydatabse: %@",array[0]);
-    NSLog(@"from mydatabse: %@",array[1]);
-    NSLog(@"from mydatabse: %@",array[2]);
+    array=[[GZDatabaseHelper sharedInstance] queryFromDataBase];
+    NSLog(@"db in %d" , [array count]);
+    
+    /*
     [image0 setImage:[UIImage imageNamed:@"1-0.jpg"]];
     [image1 setImage:[UIImage imageNamed:@"1-1.jpg"]];
     [image2 setImage:[UIImage imageNamed:@"1-2.jpg"]];
     image3.transform = CGAffineTransformMakeScale(0.3,0.3);
-    [image3 setImage:[UIImage imageNamed:@"1-3.jpg"]];
+    [image3 setImage:[UIImage imageNamed:@"1-3.jpg"]];*/
 }
-
--(void)serchIdInDB{
-    NSString *idFromFi=testField.text;
-    int idForSearch = [idFromFi intValue];
-    //[databaseCrt searchDisplayController:idForSearch];
-}
-
-
 
 - (void)aMethod:(id)sender {
     

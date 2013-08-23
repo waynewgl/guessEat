@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "GZDatabaseController.h"
 
 @class TPKeyboardAvoidingScrollView;
+@class GZDatabaseController;
+
 
 @interface GZGamingController : UIViewController{
 //    IBOutlet UILabel *nameLable;
@@ -19,10 +20,10 @@
 //    IBOutlet UIImageView *image1;
 //    IBOutlet UIImageView *image2;
 //    IBOutlet UIImageView *image3;
-    GZDatabaseController *databaseCrt;
     
 }
 
+@property(nonatomic,strong)  GZDatabaseController *databaseCrt;
 
 @property(nonatomic,weak) IBOutlet TPKeyboardAvoidingScrollView *avoidScrollView;
 @property(nonatomic,weak) IBOutlet UILabel *nameLable;

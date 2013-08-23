@@ -1,43 +1,41 @@
 //
-//  GZDatabaseController.m
+//  GZDatabaseHelper.m
 //  guessEat
 //
-//  Created by Stephen Zheng on 22/08/13.
+//  Created by Guiwei LIN on 8/23/13.
 //  Copyright (c) 2013 net. All rights reserved.
 //
 
-#import "GZDatabaseController.h"
+#import "GZDatabaseHelper.h"
 
-@interface GZDatabaseController ()
+@implementation GZDatabaseHelper
 
-@end
 
-@implementation GZDatabaseController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
++ (GZDatabaseHelper *)sharedInstance
 {
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
+    static GZDatabaseHelper *_sharedClient = nil;
+    static dispatch_once_t oncePredicate;
+    dispatch_once(&oncePredicate, ^{
+        _sharedClient = [[self alloc] init];
+    });
+    return _sharedClient;
 }
 
-
-//search existed database in document 
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+- (id)init{
+    self = [super init];
+    if (!self) {
+        return nil;
+    }
+    
     
     NSString *docsDir;
     NSArray *dirPaths;
     
     // Get the documents directory
-    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);    
+    dirPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     docsDir = [dirPaths objectAtIndex:0];
     
-    //combine the path of external database and document directory 
+    //combine the path of external database and document directory
     myDatabasePath=[[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"ios_eat"]];
     NSString *path = [[NSBundle mainBundle]pathForResource:@"ios_eat" ofType:@""];
     
@@ -56,8 +54,11 @@
     else{
         NSLog(@"file is exist");
     }
-    
+
+
+    return self;
 }
+
 
 - (NSArray *)queryFromDataBase
 {
@@ -103,7 +104,7 @@
     if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
     {
         NSString *querySQL = [NSString stringWithFormat:@"SELECT name from contacts id=\"%d\"",dishID];
-
+        
         const char *query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
@@ -125,10 +126,6 @@
 }
 
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+
 
 @end
