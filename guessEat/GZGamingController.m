@@ -8,7 +8,7 @@
 
 #import "GZGamingController.h"
 #import "TPKeyboardAvoidingScrollView.h"
-#import "GZDatabaseController.h"
+
 
 
 
@@ -17,7 +17,7 @@
 @end
 
 @implementation GZGamingController;
-@synthesize nameLable,descripLable,click,image0,image1,image2,image3;
+@synthesize nameLable,descripLable,click,image0,image1,image2,image3,testField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -127,15 +127,22 @@
     }
 
     // Do any additional setup after loading the view from its nib.
+    //do we need to release memory after I create object databaseCrt in memory???????????????/
+    self->databaseCrt=[[GZDatabaseController alloc] init];
+    [databaseCrt viewDidLoad];
 }
 
 -(IBAction)Click:(id)sender{
     [self fetchFromDatabase];
 }
 
+-(IBAction)searchFromDB:(id)sender{
+    
+}
+
+
+
 -(void)fetchFromDatabase{
-    GZDatabaseController *databaseCrt=[[GZDatabaseController alloc] init];
-    [databaseCrt viewDidLoad];
     NSArray *array=[[NSArray alloc] init];
     array=[databaseCrt queryFromDataBase];
     nameLable.text=array[1];
@@ -146,11 +153,14 @@
     [image0 setImage:[UIImage imageNamed:@"1-0.jpg"]];
     [image1 setImage:[UIImage imageNamed:@"1-1.jpg"]];
     [image2 setImage:[UIImage imageNamed:@"1-2.jpg"]];
+    image3.transform = CGAffineTransformMakeScale(0.3,0.3);
     [image3 setImage:[UIImage imageNamed:@"1-3.jpg"]];
+}
 
-    
-
-
+-(void)serchIdInDB{
+    NSString *idFromFi=testField.text;
+    int idForSearch = [idFromFi intValue];
+    //[databaseCrt searchDisplayController:idForSearch];
 }
 
 

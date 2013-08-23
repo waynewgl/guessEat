@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GZDatabaseController.h"
 
 @class TPKeyboardAvoidingScrollView;
 
@@ -18,6 +19,7 @@
 //    IBOutlet UIImageView *image1;
 //    IBOutlet UIImageView *image2;
 //    IBOutlet UIImageView *image3;
+    GZDatabaseController *databaseCrt;
     
 }
 
@@ -30,8 +32,10 @@
 @property(nonatomic,weak) IBOutlet UIImageView *image1;
 @property(nonatomic,weak) IBOutlet UIImageView *image2;
 @property(nonatomic,weak) IBOutlet UIImageView *image3;
+@property(nonatomic,weak) IBOutlet UITextField *testField;
 
 -(IBAction)Click:(id)sender;
+-(IBAction)searchFromDB:(id)sender;
 
 
 
