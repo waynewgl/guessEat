@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		04686E4817C0CFA800CA58AE /* GZGamingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04686E4617C0CFA700CA58AE /* GZGamingController.m */; };
-		04686E4917C0CFA800CA58AE /* GZGamingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04686E4717C0CFA800CA58AE /* GZGamingController.xib */; };
 		04686E4D17C0E98F00CA58AE /* GZGameSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04686E4B17C0E98E00CA58AE /* GZGameSettingController.m */; };
 		04686E4E17C0E98F00CA58AE /* GZGameSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04686E4C17C0E98F00CA58AE /* GZGameSettingController.xib */; };
 		048176B817B8E66100DD13D8 /* UIDevice+Resolutions.m in Sources */ = {isa = PBXBuildFile; fileRef = 048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */; };
@@ -69,12 +68,12 @@
 		76B2FE3817BCE0E000B9282A /* indicator-active@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FE3417BCE0E000B9282A /* indicator-active@2x.png */; };
 		76B2FE3917BCE0E000B9282A /* indicator.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FE3517BCE0E000B9282A /* indicator.png */; };
 		76B2FE3A17BCE0E000B9282A /* indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FE3617BCE0E000B9282A /* indicator@2x.png */; };
+		76CAB12217C701020059B1E7 /* GZGamingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76CAB12117C701010059B1E7 /* GZGamingController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		04686E4517C0CFA700CA58AE /* GZGamingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGamingController.h; sourceTree = "<group>"; };
 		04686E4617C0CFA700CA58AE /* GZGamingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZGamingController.m; sourceTree = "<group>"; };
-		04686E4717C0CFA800CA58AE /* GZGamingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZGamingController.xib; sourceTree = "<group>"; };
 		04686E4A17C0E98E00CA58AE /* GZGameSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGameSettingController.h; sourceTree = "<group>"; };
 		04686E4B17C0E98E00CA58AE /* GZGameSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZGameSettingController.m; sourceTree = "<group>"; };
 		04686E4C17C0E98F00CA58AE /* GZGameSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZGameSettingController.xib; sourceTree = "<group>"; };
@@ -164,6 +163,7 @@
 		76B2FE3417BCE0E000B9282A /* indicator-active@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indicator-active@2x.png"; sourceTree = "<group>"; };
 		76B2FE3517BCE0E000B9282A /* indicator.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = indicator.png; sourceTree = "<group>"; };
 		76B2FE3617BCE0E000B9282A /* indicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indicator@2x.png"; sourceTree = "<group>"; };
+		76CAB12117C701010059B1E7 /* GZGamingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZGamingController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -295,7 +295,7 @@
 				76B2FE2D17BCDFE000B9282A /* GZGamePageViewController.xib */,
 				04686E4517C0CFA700CA58AE /* GZGamingController.h */,
 				04686E4617C0CFA700CA58AE /* GZGamingController.m */,
-				04686E4717C0CFA800CA58AE /* GZGamingController.xib */,
+				76CAB12117C701010059B1E7 /* GZGamingController.xib */,
 				04686E4A17C0E98E00CA58AE /* GZGameSettingController.h */,
 				04686E4B17C0E98E00CA58AE /* GZGameSettingController.m */,
 				04686E4C17C0E98F00CA58AE /* GZGameSettingController.xib */,
@@ -481,7 +481,6 @@
 				76B2FE3817BCE0E000B9282A /* indicator-active@2x.png in Resources */,
 				76B2FE3917BCE0E000B9282A /* indicator.png in Resources */,
 				76B2FE3A17BCE0E000B9282A /* indicator@2x.png in Resources */,
-				04686E4917C0CFA800CA58AE /* GZGamingController.xib in Resources */,
 				04686E4E17C0E98F00CA58AE /* GZGameSettingController.xib in Resources */,
 				04CC63CB17C6166E00D37518 /* 1-0.jpg in Resources */,
 				04CC63CC17C6166E00D37518 /* 1-1.jpg in Resources */,
@@ -490,6 +489,7 @@
 				04CC63DE17C6182300D37518 /* GZDatabaseController.xib in Resources */,
 				04CC63E117C6651300D37518 /* ios_eat in Resources */,
 				04CC63E617C678E900D37518 /* GZImageController.xib in Resources */,
+				76CAB12217C701020059B1E7 /* GZGamingController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

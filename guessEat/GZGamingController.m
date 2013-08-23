@@ -35,6 +35,7 @@
 
     
     NSMutableArray *arr = [[NSMutableArray alloc] init];
+    
     [arr addObject:@"1"];
     [arr addObject:@"2"];
     [arr addObject:@"3"];
@@ -70,6 +71,7 @@
     [arr addObject:@"15"];
     [arr addObject:@"15"];
     [arr addObject:@"15"];
+    
     int row = 0;
     int column = 0;
     
