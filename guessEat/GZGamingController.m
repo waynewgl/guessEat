@@ -161,6 +161,13 @@
     array=[[GZDatabaseHelper sharedInstance] queryFromDataBase];
     NSLog(@"db in %d" , [array count]);
     
+    
+    for (NSString *dish in array){
+        
+        
+        NSLog(@"dish found ... %@", dish);
+    }
+    
     /*
     [image0 setImage:[UIImage imageNamed:@"1-0.jpg"]];
     [image1 setImage:[UIImage imageNamed:@"1-1.jpg"]];

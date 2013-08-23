@@ -70,6 +70,7 @@
 		76B2FE3A17BCE0E000B9282A /* indicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 76B2FE3617BCE0E000B9282A /* indicator@2x.png */; };
 		76CAB12217C701020059B1E7 /* GZGamingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76CAB12117C701010059B1E7 /* GZGamingController.xib */; };
 		76CAB12517C711500059B1E7 /* GZDatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CAB12417C711500059B1E7 /* GZDatabaseHelper.m */; };
+		76CAB12817C71F660059B1E7 /* GZDish.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CAB12717C71F660059B1E7 /* GZDish.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +168,8 @@
 		76CAB12117C701010059B1E7 /* GZGamingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZGamingController.xib; sourceTree = "<group>"; };
 		76CAB12317C711500059B1E7 /* GZDatabaseHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZDatabaseHelper.h; sourceTree = "<group>"; };
 		76CAB12417C711500059B1E7 /* GZDatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZDatabaseHelper.m; sourceTree = "<group>"; };
+		76CAB12617C71F660059B1E7 /* GZDish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZDish.h; sourceTree = "<group>"; };
+		76CAB12717C71F660059B1E7 /* GZDish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZDish.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,6 +318,8 @@
 		76B2FDE217BCC69100B9282A /* models */ = {
 			isa = PBXGroup;
 			children = (
+				76CAB12617C71F660059B1E7 /* GZDish.h */,
+				76CAB12717C71F660059B1E7 /* GZDish.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -533,6 +538,7 @@
 				04CC63DD17C6182300D37518 /* GZDatabaseController.m in Sources */,
 				04CC63E517C678E900D37518 /* GZImageController.m in Sources */,
 				76CAB12517C711500059B1E7 /* GZDatabaseHelper.m in Sources */,
+				76CAB12817C71F660059B1E7 /* GZDish.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
