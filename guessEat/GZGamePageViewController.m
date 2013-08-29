@@ -108,7 +108,7 @@ static NSInteger numberOfPages = 2;
     /* ################################################################### */
     
     // item 的大小
-    flowLayout.itemSize = CGSizeMake(30.0f, 30.0f);
+    flowLayout.itemSize = CGSizeMake(45.0f, 45.0f);
     
     // UICollectionView 的滑动方向
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -122,7 +122,7 @@ static NSInteger numberOfPages = 2;
     // (如何是纵向滑动, 行之间的距离).
     // (如何是纵向滑动, 列之间的距离).
     // default 10.
-    flowLayout.minimumLineSpacing = 10.0f;
+    flowLayout.minimumLineSpacing = 27.0f;
     
     // section 头视图的大小
     flowLayout.headerReferenceSize = CGSizeMake(0.0f, 0.0f);
@@ -131,7 +131,7 @@ static NSInteger numberOfPages = 2;
     flowLayout.footerReferenceSize = CGSizeMake(0.0f, 0.0f);
     
     // 调整 section 的边距. (top, left, bottom, right)
-    flowLayout.sectionInset = UIEdgeInsetsMake(0.0f, 10.0f, 0.0f, 10.0f);
+    flowLayout.sectionInset = UIEdgeInsetsMake(20.0f, 27.0f, 35.0f, 27.0f);
     
     /* ################################################################### */
     
