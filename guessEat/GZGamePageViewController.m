@@ -215,7 +215,7 @@ static NSInteger numberOfPages = 2;
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"section: %d row: %d in page %d", indexPath.section, indexPath.row,self.pageIndicator.currentPage);
+    DLog(@"section: %d row: %d in page %d", indexPath.section, indexPath.row,self.pageIndicator.currentPage);
     
     
     self.gamingController = [[GZGamingController alloc]init];

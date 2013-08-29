@@ -8,7 +8,6 @@
 
 #import "GZGamingController.h"
 #import "TPKeyboardAvoidingScrollView.h"
-#import "GZDatabaseController.h"
 #import "GZDatabaseHelper.h"
 #import "GZDish.h"
 
@@ -43,6 +42,14 @@
     [self fetchFromDatabase];
 }
 
+-(void)setUpAnswerSection{
+
+    
+
+    
+    
+
+}
 
 -(void)setUpGamingSection{
     
@@ -65,31 +72,14 @@
     [arr addObject:@"15"];
     [arr addObject:@"15"];
     [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"1"];
-    [arr addObject:@"2"];
-    [arr addObject:@"3"];
-    [arr addObject:@"4"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
+
+
     
     int row = 0;
     int column = 0;
     
     
-    NSLog(@"now we have row %d and column %d", row*40+15, column*40+210);
+    DLog(@"now we have row %d and column %d", row*40+15, column*40+210);
     
     CGRect btnFrame = CGRectMake(15 , column*40+280, 40, 40);//your button frame
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -97,7 +87,7 @@
     [button addTarget:self
                action:@selector(aMethod:)
      forControlEvents:UIControlEventTouchDown];
-    [button setTitle:@"1" forState:UIControlStateNormal];
+    [button setTitle:[arr objectAtIndex:0]  forState:UIControlStateNormal];
     [button setFrame:btnFrame];
     [self.avoidScrollView addSubview:button];
     
@@ -117,7 +107,7 @@
         [UIView setAnimationDuration: 0.2*i];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
-       // NSLog(@"now we have row %d and column %d", row*40+15, column*40+210);
+       // Dlog(@"now we have row %d and column %d", row*40+15, column*40+210);
         
         CGRect btnFrame = CGRectMake(row*40+15, column*40+280, 40, 40);//your button frame
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -159,12 +149,12 @@
     
     NSArray *dish_array=[[NSArray alloc] init];
     dish_array=[[GZDatabaseHelper sharedInstance] queryFromDataBase];
-    NSLog(@"db in %d" , [dish_array count]);
+    DLog(@"db in %d" , [dish_array count]);
     
     
     for (GZDish *dish in dish_array){
         
-        NSLog(@"dish found id %@ ..name: %@", dish.dish_id, dish.dish_name);
+        DLog(@"dish found id %@ ..name: %@", dish.dish_id, dish.dish_name);
     }
     
     /*
@@ -177,11 +167,16 @@
     
 }
 
+
+
+
+
+
 - (void)aMethod:(id)sender {
     
     UIButton *instanceButton = (UIButton*)sender;
     
-    NSLog(@"button clicked. %d", instanceButton.tag);
+    DLog(@"button clicked. %d", instanceButton.tag);
     //[self.navigationController pushViewController:gamingController animated:YES];
 }
 

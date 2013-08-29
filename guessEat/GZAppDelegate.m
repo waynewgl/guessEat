@@ -20,11 +20,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
-    NSLog(@"test");
-    
-    
-    
-    
+    DLog(@"test %@",@"");
     
     GZHomeViewController *homepage=[[GZHomeViewController alloc]init];
     homepage.title=@"游戏";
@@ -42,12 +38,15 @@
 //    achievement.title=@"成就";
     GZGameSettingController *setController=[[GZGameSettingController alloc]init];
     setController.title=@"设置";
-    NSArray *viewControllers=@[homepage,setController];
+    NSArray *viewControllers= [[NSArray alloc]initWithObjects:homepage, setController,nil];
     UITabBarController *tabBarController=[[UITabBarController alloc] init];
-    [tabBarController setViewControllers:viewControllers animated:YES];
+    [tabBarController setViewControllers:viewControllers animated:NO];
     
     //use navigation controller to achieve page navigation, but it does not work
     navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
+    
+    [self createEditableCopyOfDatabaseIfNeeded];
+    
     //self.window.rootViewController=navigationController;
     [self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
@@ -55,6 +54,28 @@
 }
 
 
+- (void)createEditableCopyOfDatabaseIfNeeded {
+    // First, test for existence.
+    BOOL success;
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSError *error;
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:@"ios_eat_v2"];
+    success = [fileManager fileExistsAtPath:writableDBPath];
+    if (success){
+        DLog( @"found db file '%@'", writableDBPath);
+        return;
+    }
+    // The writable database does not exist, so copy the default to the appropriate location.
+    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ios_eat_v2"];
+    success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
+    DLog( @"copy db file from  '%@' to  '%@'", defaultDBPath, writableDBPath);
+    if (!success) {
+        NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
+    }
+
+}
 
 
 - (void)applicationWillResignActive:(UIApplication *)application

@@ -30,7 +30,7 @@
 
 //achieve page navigate to GZGaming Controller, but it does not work.
 - (void)goToGamingpageController {
-    NSLog(@"Enter method");
+    DLog(@"Enter method %@", @"");
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"BackToHomePage"
                                                                  style:UIBarButtonItemStyleBordered
                                                                 target:nil
@@ -48,6 +48,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view from its nib.
 }
 
