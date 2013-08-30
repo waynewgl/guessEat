@@ -12,7 +12,6 @@
 
 
 @implementation GZAppDelegate
-@synthesize navigationController;
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -25,30 +24,24 @@
     GZHomeViewController *homepage=[[GZHomeViewController alloc]init];
     homepage.title=@"游戏";
 
-//    GZCollectionViewController *game=[[GZCollectionViewController alloc]init];
-
-//    GZGamePageViewController *gzGamePageViewController = [[GZGamePageViewController alloc]init];
-    
-//    gzGamePageViewController.title=@"声音";
-    
-//    UINavigationController *collectionNavigationController = [[UINavigationController alloc]initWithRootViewController:gzGamePageViewController];
-
-    
-//    UIViewController *achievement=[[UIViewController alloc]init];
-//    achievement.title=@"成就";
     GZGameSettingController *setController=[[GZGameSettingController alloc]init];
     setController.title=@"设置";
-    NSArray *viewControllers= [[NSArray alloc]initWithObjects:homepage, setController,nil];
+    
+    UINavigationController *homeNavigationController= [[UINavigationController alloc] initWithRootViewController:homepage];
+    UINavigationController *settingNavigationController= [[UINavigationController alloc] initWithRootViewController:setController];
+
+
+    
+    NSArray *viewControllers= [[NSArray alloc]initWithObjects:homeNavigationController, settingNavigationController,nil];
     UITabBarController *tabBarController=[[UITabBarController alloc] init];
     [tabBarController setViewControllers:viewControllers animated:NO];
     
     //use navigation controller to achieve page navigation, but it does not work
-    navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
     
     [self createEditableCopyOfDatabaseIfNeeded];
     
-    //self.window.rootViewController=navigationController;
-    [self.window addSubview:navigationController.view];
+    self.window.rootViewController=tabBarController;
+    //[self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }

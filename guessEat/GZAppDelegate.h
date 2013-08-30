@@ -18,7 +18,6 @@
 
 @property (strong, nonatomic) GZViewController *viewController;
 
-@property (strong, nonatomic)  UINavigationController *navigationController;
 
 
 @end

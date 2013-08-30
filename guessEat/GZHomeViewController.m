@@ -39,9 +39,8 @@
     
     //GZGamingController *gamingController = [[GZGamingController alloc] init];
     GZGamePageViewController *gamePageController=[[GZGamePageViewController alloc]init];
-    GZAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [appDelegate.navigationController pushViewController:gamePageController animated:YES];
-    
+    //GZAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
+    [self.navigationController pushViewController:gamePageController animated:YES];
     //[self.navigationController pushViewController:gamingController animated:YES];
 }
 

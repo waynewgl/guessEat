@@ -21,7 +21,7 @@ static NSString *kCellIdentifer = @"CELL_ID";
 @end
 
 static NSString *reuseIdentifier = @"RGMPageReuseIdentifier";
-static NSInteger numberOfPages = 2;
+static NSInteger numberOfPages = 3;
 
 
 @implementation GZGamePageViewController
