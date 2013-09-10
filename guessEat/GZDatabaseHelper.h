@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import  <sqlite3.h>
+#import "GZDish.h"
 
 @interface GZDatabaseHelper : NSObject{
     
@@ -21,5 +22,6 @@
 
 - (NSString *)searchDataBase:(int)dishID;
 - (NSArray *)queryFromDataBase;
+- (GZDish *)queryDishFromDatabase:(int)dish_id;
 
 @end

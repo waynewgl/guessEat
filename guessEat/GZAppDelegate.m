@@ -36,9 +36,6 @@
     
 //    UIViewController *achievement=[[UIViewController alloc]init];
 //    achievement.title=@"成就";
-    
-    
-    
     GZGameSettingController *setController=[[GZGameSettingController alloc]init];
     setController.title=@"设置";
     NSArray *viewControllers= [[NSArray alloc]initWithObjects:homepage, setController,nil];
@@ -50,6 +47,22 @@
     
     [self createEditableCopyOfDatabaseIfNeeded];
     
+   /*
+    NSBundle *mainBundle = [NSBundle mainBundle];
+    
+    NSString *path = @"dishes_images";
+    
+    NSLog(@"pngs in my dir:%@", [mainBundle pathsForResourcesOfType:@".jpg"
+          inDirectory:path]);
+    
+    NSString *folder_name = @"";*/
+    
+    
+    
+
+
+    
+    
     //self.window.rootViewController=navigationController;
     [self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
@@ -59,26 +72,33 @@
 
 - (void)createEditableCopyOfDatabaseIfNeeded {
     // First, test for existence.
+    
     BOOL success;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsDirectory = [paths objectAtIndex:0];
-    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:@"ios_eat_v2"];
+    NSString *writableDBPath = [documentsDirectory stringByAppendingPathComponent:DB_FILE_NAME];
     success = [fileManager fileExistsAtPath:writableDBPath];
     if (success){
         DLog( @"found db file '%@'", writableDBPath);
         return;
     }
     // The writable database does not exist, so copy the default to the appropriate location.
-    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:@"ios_eat_v2"];
+    NSString *defaultDBPath = [[[NSBundle mainBundle] resourcePath] stringByAppendingPathComponent:DB_FILE_NAME];
     success = [fileManager copyItemAtPath:defaultDBPath toPath:writableDBPath error:&error];
     DLog( @"copy db file from  '%@' to  '%@'", defaultDBPath, writableDBPath);
     if (!success) {
         NSAssert1(0, @"Failed to create writable database file with message '%@'.", [error localizedDescription]);
     }
+ 
 
 }
+
+
+
+
+
 
 
 - (void)applicationWillResignActive:(UIApplication *)application

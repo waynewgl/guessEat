@@ -10,7 +10,8 @@
 #import "TPKeyboardAvoidingScrollView.h"
 #import "GZDatabaseHelper.h"
 #import "GZDish.h"
-
+#import "GZDishImage.h"
+#import "SVProgressHUD.h"
 
 @interface GZGamingController ()
 
@@ -39,15 +40,15 @@
     //do we need to release memory after I create object databaseCrt in memory???????????????/
 
     
-    [self fetchFromDatabase];
+    //[self fetchFromDatabase];
+    [self fetchDishFromDatabaseForDish:6];
 }
 
 -(void)setUpAnswerSection{
 
     
 
-    
-    
+
 
 }
 
@@ -157,18 +158,67 @@
         DLog(@"dish found id %@ ..name: %@", dish.dish_id, dish.dish_name);
     }
     
-    /*
-    [image0 setImage:[UIImage imageNamed:@"1-0.jpg"]];
-    [image1 setImage:[UIImage imageNamed:@"1-1.jpg"]];
-    [image2 setImage:[UIImage imageNamed:@"1-2.jpg"]];
-    image3.transform = CGAffineTransformMakeScale(0.3,0.3);
-    [image3 setImage:[UIImage imageNamed:@"1-3.jpg"]];*/
-    
-    
 }
 
 
+-(void)fetchDishFromDatabase{
+    
+    NSArray *dish_array=[[NSArray alloc] init];
+    dish_array=[[GZDatabaseHelper sharedInstance] queryFromDataBase];
+    DLog(@"db in %d" , [dish_array count]);
+    
+    
+    for (GZDish *dish in dish_array){
+        
+        DLog(@"dish found id %@ ..name: %@", dish.dish_id, dish.dish_name);
+    }
+    
+}
 
+-(void)fetchDishFromDatabaseForDish:(int)dish_id{
+    
+    self.dish=[[GZDatabaseHelper sharedInstance] queryDishFromDatabase:dish_id];
+    
+    
+    
+    NSString *imagePath = [NSString stringWithFormat:@"%@/%@/%@", IMAGE_DIRECTORY,self.dish.dish_province,self.dish.dish_name];
+    
+    NSArray *images_files= [[NSBundle mainBundle] pathsForResourcesOfType:@"" inDirectory:imagePath];
+    
+    if ([images_files count] >0){
+        
+        NSString *images_file = [NSString stringWithFormat:@"%@",[images_files  objectAtIndex:0]];
+        
+        [self.dish_imageView setImage:[UIImage imageWithContentsOfFile:images_file]];
+        
+    }
+    else{
+        
+        [SVProgressHUD showErrorWithStatus:@"no such dish found"];
+        
+    }
+
+    /*
+    [self.dish_imageView setImage:[UIImage imageWithContentsOfFile:images_file_test]];
+    
+    NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
+    
+    NSString * documentsPath = [resourcePath stringByAppendingPathComponent:imagePath];
+    
+    NSError * error;
+    NSArray * directoryContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:&error];
+    
+    DLog(@"the count the content %@", [directoryContents  objectAtIndex:0]);
+    
+    NSString *images_file = [NSString stringWithFormat:@"%@/%@",imagePath,[directoryContents  objectAtIndex:0]];
+    
+    NSLog(@"test image , found  image file path %@", images_file);
+    
+    
+    [self.dish_imageView setImage:[UIImage imageWithContentsOfFile:images_file]];*/
+    
+    
+}
 
 
 

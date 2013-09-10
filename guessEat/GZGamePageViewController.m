@@ -88,6 +88,8 @@ static NSInteger numberOfPages = 3;
     self.pageIndicator.frame = frame;
 }
 
+#pragma mark - RGMPagingScrollView data source
+
 
 - (NSInteger)pagingScrollViewNumberOfPages:(RGMPagingScrollView *)pagingScrollView
 {

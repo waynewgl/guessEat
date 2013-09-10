@@ -8,6 +8,8 @@
 
 #import "GZDatabaseHelper.h"
 #import "GZDish.h"
+#import "GZDishImage.h"
+#import "SVProgressHUD.h"
 
 @implementation GZDatabaseHelper
 
@@ -37,8 +39,8 @@
     docsDir = [dirPaths objectAtIndex:0];
     
     //combine the path of external database and document directory
-    myDatabasePath=[[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: @"ios_eat_v2"]];
-    NSString *path = [[NSBundle mainBundle]pathForResource:@"ios_eat_v2" ofType:@""];
+    myDatabasePath=[[NSString alloc] initWithString: [docsDir stringByAppendingPathComponent: DB_FILE_NAME]];
+    NSString *path = [[NSBundle mainBundle]pathForResource:DB_FILE_NAME ofType:@""];
     
     DLog(@"current path is ---- %@" , path);
     
@@ -69,7 +71,7 @@
     
     if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
     {
-        NSString *querySQL = [NSString stringWithFormat:@"SELECT dishes_id, kind, name, description from dishes"];
+        NSString *querySQL = [NSString stringWithFormat:@"select * from dishes d join province  p on d.province_id = p.id  "];
         const char *query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
@@ -90,10 +92,14 @@
                 DLog(@"name is: %@", dish_name);
                 dish.dish_name = dish_name;
                 
-                NSString *dish_discript = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 3    )];
-                DLog(@"description is: %@", dish_discript);
-                dish.dish_description = dish_discript;
+                NSString *dish_discription = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 3    )];
+                DLog(@"description is: %@", dish_discription);
+                dish.dish_description = dish_discription;
                 
+                NSString *dish_province = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 6    )];
+                
+                dish.dish_province = dish_province;
+
                 [dish_array addObject:dish];
                 
             }
@@ -105,6 +111,60 @@
     }
     return dish_array;
 }
+
+- (GZDish *)queryDishFromDatabase:(int)dish_id
+{
+    const char *dbpath = [myDatabasePath UTF8String];
+    sqlite3_stmt *statement;
+    GZDish *dish =nil ;
+
+
+    if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
+    {
+        NSString *querySQL = [NSString stringWithFormat:@"select * from dishes d join province  p on d.province_id = p.id where d.id= %d" , dish_id];
+        
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK )
+        {
+            if (sqlite3_step(statement) == SQLITE_ROW )
+            {
+                dish  = [[GZDish alloc]init];
+                
+                NSString *dishesID = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
+                DLog(@"id is %@", dishesID);
+                dish.dish_id = dishesID;
+                DLog(@"after ID be printed %@", @"");
+                
+                NSString *disheskind = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 1    )];
+                DLog(@"kind is: %@", disheskind);
+                dish.dish_kind = disheskind;
+                
+                NSString *dish_name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 2    )];
+                DLog(@"name is: %@", dish_name);
+                dish.dish_name = dish_name;
+                
+                NSString *dish_discription = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 3    )];
+                DLog(@"description is: %@", dish_discription);
+                dish.dish_description = dish_discription;
+                
+                NSString *dish_province = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 6    )];
+                
+                dish.dish_province = dish_province;
+                
+
+            }
+      
+            sqlite3_finalize(statement);
+
+
+        }
+  
+        
+        sqlite3_close(contactDB);
+    }
+    return dish;
+}
+
 
 
 - (NSString *)searchDataBase:(int)dishID

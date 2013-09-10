@@ -31,7 +31,7 @@
 //achieve page navigate to GZGaming Controller, but it does not work.
 - (void)goToGamingpageController {
     DLog(@"Enter method %@", @"");
-    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"BackToHomePage"
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithTitle:@"Home"
                                                                  style:UIBarButtonItemStyleBordered
                                                                 target:nil
                                                                 action:nil];
@@ -47,6 +47,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    NSString *images_misc_file = [[NSBundle mainBundle] pathForResource:@"光饼" ofType:@"jpg" inDirectory:@"dishes_images/福建/光饼"];
+    
+    NSLog(@"test image , found  image file path %@", images_misc_file);
     
     // Do any additional setup after loading the view from its nib.
 }

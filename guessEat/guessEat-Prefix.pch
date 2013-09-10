@@ -23,3 +23,7 @@
 #else
 #	define DLog(...)
 #endif
+
+
+#define DB_FILE_NAME @"ios_eat_v5"
+#define IMAGE_DIRECTORY @"dishes_images"
