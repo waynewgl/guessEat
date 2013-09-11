@@ -12,8 +12,12 @@
 #import "GZDish.h"
 #import "GZDishImage.h"
 #import "SVProgressHUD.h"
+#import "GZGalleryViewController.h"
 
 @interface GZGamingController ()
+{
+    WYPopoverController* popoverController;
+}
 
 @end
 
@@ -41,7 +45,7 @@
 
     
     //[self fetchFromDatabase];
-    [self fetchDishFromDatabaseForDish:8];
+    [self fetchDishFromDatabaseForDish:self.dish_code withProvince_id:self.province_id];
 }
 
 -(void)setUpAnswerSection{
@@ -144,6 +148,35 @@
     
 }
 
+-(IBAction)tip_btn:(id)sender{
+    
+    DLog(@"tip button clicked...%@", @"");
+    
+    if (popoverController == nil)
+    {
+        UIView* btn = (UIView*)sender;
+        
+        GZGalleryViewController* galleryViewController = [[GZGalleryViewController alloc] init];
+        galleryViewController.contentSizeForViewInPopover = CGSizeMake(280, 200);
+        galleryViewController.title = @"菜名提示库";
+        [galleryViewController.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(done:)]];
+        
+        UINavigationController* contentViewController = [[UINavigationController alloc] initWithRootViewController:galleryViewController];
+        
+        popoverController = [[WYPopoverController alloc] initWithContentViewController:contentViewController];
+        popoverController.delegate = self;
+        popoverController.passthroughViews = @[btn];
+        popoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+        popoverController.wantsDefaultContentAppearance = NO;
+        [popoverController presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES];
+    }
+    else
+    {
+        [self done:nil];
+    }
+    
+}
+
 
 
 -(void)fetchFromDatabase{
@@ -175,12 +208,13 @@
     
 }
 
--(void)fetchDishFromDatabaseForDish:(int)dish_id{
+
+
+
+
+-(void)fetchDishFromDatabaseForDish:(NSInteger)dish_id withProvince_id:(NSInteger)province_id{
     
-    self.dish=[[GZDatabaseHelper sharedInstance] queryDishFromDatabase:dish_id];
-    
-    
-    
+    self.dish=[[GZDatabaseHelper sharedInstance] queryDishFromDatabase:dish_id withProvince_id:province_id];
     NSString *imagePath = [NSString stringWithFormat:@"%@/%@/%@", IMAGE_DIRECTORY,self.dish.dish_province,self.dish.dish_name];
     
     NSArray *images_files= [[NSBundle mainBundle] pathsForResourcesOfType:@"" inDirectory:imagePath];
@@ -188,8 +222,17 @@
     if ([images_files count] >0){
         
         NSString *images_file = [NSString stringWithFormat:@"%@",[images_files  objectAtIndex:0]];
-        
         [self.dish_imageView setImage:[UIImage imageWithContentsOfFile:images_file]];
+        
+        NSInteger s = [self.dish.dish_name length];
+        DLog(@"now we get dish name to be displayed %@ with dish length %d",self.dish.dish_name, s);
+
+        for(int i=0; i<s; ++i) {
+            UIImageView *image =[[UIImageView alloc] initWithFrame:CGRectMake(i*40 +65, 240, 30, 30)];
+            image.image=[UIImage imageNamed:@"1-0.jpg"];
+            image.tag = i+1;
+            [self.view addSubview:image];
+        }
         
     }
     else{
@@ -214,10 +257,33 @@
     
     NSLog(@"test image , found  image file path %@", images_file);
     
-    
     [self.dish_imageView setImage:[UIImage imageWithContentsOfFile:images_file]];*/
     
     
+}
+
+
+
+#pragma mark - Selectors
+
+- (void)done:(id)sender
+{
+    [popoverController dismissPopoverAnimated:YES];
+    popoverController.delegate = nil;
+    popoverController = nil;
+}
+
+#pragma mark - WYPopoverControllerDelegate
+
+- (BOOL)popoverControllerShouldDismiss:(WYPopoverController *)controller
+{
+    return YES;
+}
+
+- (void)popoverControllerDidDismiss:(WYPopoverController *)controller
+{
+    popoverController.delegate = nil;
+    popoverController = nil;
 }
 
 

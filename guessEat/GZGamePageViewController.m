@@ -11,6 +11,7 @@
 #import "RGMPageView.h"
 #import "GZGamingController.h"
 
+
 static NSString *kCellIdentifer = @"CELL_ID";
 
 
@@ -215,13 +216,29 @@ static NSInteger numberOfPages = 3;
 
 #pragma mark - UICollectionViewDelegate
 
+
+/*
+ 
+ 
+ 1	1	北京
+ 2	2	上海
+ 3	3	广东
+ 4	4	四川
+ 5	5	福建
+ 6	6	天津
+ 7	7	云南
+ 8	8	陕西
+ 
+ 
+ */
+
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     DLog(@"section: %d row: %d in page %d", indexPath.section, indexPath.row,self.pageIndicator.currentPage);
-    
-    
     self.gamingController = [[GZGamingController alloc]init];
-    
+    self.gamingController.dish_code = indexPath.row;
+    self.gamingController.province_id = 5;
     [self.navigationController pushViewController: self.gamingController animated:YES];
 }
 

@@ -112,7 +112,7 @@
     return dish_array;
 }
 
-- (GZDish *)queryDishFromDatabase:(int)dish_id
+- (GZDish *)queryDishFromDatabase:(NSInteger)dish_id withProvince_id:(NSInteger)province_id
 {
     const char *dbpath = [myDatabasePath UTF8String];
     sqlite3_stmt *statement;
@@ -121,7 +121,7 @@
 
     if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
     {
-        NSString *querySQL = [NSString stringWithFormat:@"select * from dishes d join province  p on d.province_id = p.id where d.id= %d" , dish_id];
+        NSString *querySQL = [NSString stringWithFormat:@"select * from dishes d join province  p on d.province_id = p.id where d.id= %d and p.id = %d" , dish_id, province_id];
         
         const char *query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK )

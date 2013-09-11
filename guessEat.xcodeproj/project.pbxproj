@@ -25,6 +25,9 @@
 		04CC63E517C678E900D37518 /* GZImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CC63E317C678E800D37518 /* GZImageController.m */; };
 		04CC63E617C678E900D37518 /* GZImageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63E417C678E800D37518 /* GZImageController.xib */; };
 		7637FCD417D48C2F0029D063 /* dishes_images in Resources */ = {isa = PBXBuildFile; fileRef = 7637FCD317D48C2F0029D063 /* dishes_images */; };
+		7657C6C817E03E4200CBE1F3 /* WYPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7657C6C717E03E4200CBE1F3 /* WYPopoverController.m */; };
+		7657C6CC17E03EE000CBE1F3 /* GZGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7657C6CA17E03EE000CBE1F3 /* GZGalleryViewController.m */; };
+		7657C6CD17E03EE000CBE1F3 /* GZGalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7657C6CB17E03EE000CBE1F3 /* GZGalleryViewController.xib */; };
 		76748D1617C315450095FEA6 /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76748D1317C315450095FEA6 /* TPKeyboardAvoidingScrollView.m */; };
 		76748D1717C315450095FEA6 /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 76748D1517C315450095FEA6 /* TPKeyboardAvoidingTableView.m */; };
 		7686BF7417B39FC000616237 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7686BF7317B39FC000616237 /* UIKit.framework */; };
@@ -100,6 +103,11 @@
 		04CC63E317C678E800D37518 /* GZImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZImageController.m; sourceTree = "<group>"; };
 		04CC63E417C678E800D37518 /* GZImageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZImageController.xib; sourceTree = "<group>"; };
 		7637FCD317D48C2F0029D063 /* dishes_images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dishes_images; sourceTree = "<group>"; };
+		7657C6C617E03E4200CBE1F3 /* WYPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYPopoverController.h; sourceTree = "<group>"; };
+		7657C6C717E03E4200CBE1F3 /* WYPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYPopoverController.m; sourceTree = "<group>"; };
+		7657C6C917E03EE000CBE1F3 /* GZGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGalleryViewController.h; sourceTree = "<group>"; };
+		7657C6CA17E03EE000CBE1F3 /* GZGalleryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZGalleryViewController.m; sourceTree = "<group>"; };
+		7657C6CB17E03EE000CBE1F3 /* GZGalleryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZGalleryViewController.xib; sourceTree = "<group>"; };
 		76748D1217C315450095FEA6 /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingScrollView.h; path = thrid_party/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.h; sourceTree = SOURCE_ROOT; };
 		76748D1317C315450095FEA6 /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TPKeyboardAvoidingScrollView.m; path = thrid_party/TPKeyboardAvoiding/TPKeyboardAvoidingScrollView.m; sourceTree = SOURCE_ROOT; };
 		76748D1417C315450095FEA6 /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPKeyboardAvoidingTableView.h; path = thrid_party/TPKeyboardAvoiding/TPKeyboardAvoidingTableView.h; sourceTree = SOURCE_ROOT; };
@@ -202,6 +210,15 @@
 				0470614817DFFB37002CA6EC /* fujian.jpg */,
 			);
 			name = imagesOfMap;
+			sourceTree = "<group>";
+		};
+		7657C6C517E03DA900CBE1F3 /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				7657C6C617E03E4200CBE1F3 /* WYPopoverController.h */,
+				7657C6C717E03E4200CBE1F3 /* WYPopoverController.m */,
+			);
+			name = PopoverView;
 			sourceTree = "<group>";
 		};
 		76748D1117C3152C0095FEA6 /* TPKeyboardAvoidingScrollView */ = {
@@ -315,6 +332,9 @@
 				0470613C17DFF934002CA6EC /* GZMapController.h */,
 				0470613D17DFF934002CA6EC /* GZMapController.m */,
 				0470613E17DFF934002CA6EC /* GZMapController.xib */,
+				7657C6C917E03EE000CBE1F3 /* GZGalleryViewController.h */,
+				7657C6CA17E03EE000CBE1F3 /* GZGalleryViewController.m */,
+				7657C6CB17E03EE000CBE1F3 /* GZGalleryViewController.xib */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -357,10 +377,10 @@
 		76B2FDE517BCC6E900B9282A /* thrid_party */ = {
 			isa = PBXGroup;
 			children = (
+				7657C6C517E03DA900CBE1F3 /* PopoverView */,
 				76748D1117C3152C0095FEA6 /* TPKeyboardAvoidingScrollView */,
 				76B2FDEE17BCDDEA00B9282A /* RGBScrollingView */,
 				76B2FDED17BCDDE600B9282A /* AFNetworking */,
-				76B2FDEC17BCDDE000B9282A /* Popover */,
 				76B2FDEB17BCDDDD00B9282A /* SVProgressHUD */,
 			);
 			name = thrid_party;
@@ -375,13 +395,6 @@
 				76B2FDF217BCDE2A00B9282A /* SVProgressHUD.m */,
 			);
 			name = SVProgressHUD;
-			sourceTree = "<group>";
-		};
-		76B2FDEC17BCDDE000B9282A /* Popover */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Popover;
 			sourceTree = "<group>";
 		};
 		76B2FDED17BCDDE600B9282A /* AFNetworking */ = {
@@ -513,6 +526,7 @@
 				0470614517DFF9F7002CA6EC /* china.jpg in Resources */,
 				0470614617DFF9F7002CA6EC /* circle.jpg in Resources */,
 				0470614917DFFB37002CA6EC /* fujian.jpg in Resources */,
+				7657C6CD17E03EE000CBE1F3 /* GZGalleryViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,6 +567,8 @@
 				76CAB12817C71F660059B1E7 /* GZDish.m in Sources */,
 				76E642F517DEF39E00041856 /* GZDishImage.m in Sources */,
 				0470613F17DFF934002CA6EC /* GZMapController.m in Sources */,
+				7657C6C817E03E4200CBE1F3 /* WYPopoverController.m in Sources */,
+				7657C6CC17E03EE000CBE1F3 /* GZGalleryViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

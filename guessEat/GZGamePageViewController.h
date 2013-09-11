@@ -12,9 +12,6 @@
 #import "RGMPagingScrollView.h"
 
 
-@class RGMPagingScrollView;
-@class RGMPageControl;
-
 @interface GZGamePageViewController : UIViewController<RGMPagingScrollViewDatasource,RGMPagingScrollViewDelegate,UICollectionViewDataSource, UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 

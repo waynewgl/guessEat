@@ -22,6 +22,6 @@
 
 - (NSString *)searchDataBase:(int)dishID;
 - (NSArray *)queryFromDataBase;
-- (GZDish *)queryDishFromDatabase:(int)dish_id;
+- (GZDish *)queryDishFromDatabase:(NSInteger)dish_id  withProvince_id:(NSInteger)province_id;
 
 @end
