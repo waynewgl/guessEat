@@ -10,6 +10,7 @@
 #import "GZAppDelegate.h"
 #import "GZGamingController.h"
 #import "GZGamePageViewController.h"
+#import "GZMapController.h"
 
 @interface GZHomeViewController ()
 
@@ -38,9 +39,10 @@
     self.navigationItem.backBarButtonItem = backItem;
     
     //GZGamingController *gamingController = [[GZGamingController alloc] init];
-    GZGamePageViewController *gamePageController=[[GZGamePageViewController alloc]init];
+    //GZGamePageViewController *gamePageController=[[GZGamePageViewController alloc]init];
     //GZAppDelegate *appDelegate = [UIApplication sharedApplication].delegate;
-    [self.navigationController pushViewController:gamePageController animated:YES];
+    GZMapController *mapCrt=[[GZMapController alloc] init];
+    [self.navigationController pushViewController:mapCrt animated:YES];
     //[self.navigationController pushViewController:gamingController animated:YES];
 }
 

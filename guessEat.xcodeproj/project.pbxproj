@@ -10,6 +10,11 @@
 		04686E4817C0CFA800CA58AE /* GZGamingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04686E4617C0CFA700CA58AE /* GZGamingController.m */; };
 		04686E4D17C0E98F00CA58AE /* GZGameSettingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04686E4B17C0E98E00CA58AE /* GZGameSettingController.m */; };
 		04686E4E17C0E98F00CA58AE /* GZGameSettingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04686E4C17C0E98F00CA58AE /* GZGameSettingController.xib */; };
+		0470613F17DFF934002CA6EC /* GZMapController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0470613D17DFF934002CA6EC /* GZMapController.m */; };
+		0470614017DFF934002CA6EC /* GZMapController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0470613E17DFF934002CA6EC /* GZMapController.xib */; };
+		0470614517DFF9F7002CA6EC /* china.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0470614217DFF9F7002CA6EC /* china.jpg */; };
+		0470614617DFF9F7002CA6EC /* circle.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0470614317DFF9F7002CA6EC /* circle.jpg */; };
+		0470614917DFFB37002CA6EC /* fujian.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0470614817DFFB37002CA6EC /* fujian.jpg */; };
 		048176B817B8E66100DD13D8 /* UIDevice+Resolutions.m in Sources */ = {isa = PBXBuildFile; fileRef = 048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */; };
 		048176BC17B8F99500DD13D8 /* GZGameTagController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048176BA17B8F99400DD13D8 /* GZGameTagController.m */; };
 		048176BD17B8F99500DD13D8 /* GZGameTagController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 048176BB17B8F99500DD13D8 /* GZGameTagController.xib */; };
@@ -75,6 +80,12 @@
 		04686E4A17C0E98E00CA58AE /* GZGameSettingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGameSettingController.h; sourceTree = "<group>"; };
 		04686E4B17C0E98E00CA58AE /* GZGameSettingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZGameSettingController.m; sourceTree = "<group>"; };
 		04686E4C17C0E98F00CA58AE /* GZGameSettingController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZGameSettingController.xib; sourceTree = "<group>"; };
+		0470613C17DFF934002CA6EC /* GZMapController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZMapController.h; sourceTree = "<group>"; };
+		0470613D17DFF934002CA6EC /* GZMapController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZMapController.m; sourceTree = "<group>"; };
+		0470613E17DFF934002CA6EC /* GZMapController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZMapController.xib; sourceTree = "<group>"; };
+		0470614217DFF9F7002CA6EC /* china.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = china.jpg; sourceTree = "<group>"; };
+		0470614317DFF9F7002CA6EC /* circle.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = circle.jpg; sourceTree = "<group>"; };
+		0470614817DFFB37002CA6EC /* fujian.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fujian.jpg; sourceTree = "<group>"; };
 		048176B617B8E61700DD13D8 /* UIDevice+Resolutions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Resolutions.h"; sourceTree = "<group>"; };
 		048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Resolutions.m"; sourceTree = "<group>"; };
 		048176B917B8F99400DD13D8 /* GZGameTagController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGameTagController.h; sourceTree = "<group>"; };
@@ -183,6 +194,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0470614117DFF9B2002CA6EC /* imagesOfMap */ = {
+			isa = PBXGroup;
+			children = (
+				0470614217DFF9F7002CA6EC /* china.jpg */,
+				0470614317DFF9F7002CA6EC /* circle.jpg */,
+				0470614817DFFB37002CA6EC /* fujian.jpg */,
+			);
+			name = imagesOfMap;
+			sourceTree = "<group>";
+		};
 		76748D1117C3152C0095FEA6 /* TPKeyboardAvoidingScrollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -244,6 +265,7 @@
 		7686BF7A17B39FC000616237 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0470614117DFF9B2002CA6EC /* imagesOfMap */,
 				7637FCD317D48C2F0029D063 /* dishes_images */,
 				76D60B0217CED80E00DBD064 /* resources */,
 				76B2FDE417BCC6C900B9282A /* images */,
@@ -290,6 +312,9 @@
 				04CC63E217C678E800D37518 /* GZImageController.h */,
 				04CC63E317C678E800D37518 /* GZImageController.m */,
 				04CC63E417C678E800D37518 /* GZImageController.xib */,
+				0470613C17DFF934002CA6EC /* GZMapController.h */,
+				0470613D17DFF934002CA6EC /* GZMapController.m */,
+				0470613E17DFF934002CA6EC /* GZMapController.xib */,
 			);
 			name = controllers;
 			sourceTree = "<group>";
@@ -484,6 +509,10 @@
 				76CAB12217C701020059B1E7 /* GZGamingController.xib in Resources */,
 				7637FCD417D48C2F0029D063 /* dishes_images in Resources */,
 				76E642F217DECCF900041856 /* ios_eat_v5 in Resources */,
+				0470614017DFF934002CA6EC /* GZMapController.xib in Resources */,
+				0470614517DFF9F7002CA6EC /* china.jpg in Resources */,
+				0470614617DFF9F7002CA6EC /* circle.jpg in Resources */,
+				0470614917DFFB37002CA6EC /* fujian.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -523,6 +552,7 @@
 				76CAB12517C711500059B1E7 /* GZDatabaseHelper.m in Sources */,
 				76CAB12817C71F660059B1E7 /* GZDish.m in Sources */,
 				76E642F517DEF39E00041856 /* GZDishImage.m in Sources */,
+				0470613F17DFF934002CA6EC /* GZMapController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
