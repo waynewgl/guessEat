@@ -48,11 +48,12 @@
 {
     [super viewDidLoad];
     
+    /*
     NSString *images_misc_file = [[NSBundle mainBundle] pathForResource:@"光饼" ofType:@"jpg" inDirectory:@"dishes_images/福建/光饼"];
     
     NSLog(@"test image , found  image file path %@", images_misc_file);
     
-    // Do any additional setup after loading the view from its nib.
+    // Do any additional setup after loading the view from its nib.*/
 }
 
 - (void)didReceiveMemoryWarning
