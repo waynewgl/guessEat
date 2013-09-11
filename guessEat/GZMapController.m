@@ -9,6 +9,7 @@
 #import "GZMapController.h"
 #import "GZGamePageViewController.h"
 
+
 @interface GZMapController ()
 
 @end
@@ -33,8 +34,9 @@
 
 - (void)goToGamingpageCrt {
     GZGamePageViewController *gamePageController=[[GZGamePageViewController alloc]init];
-    //gamePageController.valueOfProvince=5;
+    gamePageController.flag=@"fujian";
     [self.navigationController pushViewController:gamePageController animated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning

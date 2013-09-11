@@ -48,6 +48,7 @@ static NSInteger numberOfPages = 3;
     // comment out for horizontal scrolling and indicator orientation (defaults)
     self.pagingScrollView.scrollDirection = RGMScrollDirectionHorizontal;
     self.pageIndicator.orientation = RGMPageIndicatorHorizontal;
+    NSLog(_flag);
     
     
 	// Do any additional setup after loading the view, typically from a nib.
