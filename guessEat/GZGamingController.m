@@ -45,6 +45,8 @@
 
     
     //[self fetchFromDatabase];
+    self.dish_code=1;
+    self.province_id=1;
     [self fetchDishFromDatabaseForDish:self.dish_code withProvince_id:self.province_id];
 }
 
@@ -182,7 +184,7 @@
 -(void)fetchFromDatabase{
     
     NSArray *dish_array=[[NSArray alloc] init];
-    dish_array=[[GZDatabaseHelper sharedInstance] queryFromDataBase];
+    //dish_array=[[GZDatabaseHelper sharedInstance] queryFromDataBase:5];
     DLog(@"db in %d" , [dish_array count]);
     
     
@@ -197,7 +199,7 @@
 -(void)fetchDishFromDatabase{
     
     NSArray *dish_array=[[NSArray alloc] init];
-    dish_array=[[GZDatabaseHelper sharedInstance] queryFromDataBase];
+    dish_array=[[GZDatabaseHelper sharedInstance] queryFromDataBase:5];
     DLog(@"db in %d" , [dish_array count]);
     
     
@@ -209,18 +211,58 @@
 }
 
 
-
+-(NSString *)provinceTranser:(NSInteger)province_ID{
+    NSString* province;
+    switch (province_ID) {
+        case 1:
+            province=@"北京";
+          break;
+        case 2:
+            province=@"上海";
+            break;
+        case 3:
+            province=@"广东";
+            break;
+        case 4:
+            province=@"四川";
+            break;
+        case 5:
+            province=@"福建";
+            break;
+        case 6:
+            province=@"天津";
+            break;
+        case 7:
+            province=@"云南";
+            break;
+        case 8:
+            province=@"陕西";
+            break;
+    }
+    return province;
+    
+}
 
 
 -(void)fetchDishFromDatabaseForDish:(NSInteger)dish_id withProvince_id:(NSInteger)province_id{
     
+    //fetch one specific dish info from databse
     self.dish=[[GZDatabaseHelper sharedInstance] queryDishFromDatabase:dish_id withProvince_id:province_id];
-    NSString *imagePath = [NSString stringWithFormat:@"%@/%@/%@", IMAGE_DIRECTORY,self.dish.dish_province,self.dish.dish_name];
+    
+    //tranfer province from interger to string
+    NSString *provinceID=self.dish.dish_province;
+    NSInteger p_ID=[provinceID intValue];    
+    NSString *province= [self provinceTranser:p_ID];
+    DLog(@"the p_ID is: %@",province);
+    
+    //create image path of dish
+    NSString *imagePath = [NSString stringWithFormat:@"%@/%@/%@", IMAGE_DIRECTORY,province,self.dish.dish_name];
+    DLog(@"image path : %@",imagePath);
     
     NSArray *images_files= [[NSBundle mainBundle] pathsForResourcesOfType:@"" inDirectory:imagePath];
     
     if ([images_files count] >0){
-        
+        NSLog(@"the image amout is: %d",[images_files count]);
         NSString *images_file = [NSString stringWithFormat:@"%@",[images_files  objectAtIndex:0]];
         [self.dish_imageView setImage:[UIImage imageWithContentsOfFile:images_file]];
         

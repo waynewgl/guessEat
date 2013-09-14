@@ -21,5 +21,4 @@
 
 @property (strong, nonatomic) UICollectionView *imgsCollectionView;
 @property(strong,nonatomic) NSString *flag;
-
 @end

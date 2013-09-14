@@ -10,6 +10,7 @@
 #import "GZCollectionViewCell.h"
 #import "RGMPageView.h"
 #import "GZGamingController.h"
+#import "GZDatabaseHelper.h"
 
 
 static NSString *kCellIdentifer = @"CELL_ID";
@@ -48,12 +49,16 @@ static NSInteger numberOfPages = 3;
     // comment out for horizontal scrolling and indicator orientation (defaults)
     self.pagingScrollView.scrollDirection = RGMScrollDirectionHorizontal;
     self.pageIndicator.orientation = RGMPageIndicatorHorizontal;
-    NSLog(_flag);
     
-    
-	// Do any additional setup after loading the view, typically from a nib.
+    NSLog(@"province that chosed by player: %@",_flag);
+    [self fetchDishesFromDBThroughProvinceID];
 }
 
+
+-(void)fetchDishesFromDBThroughProvinceID{
+    NSArray *dish_array=[[NSArray alloc] init];
+    dish_array=[[GZDatabaseHelper sharedInstance] queryFromDataBase:5];
+}
 
 - (IBAction)pageIndicatorValueChanged:(RGMPageControl *)sender
 {
