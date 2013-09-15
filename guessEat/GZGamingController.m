@@ -13,6 +13,7 @@
 #import "GZDishImage.h"
 #import "SVProgressHUD.h"
 #import "GZGalleryViewController.h"
+#import "GZImageController.h"
 
 @interface GZGamingController ()
 {
@@ -40,14 +41,22 @@
     
     [self setUpGamingSection];
     
+    //this is test for the imageArray
+    GZImageController *imageCrt=[[GZImageController alloc] init];
+    NSArray *imageArray=[imageCrt fetchDishFromDBwithProvince_id:5];
+    //[self.dish_imageView setImage:imageArray[0]];
+    self.dish_imageView.image=[UIImage imageNamed:@"1-0.jpg"];
+    
+    
+    
     // Do any additional setup after loading the view from its nib.
     //do we need to release memory after I create object databaseCrt in memory???????????????/
 
     
     //[self fetchFromDatabase];
-    self.dish_code=1;
-    self.province_id=1;
-    [self fetchDishFromDatabaseForDish:self.dish_code withProvince_id:self.province_id];
+//    self.dish_code=1;
+//    self.province_id=1;
+//    [self fetchDishFromDatabaseForDish:self.dish_code withProvince_id:self.province_id];
 }
 
 -(void)setUpAnswerSection{
@@ -253,7 +262,6 @@
     NSString *provinceID=self.dish.dish_province;
     NSInteger p_ID=[provinceID intValue];    
     NSString *province= [self provinceTranser:p_ID];
-    DLog(@"the p_ID is: %@",province);
     
     //create image path of dish
     NSString *imagePath = [NSString stringWithFormat:@"%@/%@/%@", IMAGE_DIRECTORY,province,self.dish.dish_name];
@@ -262,12 +270,12 @@
     NSArray *images_files= [[NSBundle mainBundle] pathsForResourcesOfType:@"" inDirectory:imagePath];
     
     if ([images_files count] >0){
-        NSLog(@"the image amout is: %d",[images_files count]);
+        //DLog(@"the image amout is: %d",[images_files count]);
         NSString *images_file = [NSString stringWithFormat:@"%@",[images_files  objectAtIndex:0]];
         [self.dish_imageView setImage:[UIImage imageWithContentsOfFile:images_file]];
         
         NSInteger s = [self.dish.dish_name length];
-        DLog(@"now we get dish name to be displayed %@ with dish length %d",self.dish.dish_name, s);
+        //DLog(@"now we get dish name to be displayed %@ with dish length %d",self.dish.dish_name, s);
 
         for(int i=0; i<s; ++i) {
             UIImageView *image =[[UIImageView alloc] initWithFrame:CGRectMake(i*40 +65, 240, 30, 30)];
@@ -334,7 +342,7 @@
     
     UIButton *instanceButton = (UIButton*)sender;
     
-    DLog(@"button clicked. %d", instanceButton.tag);
+    //DLog(@"button clicked. %d", instanceButton.tag);
     //[self.navigationController pushViewController:gamingController animated:YES];
 }
 

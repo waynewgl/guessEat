@@ -34,7 +34,7 @@
 
 - (void)goToGamingpageCrt {
     GZGamePageViewController *gamePageController=[[GZGamePageViewController alloc]init];
-    gamePageController.flag=@"fujian";
+    gamePageController.newFlat=5;
     [self.navigationController pushViewController:gamePageController animated:YES];
     
 }

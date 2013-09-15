@@ -80,25 +80,25 @@
                 GZDish *dish  = [[GZDish alloc]init];
                 
                 NSString *dishesID = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
-                DLog(@"id is %@", dishesID);
+                //DLog(@"id is %@", dishesID);
                 dish.dish_id = dishesID;
-                DLog(@"after ID be printed %@", @"");
+                //DLog(@"after ID be printed %@", @"");
                 
                 NSString *disheskind = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 1    )];
-                DLog(@"kind is: %@", disheskind);
+                //DLog(@"kind is: %@", disheskind);
                 dish.dish_kind = disheskind;
                 
                 NSString *dish_name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 2    )];
-                DLog(@"name is: %@", dish_name);
+                //DLog(@"name is: %@", dish_name);
                 dish.dish_name = dish_name;
                 
                 NSString *dish_discription = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 3    )];
-                DLog(@"description is: %@", dish_discription);
+                //DLog(@"description is: %@", dish_discription);
                  dish.dish_description= dish_discription;
                 
                 NSString *dish_province = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 4    )];
                 
-                DLog(@"province is: %@", dish_province);
+                //DLog(@"province is: %@", dish_province);
                 dish.dish_province = dish_province;
                 [dish_array addObject:dish];                
             }
@@ -130,24 +130,24 @@
                 dish  = [[GZDish alloc]init];
                 
                 NSString *dishesID = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 0)];
-                DLog(@"id is %@", dishesID);
+                //DLog(@"id is %@", dishesID);
                 dish.dish_id = dishesID;
-                DLog(@"after ID be printed %@", @"");
+                //DLog(@"after ID be printed %@", @"");
                 
                 NSString *disheskind = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 1    )];
                 DLog(@"kind is: %@", disheskind);
-                dish.dish_kind = disheskind;
+                //dish.dish_kind = disheskind;
                 
                 NSString *dish_name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 2    )];
                 DLog(@"name is: %@", dish_name);
-                dish.dish_name = dish_name;
+                //dish.dish_name = dish_name;
                 
                 NSString *dish_discription = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 3    )];
-                DLog(@"description is: %@", dish_discription);
+               //DLog(@"description is: %@", dish_discription);
                 dish.dish_description = dish_discription;
                 
                 NSString *dish_province = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 4    )];
-                DLog(@"province is: %@", dish_province);
+                //DLog(@"province is: %@", dish_province);
                 dish.dish_province = dish_province;
                 
 
