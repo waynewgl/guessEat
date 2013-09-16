@@ -222,7 +222,13 @@
     if ([images_files count] >0){
         
         NSString *images_file = [NSString stringWithFormat:@"%@",[images_files  objectAtIndex:0]];
-        [self.dish_imageView setImage:[UIImage imageWithContentsOfFile:images_file]];
+        
+        UIImage *dish_img = [UIImage imageWithContentsOfFile:images_file];
+    
+        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+        UIGraphicsEndImageContext();
+        
+        [self.dish_imageView setImage:dish_img];
         
         NSInteger s = [self.dish.dish_name length];
         DLog(@"now we get dish name to be displayed %@ with dish length %d",self.dish.dish_name, s);
