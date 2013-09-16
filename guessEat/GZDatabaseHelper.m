@@ -71,7 +71,7 @@
     
     if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
     {
-        NSString *querySQL = [NSString stringWithFormat:@"select * from dishes where province_id=\"%d\"",province_id];
+        NSString *querySQL = [NSString stringWithFormat:@"select d.id, d.kind,d.name,d.description,d.province_id,p.name as province_name from dishes d join province p on d.province_id = p.id where province_id=\"%d\"",province_id];
         const char *query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
@@ -96,7 +96,7 @@
                 //DLog(@"description is: %@", dish_discription);
                  dish.dish_description= dish_discription;
                 
-                NSString *dish_province = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 4    )];
+                NSString *dish_province = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 5    )];
                 
                 //DLog(@"province is: %@", dish_province);
                 dish.dish_province = dish_province;
@@ -120,7 +120,7 @@
 
     if (sqlite3_open(dbpath, &contactDB) == SQLITE_OK)
     {
-        NSString *querySQL = [NSString stringWithFormat:@"select * from dishes d join province p on d.province_id = p.id where d.id= %d and p.id = %d" ,     dish_id, province_id];
+        NSString *querySQL = [NSString stringWithFormat:@"select d.id, d.kind,d.name,d.description,d.province_id,p.name as province_name from dishes d join province p on d.province_id = p.id where d.id= %d and p.id = %d" ,     dish_id, province_id];
         
         const char *query_stmt = [querySQL UTF8String];
         if (sqlite3_prepare_v2(contactDB, query_stmt, -1, &statement, NULL) == SQLITE_OK )
@@ -136,17 +136,17 @@
                 
                 NSString *disheskind = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 1    )];
                 DLog(@"kind is: %@", disheskind);
-                //dish.dish_kind = disheskind;
+                dish.dish_kind = disheskind;
                 
                 NSString *dish_name = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 2    )];
                 DLog(@"name is: %@", dish_name);
-                //dish.dish_name = dish_name;
+                dish.dish_name = dish_name;
                 
                 NSString *dish_discription = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 3    )];
                //DLog(@"description is: %@", dish_discription);
                 dish.dish_description = dish_discription;
                 
-                NSString *dish_province = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 4    )];
+                NSString *dish_province = [[NSString alloc] initWithUTF8String:(const char *)sqlite3_column_text(statement, 5    )];
                 //DLog(@"province is: %@", dish_province);
                 dish.dish_province = dish_province;
                 

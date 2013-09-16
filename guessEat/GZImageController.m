@@ -71,11 +71,10 @@
 -(NSArray *)fetchDishFromDBwithProvince_id:(NSInteger)province_id{
       
     NSArray *imagesInfo=[[GZDatabaseHelper sharedInstance] queryFromDataBase:province_id];
-    NSString *province=[self provinceTranser:province_id];
     NSMutableArray *imageArray =[[NSMutableArray alloc] init];
     for(GZDish *dish in imagesInfo){
         NSString *name=dish.dish_name;
-        NSString *imagePath = [NSString stringWithFormat:@"%@/%@/%@",IMAGE_DIRECTORY,province,name];
+        NSString *imagePath = [NSString stringWithFormat:@"%@/%@/%@",IMAGE_DIRECTORY,dish.dish_province,name];
         //DLog(@"the root path of image:%@",imagePath);
         
         @try {
@@ -89,6 +88,10 @@
         }
     }
     //DLog(@"imageArray length:%d",[imageArray count]);
+    
+    
+    DLog(@"the root path of image:%@",[imageArray objectAtIndex:0]);
+
     
     return imageArray;
 }
