@@ -20,6 +20,6 @@
 @property (nonatomic, strong) IBOutlet RGMPageControl *pageIndicator;
 
 @property (strong, nonatomic) UICollectionView *imgsCollectionView;
-
-
+@property(strong,nonatomic) NSString *flag;
+@property(assign,nonatomic) NSInteger newFlat;
 @end

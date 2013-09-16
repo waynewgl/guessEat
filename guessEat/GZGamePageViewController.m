@@ -10,6 +10,8 @@
 #import "GZCollectionViewCell.h"
 #import "RGMPageView.h"
 #import "GZGamingController.h"
+#import "GZDatabaseHelper.h"
+#import "GZImageController.h"
 
 
 static NSString *kCellIdentifer = @"CELL_ID";
@@ -23,6 +25,7 @@ static NSString *kCellIdentifer = @"CELL_ID";
 
 static NSString *reuseIdentifier = @"RGMPageReuseIdentifier";
 static NSInteger numberOfPages = 3;
+static NSInteger indexOfImageInArray=0;
 
 
 @implementation GZGamePageViewController
@@ -49,9 +52,11 @@ static NSInteger numberOfPages = 3;
     self.pagingScrollView.scrollDirection = RGMScrollDirectionHorizontal;
     self.pageIndicator.orientation = RGMPageIndicatorHorizontal;
     
+    NSLog(@"province that chosed by player: %d",self.newFlat);
     
-	// Do any additional setup after loading the view, typically from a nib.
 }
+
+
 
 
 - (IBAction)pageIndicatorValueChanged:(RGMPageControl *)sender
@@ -111,7 +116,7 @@ static NSInteger numberOfPages = 3;
     /* ################################################################### */
     
     // item 的大小
-    flowLayout.itemSize = CGSizeMake(45.0f, 45.0f);
+    flowLayout.itemSize = CGSizeMake(50.0f, 50.0f);
     
     // UICollectionView 的滑动方向
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -148,9 +153,6 @@ static NSInteger numberOfPages = 3;
     _imgsCollectionView.backgroundColor = [UIColor grayColor];
     
     [self.imgsCollectionView registerClass:[GZCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifer];
-
-    
-    
     return _imgsCollectionView;
 }
 
@@ -198,6 +200,14 @@ static NSInteger numberOfPages = 3;
     return reusableView;
 }
 
+-(NSArray *)fetchDishesFromDBThroughProvinceID{
+    NSArray *dish_array=[[NSArray alloc] init];
+    GZImageController *imageCrt=[[GZImageController alloc] init];
+    dish_array=[imageCrt fetchDishFromDBwithProvince_id:self.newFlat] ;
+    return dish_array;
+    
+}
+
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GZCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:kCellIdentifer forIndexPath:indexPath];
@@ -208,8 +218,16 @@ static NSInteger numberOfPages = 3;
         cell.backgroundColor = [UIColor orangeColor];
     }
     
+       
+    //for images display
+    NSArray *dishArray=[self fetchDishesFromDBThroughProvinceID];
+    DLog(@"final imageArray length: %d",[dishArray count]);
+    
     UIImage *img = [UIImage imageNamed:@"img.png"];
+    //UIImage *imgage=dishArray[indexOfImageInArray];
+    
     [cell setImage:img];
+
     
     return cell;
 }
@@ -232,10 +250,10 @@ static NSInteger numberOfPages = 3;
  
  */
 
-
+//do something after click one cell
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    DLog(@"section: %d row: %d in page %d", indexPath.section, indexPath.row,self.pageIndicator.currentPage);
+    DLog(@"Be clicked item at indexPath: %d row: %d in page %d", indexPath.section, indexPath.row,self.pageIndicator.currentPage);
     self.gamingController = [[GZGamingController alloc]init];
     self.gamingController.dish_code = indexPath.row;
     self.gamingController.province_id = 5;

@@ -21,7 +21,7 @@
 + (GZDatabaseHelper *)sharedInstance;
 
 - (NSString *)searchDataBase:(int)dishID;
-- (NSArray *)queryFromDataBase;
+- (NSArray *)queryFromDataBase:(NSInteger)province_id;
 - (GZDish *)queryDishFromDatabase:(NSInteger)dish_id  withProvince_id:(NSInteger)province_id;
 
 @end
