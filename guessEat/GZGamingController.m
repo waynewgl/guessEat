@@ -40,22 +40,12 @@
 
     
     [self setUpGamingSection];
-    
     //this is test for the imageArray
     GZImageController *imageCrt=[[GZImageController alloc] init];
     NSArray *imageArray=[imageCrt fetchDishFromDBwithProvince_id:5];
     //[self.dish_imageView setImage:imageArray[0]];
     self.dish_imageView.image=[UIImage imageNamed:@"1-0.jpg"];
     
-    
-    
-    // Do any additional setup after loading the view from its nib.
-    //do we need to release memory after I create object databaseCrt in memory???????????????/
-
-    
-    //[self fetchFromDatabase];
-//    self.dish_code=1;
-//    self.province_id=1;
     [self fetchDishFromDatabaseForDish:self.dish_code withProvince_id:self.province_id];
 }
 
@@ -101,7 +91,7 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [button setTag:0];
     [button addTarget:self
-               action:@selector(aMethod:)
+               action:@selector(ans_circleHandler:)
      forControlEvents:UIControlEventTouchDown];
     [button setTitle:[arr objectAtIndex:0]  forState:UIControlStateNormal];
     [button setFrame:btnFrame];
@@ -129,7 +119,7 @@
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTag:i];
         [button addTarget:self
-                   action:@selector(aMethod:)
+                   action:@selector(ans_circleHandler:)
          forControlEvents:UIControlEventTouchDown];
         [button setTitle:[arr objectAtIndex:i] forState:UIControlStateNormal];
         [button setFrame:btnFrame];
@@ -151,13 +141,7 @@
     
 }
 
--(IBAction)Click:(id)sender{
-    [self fetchFromDatabase];
-}
 
--(IBAction)searchFromDB:(id)sender{
-    
-}
 
 -(IBAction)tip_btn:(id)sender{
     
@@ -190,46 +174,11 @@
 
 
 
--(void)fetchFromDatabase{
-    
-    NSArray *dish_array=[[NSArray alloc] init];
-    //dish_array=[[GZDatabaseHelper sharedInstance] queryFromDataBase:5];
-    DLog(@"db in %d" , [dish_array count]);
-    
-    
-    for (GZDish *dish in dish_array){
-        
-        DLog(@"dish found id %@ ..name: %@", dish.dish_id, dish.dish_name);
-    }
-    
-}
-
-
--(void)fetchDishFromDatabase{
-    
-    NSArray *dish_array=[[NSArray alloc] init];
-    dish_array=[[GZDatabaseHelper sharedInstance] queryFromDataBase:5];
-    DLog(@"db in %d" , [dish_array count]);
-    
-    
-    for (GZDish *dish in dish_array){
-        
-        DLog(@"dish found id %@ ..name: %@", dish.dish_id, dish.dish_name);
-    }
-    
-}
-
-
 
 -(void)fetchDishFromDatabaseForDish:(NSInteger)dish_id withProvince_id:(NSInteger)province_id{
     
     //fetch one specific dish info from databse
     self.dish=[[GZDatabaseHelper sharedInstance] queryDishFromDatabase:dish_id withProvince_id:province_id];
-    
-    //tranfer province from interger to string
-   /* NSString *provinceID=self.dish.dish_province;
-    NSInteger p_ID=[provinceID intValue];    
-    NSString *province= [self provinceTranser:p_ID];*/
     
     //create image path of dish
     NSString *imagePath = [NSString stringWithFormat:@"%@/%@/%@", IMAGE_DIRECTORY,self.dish.dish_province,self.dish.dish_name];
@@ -242,20 +191,34 @@
         NSString *images_file = [NSString stringWithFormat:@"%@",[images_files  objectAtIndex:0]];
         
         UIImage *dish_img = [UIImage imageWithContentsOfFile:images_file];
-    
-        UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
-        UIGraphicsEndImageContext();
+
+//        CGSize newSize = CGSizeMake(200.0f, 200.0f);
+//        UIGraphicsBeginImageContext(newSize);
+//        [dish_img drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+//        dish_img = UIGraphicsGetImageFromCurrentImageContext();
+//        UIGraphicsEndImageContext();
         
         [self.dish_imageView setImage:dish_img];
-        
         NSInteger s = [self.dish.dish_name length];
         //DLog(@"now we get dish name to be displayed %@ with dish length %d",self.dish.dish_name, s);
-
         for(int i=0; i<s; ++i) {
-            UIImageView *image =[[UIImageView alloc] initWithFrame:CGRectMake(i*40 +65, 240, 30, 30)];
-            image.image=[UIImage imageNamed:@"1-0.jpg"];
-            image.tag = i+1;
-            [self.view addSubview:image];
+
+            UIButton *ans_btn = [UIButton buttonWithType:UIButtonTypeCustom];
+            [ans_btn addTarget:self action:@selector(ans_buttonHandler:)  forControlEvents:UIControlEventAllEvents];
+            ans_btn.frame = CGRectMake(i*40 +65, 240, 30, 30);
+            [ans_btn setImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
+            ans_btn.tag = i+1;
+            
+            //add animation
+            CABasicAnimation *fadeAnimation=[CABasicAnimation animationWithKeyPath:@"opacity"];
+            fadeAnimation.fromValue=[NSNumber numberWithFloat:0.7];
+            fadeAnimation.toValue=[NSNumber numberWithFloat:1.0];
+            fadeAnimation.duration=1.0;
+            fadeAnimation.repeatCount=INFINITY;
+            fadeAnimation.autoreverses=YES;
+            [ans_btn.layer addAnimation:fadeAnimation forKey:@"fadeInOut"];
+            
+            [self.view addSubview:ans_btn];
         }
         
     }
@@ -264,24 +227,6 @@
         [SVProgressHUD showErrorWithStatus:@"no such dish found"];
         
     }
-
-    /*
-    [self.dish_imageView setImage:[UIImage imageWithContentsOfFile:images_file_test]];
-    
-    NSString * resourcePath = [[NSBundle mainBundle] resourcePath];
-    
-    NSString * documentsPath = [resourcePath stringByAppendingPathComponent:imagePath];
-    
-    NSError * error;
-    NSArray * directoryContents = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:documentsPath error:&error];
-    
-    DLog(@"the count the content %@", [directoryContents  objectAtIndex:0]);
-    
-    NSString *images_file = [NSString stringWithFormat:@"%@/%@",imagePath,[directoryContents  objectAtIndex:0]];
-    
-    NSLog(@"test image , found  image file path %@", images_file);
-    
-    [self.dish_imageView setImage:[UIImage imageWithContentsOfFile:images_file]];*/
     
     
 }
@@ -311,12 +256,17 @@
 }
 
 
-
-- (void)aMethod:(id)sender {
+- (void)ans_buttonHandler:(id)sender {
     
     UIButton *instanceButton = (UIButton*)sender;
+    DLog(@"answer section clicked. %d", instanceButton.tag);
+    //[self.navigationController pushViewController:gamingController animated:YES];
+}
+
+- (void)ans_circleHandler:(id)sender {
     
-    //DLog(@"button clicked. %d", instanceButton.tag);
+    UIButton *instanceButton = (UIButton*)sender;
+    DLog(@"answers circle  clicked. %d  with title %@ ", instanceButton.tag, instanceButton.titleLabel.text);
     //[self.navigationController pushViewController:gamingController animated:YES];
 }
 

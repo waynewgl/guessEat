@@ -73,6 +73,7 @@
 		76CAB12217C701020059B1E7 /* GZGamingController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76CAB12117C701010059B1E7 /* GZGamingController.xib */; };
 		76CAB12517C711500059B1E7 /* GZDatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CAB12417C711500059B1E7 /* GZDatabaseHelper.m */; };
 		76CAB12817C71F660059B1E7 /* GZDish.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CAB12717C71F660059B1E7 /* GZDish.m */; };
+		76D2221A17E6DDA80093276A /* ans_bg1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76D2221917E6DDA80093276A /* ans_bg1.jpg */; };
 		76E642F217DECCF900041856 /* ios_eat_v5 in Resources */ = {isa = PBXBuildFile; fileRef = 76E642F117DECCF900041856 /* ios_eat_v5 */; };
 		76E642F517DEF39E00041856 /* GZDishImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E642F417DEF39E00041856 /* GZDishImage.m */; };
 /* End PBXBuildFile section */
@@ -178,6 +179,7 @@
 		76CAB12417C711500059B1E7 /* GZDatabaseHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZDatabaseHelper.m; sourceTree = "<group>"; };
 		76CAB12617C71F660059B1E7 /* GZDish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZDish.h; sourceTree = "<group>"; };
 		76CAB12717C71F660059B1E7 /* GZDish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZDish.m; sourceTree = "<group>"; };
+		76D2221917E6DDA80093276A /* ans_bg1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ans_bg1.jpg; sourceTree = "<group>"; };
 		76E642F117DECCF900041856 /* ios_eat_v5 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ios_eat_v5; path = resources/ios_eat_v5; sourceTree = "<group>"; };
 		76E642F317DEF39E00041856 /* GZDishImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZDishImage.h; sourceTree = "<group>"; };
 		76E642F417DEF39E00041856 /* GZDishImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZDishImage.m; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 		76B2FDE417BCC6C900B9282A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				76D2221917E6DDA80093276A /* ans_bg1.jpg */,
 				76B2FE3317BCE0E000B9282A /* indicator-active.png */,
 				76B2FE3417BCE0E000B9282A /* indicator-active@2x.png */,
 				76B2FE3517BCE0E000B9282A /* indicator.png */,
@@ -527,6 +530,7 @@
 				0470614617DFF9F7002CA6EC /* circle.jpg in Resources */,
 				0470614917DFFB37002CA6EC /* fujian.jpg in Resources */,
 				7657C6CD17E03EE000CBE1F3 /* GZGalleryViewController.xib in Resources */,
+				76D2221A17E6DDA80093276A /* ans_bg1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

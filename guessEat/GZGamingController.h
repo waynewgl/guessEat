@@ -35,9 +35,6 @@
 
 @property(nonatomic,weak) IBOutlet UIButton *tip_btn;
 
--(IBAction)Click:(id)sender;
--(IBAction)searchFromDB:(id)sender;
-
 
 -(IBAction)tip_btn:(id)sender;
 
