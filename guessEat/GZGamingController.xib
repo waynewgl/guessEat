@@ -52,13 +52,6 @@
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIUserInteractionEnabled">NO</bool>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-<<<<<<< HEAD
-								<object class="NSCustomResource" key="IBUIImage">
-									<string key="NSClassName">NSImage</string>
-									<string key="NSResourceName">2 煎面饼.jpg</string>
-								</object>
-=======
->>>>>>> 2b8867b8caeb7c45e6933c8ced9c4bddab2b75ab
 							</object>
 							<object class="IBUIButton" id="325457758">
 								<reference key="NSNextResponder" ref="1027802049"/>
@@ -676,13 +669,6 @@
 		<string key="IBDocument.TargetRuntimeIdentifier">IBCocoaTouchFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>
 		<int key="IBDocument.defaultPropertyAccessControl">3</int>
-<<<<<<< HEAD
-		<object class="NSMutableDictionary" key="IBDocument.LastKnownImageSizes">
-			<string key="NS.key.0">2 煎面饼.jpg</string>
-			<string key="NS.object.0">{3648, 2736}</string>
-		</object>
-=======
->>>>>>> 2b8867b8caeb7c45e6933c8ced9c4bddab2b75ab
 		<bool key="IBDocument.UseAutolayout">YES</bool>
 		<string key="IBCocoaTouchPluginVersion">2083</string>
 	</data>
