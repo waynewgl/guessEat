@@ -70,10 +70,9 @@
     NSMutableArray *ans_sec_arr = [[NSMutableArray alloc] initWithCapacity:5];
     int word_data_len= [word_data length];
     
-
     int dish_name_length = [self.dish.dish_name length];
 
-    for (int i=0;i<21-dish_name_length;i++){
+    for (int i=0;i<21-dish_name_length;i++){//add the random dish char into array
         
         uint32_t rnd = arc4random_uniform(word_data_len) ;    
         NSString *subWord =nil;
@@ -89,17 +88,14 @@
         else [ans_sec_arr addObject:subWord];
     }
     
-
-    
-    for(int k=0;k<dish_name_length;k++){
+    for(int k=0;k<dish_name_length;k++){//add the correct dish name into array
         
         NSString *subDishName =[self.dish.dish_name substringWithRange:NSMakeRange(k,1)];
-        NSLog(@"now we have random word data %@  with length %d " , subDishName, dish_name_length);
-
+        DLog(@"now we have random word data %@  with length %d " , subDishName, dish_name_length);
         [ans_sec_arr addObject:subDishName];
     }
 
-    [ans_sec_arr shuffle];
+    [ans_sec_arr shuffle];//shuffle the answers' array , use category 
         
     int row = 0;
     int column = 0;
