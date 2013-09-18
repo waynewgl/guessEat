@@ -74,6 +74,7 @@
 		76CAB12517C711500059B1E7 /* GZDatabaseHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CAB12417C711500059B1E7 /* GZDatabaseHelper.m */; };
 		76CAB12817C71F660059B1E7 /* GZDish.m in Sources */ = {isa = PBXBuildFile; fileRef = 76CAB12717C71F660059B1E7 /* GZDish.m */; };
 		76D2221A17E6DDA80093276A /* ans_bg1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76D2221917E6DDA80093276A /* ans_bg1.jpg */; };
+		76D3CDC717E8559B00EA8828 /* GZAnswerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CDC617E8559B00EA8828 /* GZAnswerStatus.m */; };
 		76E642F217DECCF900041856 /* ios_eat_v5 in Resources */ = {isa = PBXBuildFile; fileRef = 76E642F117DECCF900041856 /* ios_eat_v5 */; };
 		76E642F517DEF39E00041856 /* GZDishImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E642F417DEF39E00041856 /* GZDishImage.m */; };
 /* End PBXBuildFile section */
@@ -180,6 +181,8 @@
 		76CAB12617C71F660059B1E7 /* GZDish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZDish.h; sourceTree = "<group>"; };
 		76CAB12717C71F660059B1E7 /* GZDish.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZDish.m; sourceTree = "<group>"; };
 		76D2221917E6DDA80093276A /* ans_bg1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ans_bg1.jpg; sourceTree = "<group>"; };
+		76D3CDC517E8559B00EA8828 /* GZAnswerStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZAnswerStatus.h; sourceTree = "<group>"; };
+		76D3CDC617E8559B00EA8828 /* GZAnswerStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZAnswerStatus.m; sourceTree = "<group>"; };
 		76E642F117DECCF900041856 /* ios_eat_v5 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ios_eat_v5; path = resources/ios_eat_v5; sourceTree = "<group>"; };
 		76E642F317DEF39E00041856 /* GZDishImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZDishImage.h; sourceTree = "<group>"; };
 		76E642F417DEF39E00041856 /* GZDishImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZDishImage.m; sourceTree = "<group>"; };
@@ -348,6 +351,8 @@
 				76CAB12717C71F660059B1E7 /* GZDish.m */,
 				76E642F317DEF39E00041856 /* GZDishImage.h */,
 				76E642F417DEF39E00041856 /* GZDishImage.m */,
+				76D3CDC517E8559B00EA8828 /* GZAnswerStatus.h */,
+				76D3CDC617E8559B00EA8828 /* GZAnswerStatus.m */,
 			);
 			name = models;
 			sourceTree = "<group>";
@@ -573,6 +578,7 @@
 				0470613F17DFF934002CA6EC /* GZMapController.m in Sources */,
 				7657C6C817E03E4200CBE1F3 /* WYPopoverController.m in Sources */,
 				7657C6CC17E03EE000CBE1F3 /* GZGalleryViewController.m in Sources */,
+				76D3CDC717E8559B00EA8828 /* GZAnswerStatus.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -602,7 +608,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guiwei lin (G35QF792MR)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -617,6 +623,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				ONLY_ACTIVE_ARCH = YES;
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3ACFFEB-9EEA-488A-83E6-AD2DE7C85894";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -634,7 +641,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guiwei lin (G35QF792MR)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -642,6 +649,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3ACFFEB-9EEA-488A-83E6-AD2DE7C85894";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -651,10 +659,12 @@
 		7686BF9717B39FC000616237 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guiwei lin (G35QF792MR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "guessEat/guessEat-Prefix.pch";
 				INFOPLIST_FILE = "guessEat/guessEat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3ACFFEB-9EEA-488A-83E6-AD2DE7C85894";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -662,10 +672,12 @@
 		7686BF9817B39FC000616237 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guiwei lin (G35QF792MR)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "guessEat/guessEat-Prefix.pch";
 				INFOPLIST_FILE = "guessEat/guessEat-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3ACFFEB-9EEA-488A-83E6-AD2DE7C85894";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

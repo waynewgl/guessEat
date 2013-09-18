@@ -14,6 +14,9 @@
 #import "SVProgressHUD.h"
 #import "GZGalleryViewController.h"
 #import "GZImageController.h"
+#import "GZAnswerStatus.h"
+
+#define ANSWER_TAG 100
 
 @interface GZGamingController ()
 {
@@ -22,7 +25,11 @@
 
 @end
 
-@implementation GZGamingController;
+@implementation GZGamingController{
+    
+    NSMutableArray *ans_grp_array;
+    
+}
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -42,7 +49,7 @@
     [self setUpGamingSection];
     //this is test for the imageArray
     GZImageController *imageCrt=[[GZImageController alloc] init];
-    NSArray *imageArray=[imageCrt fetchDishFromDBwithProvince_id:5];
+    //NSArray *imageArray=[imageCrt fetchDishFromDBwithProvince_id:5];
     //[self.dish_imageView setImage:imageArray[0]];
     self.dish_imageView.image=[UIImage imageNamed:@"1-0.jpg"];
     
@@ -188,6 +195,10 @@
     
     if ([images_files count] >0){
         //DLog(@"the image amout is: %d",[images_files count]);
+        
+        // initialise array for storing tags in the answer buttons section  
+        ans_grp_array = [[NSMutableArray alloc]initWithCapacity:5];
+        
         NSString *images_file = [NSString stringWithFormat:@"%@",[images_files  objectAtIndex:0]];
         
         UIImage *dish_img = [UIImage imageWithContentsOfFile:images_file];
@@ -206,9 +217,21 @@
             UIButton *ans_btn = [UIButton buttonWithType:UIButtonTypeCustom];
             [ans_btn addTarget:self action:@selector(ans_buttonHandler:)  forControlEvents:UIControlEventAllEvents];
             ans_btn.frame = CGRectMake(i*40 +65, 240, 30, 30);
-            [ans_btn setImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
-            ans_btn.tag = i+1;
+            [ans_btn setBackgroundImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
             
+            NSNumber *ans_btn_tag= [NSNumber numberWithInt: i+ANSWER_TAG];
+            
+            ans_btn.tag = [ans_btn_tag intValue];
+            ans_btn.titleLabel.textColor = [UIColor blackColor];
+            [ans_btn setTitle:@"" forState:UIControlStateNormal];
+            
+            GZAnswerStatus *anss = [[GZAnswerStatus alloc]init];
+            
+            anss.ans_btn_tag = ans_btn_tag;
+            anss.ans_to_filled = false;
+            [ans_grp_array addObject:anss];
+            
+
             //add animation
             CABasicAnimation *fadeAnimation=[CABasicAnimation animationWithKeyPath:@"opacity"];
             fadeAnimation.fromValue=[NSNumber numberWithFloat:0.7];
@@ -258,16 +281,68 @@
 
 - (void)ans_buttonHandler:(id)sender {
     
-    UIButton *instanceButton = (UIButton*)sender;
-    DLog(@"answer section clicked. %d", instanceButton.tag);
+    UIButton *ans_btn = (UIButton*)sender;
+    
+    NSString *btn_str = ans_btn.titleLabel.text ;
+    DLog(@"answer section clicked. %d with value text is %@ ", ans_btn.tag, btn_str);
     //[self.navigationController pushViewController:gamingController animated:YES];
+    
+    
+    
+    
+    if ([ans_btn.titleLabel.text isEqual:@""]==false || ans_btn.titleLabel.text==nil) {
+        [ans_btn setTitle:@"" forState:UIControlStateNormal];
+        GZAnswerStatus *anss  =  [ans_grp_array objectAtIndex:ans_btn.tag-ANSWER_TAG];
+        anss.ans_to_filled=false;
+        [SVProgressHUD showErrorWithStatus:@"clear"];
+
+    }
+    else{
+    
+        [SVProgressHUD showErrorWithStatus:@"error 111"];
+    }
+    
 }
 
 - (void)ans_circleHandler:(id)sender {
     
-    UIButton *instanceButton = (UIButton*)sender;
-    DLog(@"answers circle  clicked. %d  with title %@ ", instanceButton.tag, instanceButton.titleLabel.text);
+    UIButton *ans_cir_btn = (UIButton*)sender;
+    DLog(@"answers circle  clicked. %d  with title %@ ", ans_cir_btn.tag, ans_cir_btn.titleLabel.text);
     //[self.navigationController pushViewController:gamingController animated:YES];
+    
+    NSString *ans_selected = ans_cir_btn.titleLabel.text;
+    
+    bool check_btn_sta = false;
+    int btn_tobe_filled = 0 ;
+    
+    for (int i=0;i<[ans_grp_array count];i++){
+        
+        GZAnswerStatus *anss  =  [ans_grp_array objectAtIndex:i];
+        
+        if(anss.ans_to_filled==false){
+            check_btn_sta=true;
+            btn_tobe_filled = [anss.ans_btn_tag intValue];
+            
+            DLog(@"now the btn tag is %d",btn_tobe_filled);
+            
+            anss.ans_to_filled=true;
+            break;
+        }
+        
+    }
+    
+    if(check_btn_sta){
+        
+        UIButton *btn = (UIButton*)[self.view viewWithTag:btn_tobe_filled];
+        if([btn.titleLabel.text isEqual:@""]==false || btn.titleLabel.text==nil){
+            [btn setTitle:ans_selected forState:UIControlStateNormal];
+        }
+
+    }
+    
+    
+
+    
 }
 
 
