@@ -33,8 +33,8 @@
     
     [self createEditableCopyOfDatabaseIfNeeded];
 
-    self.window.rootViewController=navigationController;
-    //[self.window addSubview:navigationController.view];
+    //self.window.rootViewController=navigationController;
+    [self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
