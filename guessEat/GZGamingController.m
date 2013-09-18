@@ -214,7 +214,7 @@
             [ans_btn addTarget:self action:@selector(ans_buttonHandler:)  forControlEvents:UIControlEventAllEvents];
             ans_btn.frame = CGRectMake(i*40 +65, 240, 30, 30);
             [ans_btn setBackgroundImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
-            
+            [ans_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             NSNumber *ans_btn_tag= [NSNumber numberWithInt: i+ANSWER_TAG];
             
             ans_btn.tag = [ans_btn_tag intValue];
@@ -318,8 +318,6 @@
         }
 
     }
-    
-
     
 }
 
