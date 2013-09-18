@@ -15,6 +15,7 @@
 #import "GZGalleryViewController.h"
 #import "GZImageController.h"
 #import "GZAnswerStatus.h"
+#import "NSMutableArray+Shuffle.h"
 
 #define ANSWER_TAG 100
 
@@ -28,6 +29,7 @@
 @implementation GZGamingController{
     
     NSMutableArray *ans_grp_array;
+    NSString *word_data;
     
 }
 
@@ -46,51 +48,61 @@
     [super viewDidLoad];
 
     
-    [self setUpGamingSection];
     //this is test for the imageArray
-    GZImageController *imageCrt=[[GZImageController alloc] init];
+    //GZImageController *imageCrt=[[GZImageController alloc] init];
     //NSArray *imageArray=[imageCrt fetchDishFromDBwithProvince_id:5];
     //[self.dish_imageView setImage:imageArray[0]];
     self.dish_imageView.image=[UIImage imageNamed:@"1-0.jpg"];
     
     [self fetchDishFromDatabaseForDish:self.dish_code withProvince_id:self.province_id];
-}
-
--(void)setUpAnswerSection{
-
     
-
-
+    [self setUpGamingSection];
 
 }
+
 
 -(void)setUpGamingSection{
     
-    
-    NSMutableArray *arr = [[NSMutableArray alloc] init];
-    
-    [arr addObject:@"1"];
-    [arr addObject:@"2"];
-    [arr addObject:@"3"];
-    [arr addObject:@"4"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
-    [arr addObject:@"15"];
 
+    uint32_t rnd_words = arc4random_uniform([self.ans_words count]) ; //random words string from array  
+    DLog(@"total count int answrod  %d  aodom word array %d " ,[self.ans_words count], rnd_words);
+    word_data = [self.ans_words objectAtIndex:rnd_words];
+    NSMutableArray *ans_sec_arr = [[NSMutableArray alloc] initWithCapacity:5];
+    int word_data_len= [word_data length];
+    
+
+    int dish_name_length = [self.dish.dish_name length];
+
+    for (int i=0;i<21-dish_name_length;i++){
+        
+        uint32_t rnd = arc4random_uniform(word_data_len) ;    
+        NSString *subWord =nil;
+        
+        if(rnd>1){
+            subWord = [word_data substringWithRange:NSMakeRange(rnd,1)];
+        }
+        else{
+            subWord = [word_data substringFromIndex:0];
+            
+        }
+        if([subWord isEqual:@" "])i--;
+        else [ans_sec_arr addObject:subWord];
+    }
+    
 
     
+    for(int k=0;k<dish_name_length;k++){
+        
+        NSString *subDishName =[self.dish.dish_name substringWithRange:NSMakeRange(k,1)];
+        NSLog(@"now we have random word data %@  with length %d " , subDishName, dish_name_length);
+
+        [ans_sec_arr addObject:subDishName];
+    }
+
+    [ans_sec_arr shuffle];
+        
     int row = 0;
     int column = 0;
-    
     
     DLog(@"now we have row %d and column %d", row*40+15, column*40+210);
     
@@ -100,11 +112,11 @@
     [button addTarget:self
                action:@selector(ans_circleHandler:)
      forControlEvents:UIControlEventTouchDown];
-    [button setTitle:[arr objectAtIndex:0]  forState:UIControlStateNormal];
+    [button setTitle:[ans_sec_arr objectAtIndex:0]  forState:UIControlStateNormal];
     [button setFrame:btnFrame];
     [self.avoidScrollView addSubview:button];
     
-    for (int i = 1; i < arr.count; i++)
+    for (int i = 1; i < ans_sec_arr.count; i++)
     {
         if((row%6 == 0) && (row >0))
         {
@@ -115,20 +127,18 @@
             row++;
         }
         
-        
         [UIView beginAnimations:nil context:NULL];
         [UIView setAnimationDuration: 0.2*i];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
        // Dlog(@"now we have row %d and column %d", row*40+15, column*40+210);
-        
         CGRect btnFrame = CGRectMake(row*40+15, column*40+280, 40, 40);//your button frame
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTag:i];
         [button addTarget:self
                    action:@selector(ans_circleHandler:)
          forControlEvents:UIControlEventTouchDown];
-        [button setTitle:[arr objectAtIndex:i] forState:UIControlStateNormal];
+        [button setTitle:[ans_sec_arr objectAtIndex:i] forState:UIControlStateNormal];
         [button setFrame:btnFrame];
         button.hidden=true;
         [self.avoidScrollView addSubview:button];
@@ -143,9 +153,6 @@
         
         [UIView commitAnimations];
     }
-
-    
-    
 }
 
 
@@ -202,13 +209,6 @@
         NSString *images_file = [NSString stringWithFormat:@"%@",[images_files  objectAtIndex:0]];
         
         UIImage *dish_img = [UIImage imageWithContentsOfFile:images_file];
-
-//        CGSize newSize = CGSizeMake(200.0f, 200.0f);
-//        UIGraphicsBeginImageContext(newSize);
-//        [dish_img drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
-//        dish_img = UIGraphicsGetImageFromCurrentImageContext();
-//        UIGraphicsEndImageContext();
-        
         [self.dish_imageView setImage:dish_img];
         NSInteger s = [self.dish.dish_name length];
         //DLog(@"now we get dish name to be displayed %@ with dish length %d",self.dish.dish_name, s);
@@ -231,7 +231,6 @@
             anss.ans_to_filled = false;//set fill status of all btn to be false
             [ans_grp_array addObject:anss];
             
-
             //add animation
             CABasicAnimation *fadeAnimation=[CABasicAnimation animationWithKeyPath:@"opacity"];
             fadeAnimation.fromValue=[NSNumber numberWithFloat:0.7];
@@ -323,6 +322,9 @@
         }
 
     }
+    
+
+    
 }
 
 

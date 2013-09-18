@@ -43,6 +43,8 @@
 - (void)createEditableCopyOfDatabaseIfNeeded {
     // First, test for existence.
     
+
+    
     BOOL success;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     NSError *error;

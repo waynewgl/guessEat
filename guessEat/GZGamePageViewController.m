@@ -176,7 +176,7 @@ static NSInteger indexOfImageInArray=0;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 24;
+    return 20;
 }
 
 // Section HeaderView or Section FooterView
@@ -257,6 +257,12 @@ static NSInteger indexOfImageInArray=0;
     self.gamingController = [[GZGamingController alloc]init];
     self.gamingController.dish_code = indexPath.row;
     self.gamingController.province_id = 1;
+    
+    NSError *Error;
+    NSString *dishFile_data = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"words" ofType:@"txt"]encoding:NSUTF8StringEncoding error:& Error];  
+    NSString *word_data = [dishFile_data stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSArray *Lines = [word_data componentsSeparatedByString:@"\n"];            
+    self.gamingController.ans_words=Lines;
     [self.navigationController pushViewController: self.gamingController animated:YES];
 }
 

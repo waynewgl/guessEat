@@ -31,6 +31,7 @@
 
 @property(nonatomic,strong)  GZDatabaseController *databaseCrt;
 @property(nonatomic,strong)  GZDish *dish;
+@property(nonatomic,strong)  NSArray *ans_words;
 
 
 @property(nonatomic,weak) IBOutlet UIButton *tip_btn;
