@@ -19,23 +19,9 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-
-    DLog(@"test %@",@"");
     
     GZHomeViewController *homepage=[[GZHomeViewController alloc]init];
     homepage.title=@"游戏";
-
-//    GZCollectionViewController *game=[[GZCollectionViewController alloc]init];
-
-//    GZGamePageViewController *gzGamePageViewController = [[GZGamePageViewController alloc]init];
-    
-//    gzGamePageViewController.title=@"声音";
-    
-//    UINavigationController *collectionNavigationController = [[UINavigationController alloc]initWithRootViewController:gzGamePageViewController];
-
-    
-//    UIViewController *achievement=[[UIViewController alloc]init];
-//    achievement.title=@"成就";
     GZGameSettingController *setController=[[GZGameSettingController alloc]init];
     setController.title=@"设置";
     NSArray *viewControllers= [[NSArray alloc]initWithObjects:homepage, setController,nil];
@@ -46,25 +32,9 @@
     navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarController];
     
     [self createEditableCopyOfDatabaseIfNeeded];
-    
-   /*
-    NSBundle *mainBundle = [NSBundle mainBundle];
-    
-    NSString *path = @"dishes_images";
-    
-    NSLog(@"pngs in my dir:%@", [mainBundle pathsForResourcesOfType:@".jpg"
-          inDirectory:path]);
-    
-    NSString *folder_name = @"";*/
-    
-    
-    
 
-
-    
-    
-    //self.window.rootViewController=navigationController;
-    [self.window addSubview:navigationController.view];
+    self.window.rootViewController=navigationController;
+    //[self.window addSubview:navigationController.view];
     [self.window makeKeyAndVisible];
     return YES;
 }
