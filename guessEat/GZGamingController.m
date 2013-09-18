@@ -228,7 +228,7 @@
             GZAnswerStatus *anss = [[GZAnswerStatus alloc]init];
             
             anss.ans_btn_tag = ans_btn_tag;
-            anss.ans_to_filled = false;
+            anss.ans_to_filled = false;//set fill status of all btn to be false
             [ans_grp_array addObject:anss];
             
 
@@ -285,21 +285,12 @@
     
     NSString *btn_str = ans_btn.titleLabel.text ;
     DLog(@"answer section clicked. %d with value text is %@ ", ans_btn.tag, btn_str);
-    //[self.navigationController pushViewController:gamingController animated:YES];
-    
-    
-    
     
     if ([ans_btn.titleLabel.text isEqual:@""]==false || ans_btn.titleLabel.text==nil) {
         [ans_btn setTitle:@"" forState:UIControlStateNormal];
-        GZAnswerStatus *anss  =  [ans_grp_array objectAtIndex:ans_btn.tag-ANSWER_TAG];
-        anss.ans_to_filled=false;
-        [SVProgressHUD showErrorWithStatus:@"clear"];
-
-    }
-    else{
-    
-        [SVProgressHUD showErrorWithStatus:@"error 111"];
+        GZAnswerStatus *ans  =  [ans_grp_array objectAtIndex:ans_btn.tag-ANSWER_TAG];
+        ans.ans_to_filled=false;
+        //[SVProgressHUD showErrorWithStatus:@"clear"];
     }
     
 }
@@ -307,31 +298,24 @@
 - (void)ans_circleHandler:(id)sender {
     
     UIButton *ans_cir_btn = (UIButton*)sender;
-    DLog(@"answers circle  clicked. %d  with title %@ ", ans_cir_btn.tag, ans_cir_btn.titleLabel.text);
-    //[self.navigationController pushViewController:gamingController animated:YES];
-    
+    DLog(@"answers circle  clicked. %d  with title %@ ", ans_cir_btn.tag, ans_cir_btn.titleLabel.text);    
     NSString *ans_selected = ans_cir_btn.titleLabel.text;
     
-    bool check_btn_sta = false;
+    bool check_btn_sta = false;//check if button text is filled
     int btn_tobe_filled = 0 ;
     
     for (int i=0;i<[ans_grp_array count];i++){
-        
         GZAnswerStatus *anss  =  [ans_grp_array objectAtIndex:i];
-        
         if(anss.ans_to_filled==false){
-            check_btn_sta=true;
+            check_btn_sta=true;//if  one btn's text is not filled, then find this btn 
             btn_tobe_filled = [anss.ans_btn_tag intValue];
-            
             DLog(@"now the btn tag is %d",btn_tobe_filled);
-            
             anss.ans_to_filled=true;
             break;
         }
-        
     }
     
-    if(check_btn_sta){
+    if(check_btn_sta){//if blank btn text found, then fill the btn with selected answer
         
         UIButton *btn = (UIButton*)[self.view viewWithTag:btn_tobe_filled];
         if([btn.titleLabel.text isEqual:@""]==false || btn.titleLabel.text==nil){
@@ -339,10 +323,6 @@
         }
 
     }
-    
-    
-
-    
 }
 
 
