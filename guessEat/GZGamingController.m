@@ -80,11 +80,14 @@
             subWord = [word_data substringWithRange:NSMakeRange(rnd,1)];
         }
         else{
-            subWord = [word_data substringFromIndex:0];
-            
+            subWord = [word_data substringToIndex:1];
+            DLog(@"adding sub string to button group %@" , subWord);
+
         }
         if([subWord isEqual:@" "])i--;
-        else [ans_sec_arr addObject:subWord];
+        else {
+          [ans_sec_arr addObject:subWord];  
+        }
     }
     
     for(int k=0;k<dish_name_length;k++){//add the correct dish name into array
