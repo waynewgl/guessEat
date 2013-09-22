@@ -13,5 +13,6 @@
 
 @property (nonatomic, strong) NSNumber *ans_btn_tag;
 @property (nonatomic, assign) Boolean ans_to_filled;
+@property (nonatomic, strong) NSString *ans_content;
 
 @end

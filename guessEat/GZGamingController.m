@@ -30,6 +30,7 @@
     
     NSMutableArray *ans_grp_array;
     NSString *word_data;
+    NSMutableArray *ans_sec_arr;
     
 }
 
@@ -53,9 +54,7 @@
     //NSArray *imageArray=[imageCrt fetchDishFromDBwithProvince_id:5];
     //[self.dish_imageView setImage:imageArray[0]];
     self.dish_imageView.image=[UIImage imageNamed:@"1-0.jpg"];
-    
     [self fetchDishFromDatabaseForDish:self.dish_code withProvince_id:self.province_id];
-    
     [self setUpGamingSection];
 
 }
@@ -67,9 +66,9 @@
     uint32_t rnd_words = arc4random_uniform([self.ans_words count]) ; //random words string from array  
     DLog(@"total count int answrod  %d  aodom word array %d " ,[self.ans_words count], rnd_words);
     word_data = [self.ans_words objectAtIndex:rnd_words];
-    NSMutableArray *ans_sec_arr = [[NSMutableArray alloc] initWithCapacity:5];
-    int word_data_len= [word_data length];
+    ans_sec_arr = [[NSMutableArray alloc] initWithCapacity:5];
     
+    int word_data_len= [word_data length];
     int dish_name_length = [self.dish.dish_name length];
 
     for (int i=0;i<21-dish_name_length;i++){//add the random dish char into array
@@ -96,7 +95,13 @@
     }
 
     [ans_sec_arr shuffle];//shuffle the answers' array , use category 
-        
+      
+    [self initialiseBtnMatrix];
+    
+   }
+
+-(void)initialiseBtnMatrix{
+    
     int row = 0;
     int column = 0;
     
@@ -124,10 +129,10 @@
         }
         
         [UIView beginAnimations:nil context:NULL];
-        [UIView setAnimationDuration: 0.2*i];
+        [UIView setAnimationDuration: 0.1*i];
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
-       // Dlog(@"now we have row %d and column %d", row*40+15, column*40+210);
+        // Dlog(@"now we have row %d and column %d", row*40+15, column*40+210);
         CGRect btnFrame = CGRectMake(row*40+15, column*40+280, 40, 40);//your button frame
         UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button setTag:i];
@@ -139,7 +144,7 @@
         button.hidden=true;
         [self.avoidScrollView addSubview:button];
         
-        [UIView animateWithDuration:3.5
+        [UIView animateWithDuration:2.5
                          animations: ^ {
                              [button setAlpha:1.0];
                          }
@@ -149,9 +154,10 @@
         
         [UIView commitAnimations];
     }
+
+    
+    
 }
-
-
 
 -(IBAction)tip_btn:(id)sender{
     
@@ -212,7 +218,7 @@
 
             UIButton *ans_btn = [UIButton buttonWithType:UIButtonTypeCustom];
             [ans_btn addTarget:self action:@selector(ans_buttonHandler:)  forControlEvents:UIControlEventAllEvents];
-            ans_btn.frame = CGRectMake(i*40 +65, 240, 30, 30);
+            ans_btn.frame = CGRectMake(i*40 +90, 240, 30, 30);
             [ans_btn setBackgroundImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
             [ans_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             NSNumber *ans_btn_tag= [NSNumber numberWithInt: i+ANSWER_TAG];
@@ -315,6 +321,26 @@
         UIButton *btn = (UIButton*)[self.view viewWithTag:btn_tobe_filled];
         if([btn.titleLabel.text isEqual:@""]==false || btn.titleLabel.text==nil){
             [btn setTitle:ans_selected forState:UIControlStateNormal];
+            
+            int btn_tobe_comp = 0 ;            
+            NSString *final_ans=@"";
+            for (int i=0;i<[ans_grp_array count];i++){
+                
+                GZAnswerStatus *anss  =  [ans_grp_array objectAtIndex:i];
+                btn_tobe_comp = [anss.ans_btn_tag intValue];
+                UIButton *btn = (UIButton*)[self.view viewWithTag:btn_tobe_comp];
+                final_ans = [final_ans stringByAppendingString:[NSString stringWithFormat:@"%@",btn.titleLabel.text ]];                
+            }
+            
+            DLog(@"now we have the final string answer %@ " , final_ans);
+            
+            if([final_ans isEqual:self.dish.dish_name]){
+                
+                DLog(@"now you got the right answer, congratulation...%@" , @"");
+                
+                [SVProgressHUD showSuccessWithStatus:@"congratulation, you got the right answer..."];
+            }
+            
         }
 
     }
