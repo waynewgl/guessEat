@@ -82,7 +82,6 @@
         else{
             subWord = [word_data substringToIndex:1];
             DLog(@"adding sub string to button group %@" , subWord);
-
         }
         if([subWord isEqual:@" "])i--;
         else {
