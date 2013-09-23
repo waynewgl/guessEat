@@ -16,6 +16,7 @@
 #import "GZImageController.h"
 #import "GZAnswerStatus.h"
 #import "NSMutableArray+Shuffle.h"
+#import "UIView+I7ShakeAnimation.h"
 
 #define ANSWER_TAG 100
 
@@ -60,6 +61,7 @@
 }
 
 
+
 -(void)setUpGamingSection{
     
 
@@ -100,7 +102,7 @@
       
     [self initialiseBtnMatrix];
     
-   }
+}
 
 -(void)initialiseBtnMatrix{
     
@@ -283,19 +285,17 @@
 
 
 - (void)ans_buttonHandler:(id)sender {
-    
+
     UIButton *ans_btn = (UIButton*)sender;
+    GZAnswerStatus *ans=[ans_grp_array objectAtIndex:ans_btn.tag-ANSWER_TAG];
     
-    NSString *btn_str = ans_btn.titleLabel.text ;
-    DLog(@"answer section clicked. %d with value text is %@ ", ans_btn.tag, btn_str);
-    
-    if ([ans_btn.titleLabel.text isEqual:@""]==false || ans_btn.titleLabel.text==nil) {
-        [ans_btn setTitle:@"" forState:UIControlStateNormal];
-        GZAnswerStatus *ans  =  [ans_grp_array objectAtIndex:ans_btn.tag-ANSWER_TAG];
+    if(ans.ans_to_filled){
+        [ans_btn setTitle:@" " forState:UIControlStateNormal];
+        NSString *btn_str = ans_btn.titleLabel.text;
         ans.ans_to_filled=false;
-        //[SVProgressHUD showErrorWithStatus:@"clear"];
+        DLog(@"answer section clicked. %d with value text is %@ ", ans_btn.tag, btn_str);
+        [ans_btn setBackgroundColor:[UIColor clearColor]];
     }
-    
 }
 
 - (void)ans_circleHandler:(id)sender {
@@ -318,12 +318,14 @@
         }
     }
     
+    Boolean shake_btn=false;
+    
     if(check_btn_sta){//if blank btn text found, then fill the btn with selected answer
         
         UIButton *btn = (UIButton*)[self.view viewWithTag:btn_tobe_filled];
         if([btn.titleLabel.text isEqual:@""]==false || btn.titleLabel.text==nil){
-            [btn setTitle:ans_selected forState:UIControlStateNormal];
             
+            [btn setTitle:ans_selected forState:UIControlStateNormal];
             int btn_tobe_comp = 0 ;            
             NSString *final_ans=@"";
             for (int i=0;i<[ans_grp_array count];i++){
@@ -333,21 +335,34 @@
                 UIButton *btn = (UIButton*)[self.view viewWithTag:btn_tobe_comp];
                 final_ans = [final_ans stringByAppendingString:[NSString stringWithFormat:@"%@",btn.titleLabel.text ]];                
             }
-            
             DLog(@"now we have the final string answer %@ " , final_ans);
             
+            final_ans = [final_ans stringByReplacingOccurrencesOfString:@" " withString:@""];//remove white space of string
+
             if([final_ans isEqual:self.dish.dish_name]){
-                
                 DLog(@"now you got the right answer, congratulation...%@" , @"");
-                
                 [SVProgressHUD showSuccessWithStatus:@"congratulation, you got the right answer..."];
             }
-            
+            else if ([final_ans isEqual:self.dish.dish_name]==false && [final_ans length]==[self.dish.dish_name length]) shake_btn=true;
         }
 
     }
     
+    if(shake_btn){// if the selected answers are not correct , then shake the ans fields to inform users.
+        
+        for (int i=0;i<[ans_grp_array count];i++){
+            
+            GZAnswerStatus *anss  =  [ans_grp_array objectAtIndex:i];
+            int shake_btn_tag = [anss.ans_btn_tag intValue];
+            UIButton *btn = (UIButton*)[self.view viewWithTag:shake_btn_tag];
+            [btn shakeX];
+            [btn setBackgroundColor:[UIColor redColor]];
+        }
+    }
+    
 }
+
+
 
 
 - (void)didReceiveMemoryWarning

@@ -25,6 +25,7 @@
 		04CC63E517C678E900D37518 /* GZImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04CC63E317C678E800D37518 /* GZImageController.m */; };
 		04CC63E617C678E900D37518 /* GZImageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 04CC63E417C678E800D37518 /* GZImageController.xib */; };
 		7637FCD417D48C2F0029D063 /* dishes_images in Resources */ = {isa = PBXBuildFile; fileRef = 7637FCD317D48C2F0029D063 /* dishes_images */; };
+		7649303F17EFCA110064C6F5 /* UIView+I7ShakeAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7649303E17EFCA110064C6F5 /* UIView+I7ShakeAnimation.m */; };
 		7657C6C817E03E4200CBE1F3 /* WYPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7657C6C717E03E4200CBE1F3 /* WYPopoverController.m */; };
 		7657C6CC17E03EE000CBE1F3 /* GZGalleryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7657C6CA17E03EE000CBE1F3 /* GZGalleryViewController.m */; };
 		7657C6CD17E03EE000CBE1F3 /* GZGalleryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7657C6CB17E03EE000CBE1F3 /* GZGalleryViewController.xib */; };
@@ -107,6 +108,8 @@
 		04CC63E317C678E800D37518 /* GZImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZImageController.m; sourceTree = "<group>"; };
 		04CC63E417C678E800D37518 /* GZImageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GZImageController.xib; sourceTree = "<group>"; };
 		7637FCD317D48C2F0029D063 /* dishes_images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dishes_images; sourceTree = "<group>"; };
+		7649303D17EFCA090064C6F5 /* UIView+I7ShakeAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+I7ShakeAnimation.h"; sourceTree = "<group>"; };
+		7649303E17EFCA110064C6F5 /* UIView+I7ShakeAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+I7ShakeAnimation.m"; sourceTree = "<group>"; };
 		7657C6C617E03E4200CBE1F3 /* WYPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYPopoverController.h; sourceTree = "<group>"; };
 		7657C6C717E03E4200CBE1F3 /* WYPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYPopoverController.m; sourceTree = "<group>"; };
 		7657C6C917E03EE000CBE1F3 /* GZGalleryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZGalleryViewController.h; sourceTree = "<group>"; };
@@ -365,6 +368,8 @@
 		76B2FDE317BCC6B000B9282A /* helper */ = {
 			isa = PBXGroup;
 			children = (
+				7649303D17EFCA090064C6F5 /* UIView+I7ShakeAnimation.h */,
+				7649303E17EFCA110064C6F5 /* UIView+I7ShakeAnimation.m */,
 				048176B617B8E61700DD13D8 /* UIDevice+Resolutions.h */,
 				048176B717B8E66100DD13D8 /* UIDevice+Resolutions.m */,
 				76CAB12317C711500059B1E7 /* GZDatabaseHelper.h */,
@@ -589,6 +594,7 @@
 				7657C6CC17E03EE000CBE1F3 /* GZGalleryViewController.m in Sources */,
 				76D3CDC717E8559B00EA8828 /* GZAnswerStatus.m in Sources */,
 				76CFE43E17E99EC600335ABE /* NSMutableArray+Shuffle.m in Sources */,
+				7649303F17EFCA110064C6F5 /* UIView+I7ShakeAnimation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
