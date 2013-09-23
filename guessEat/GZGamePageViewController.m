@@ -259,7 +259,7 @@ static NSInteger indexOfImageInArray=0;
     self.gamingController.province_id = 1;
     
     NSError *Error;
-    NSString *dishFile_data = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"words" ofType:@"txt"]encoding:NSUTF8StringEncoding error:& Error];  
+    NSString *dishFile_data = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:WORDS_FILE_NAME ofType:@"txt"]encoding:NSUTF8StringEncoding error:& Error];  
     NSString *word_data = [dishFile_data stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *Lines = [word_data componentsSeparatedByString:@"\n"];            
     self.gamingController.ans_words=Lines;

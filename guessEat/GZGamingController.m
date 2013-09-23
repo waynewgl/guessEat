@@ -66,7 +66,7 @@
     
 
     uint32_t rnd_words = arc4random_uniform([self.ans_words count]) ; //random words string from array  
-    DLog(@"total count int answrod  %d  aodom word array %d " ,[self.ans_words count], rnd_words);
+    DLog(@"total count int answrod  %d  random word array %d " ,[self.ans_words count], rnd_words);
     word_data = [self.ans_words objectAtIndex:rnd_words];
     ans_sec_arr = [[NSMutableArray alloc] initWithCapacity:5];
     

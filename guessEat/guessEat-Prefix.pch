@@ -29,3 +29,5 @@
 #define IMAGE_DIRECTORY @"dishes_images"
 
 #define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+
+#define WORDS_FILE_NAME @"words"

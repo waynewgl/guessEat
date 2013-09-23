@@ -90,7 +90,7 @@
     //DLog(@"imageArray length:%d",[imageArray count]);
     
     
-    DLog(@"the root path of image:%@",[imageArray objectAtIndex:0]);
+    //DLog(@"the root path of image:%@",[imageArray objectAtIndex:0]);
 
     
     return imageArray;
