@@ -28,7 +28,12 @@ static NSInteger numberOfPages = 3;
 static NSInteger indexOfImageInArray=0;
 
 
-@implementation GZGamePageViewController
+@implementation GZGamePageViewController{
+    
+    NSArray *dishes_array;
+    
+    
+}
 
 
 - (void)viewDidLoad
@@ -52,7 +57,9 @@ static NSInteger indexOfImageInArray=0;
     self.pagingScrollView.scrollDirection = RGMScrollDirectionHorizontal;
     self.pageIndicator.orientation = RGMPageIndicatorHorizontal;
     
-    NSLog(@"province that chosed by player: %d",self.newFlat);
+    NSLog(@"province that chosed by player: %d",self.newProv);
+    
+    [self fetchDishesFromDatabase:self.newProv];
     
 }
 
@@ -164,6 +171,15 @@ static NSInteger indexOfImageInArray=0;
 }
 
 
+-(void)fetchDishesFromDatabase:(NSInteger)province_id{
+
+    
+    dishes_array = [[GZDatabaseHelper sharedInstance] queryFromDataBase:province_id];
+    
+    
+    [self.imgsCollectionView reloadData];
+    
+}
 
 
 
@@ -176,7 +192,7 @@ static NSInteger indexOfImageInArray=0;
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 20;
+    return [dishes_array count];
 }
 
 // Section HeaderView or Section FooterView
@@ -203,7 +219,7 @@ static NSInteger indexOfImageInArray=0;
 -(NSArray *)fetchDishesFromDBThroughProvinceID{
     NSArray *dish_array=[[NSArray alloc] init];
     GZImageController *imageCrt=[[GZImageController alloc] init];
-    dish_array=[imageCrt fetchDishFromDBwithProvince_id:self.newFlat] ;
+    dish_array=[imageCrt fetchDishFromDBwithProvince_id:self.newProv] ;
     return dish_array;
     
 }
@@ -217,6 +233,8 @@ static NSInteger indexOfImageInArray=0;
     } else {
         cell.backgroundColor = [UIColor orangeColor];
     }
+    
+    
     
        
     //for images display
@@ -255,8 +273,11 @@ static NSInteger indexOfImageInArray=0;
 {
     DLog(@"Be clicked item at indexPath: %d row: %d in page %d", indexPath.section, indexPath.row,self.pageIndicator.currentPage);
     self.gamingController = [[GZGamingController alloc]init];
-    self.gamingController.dish_code = indexPath.row;
-    self.gamingController.province_id = self.newFlat;
+    
+    GZDish *dish = [dishes_array objectAtIndex:indexPath.row];
+    
+    self.gamingController.dish_code = [dish.dish_id intValue];
+    self.gamingController.province_id = self.newProv;
     
     NSError *Error;
     NSString *dishFile_data = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:WORDS_FILE_NAME ofType:@"txt"]encoding:NSUTF8StringEncoding error:& Error];  

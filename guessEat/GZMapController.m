@@ -34,7 +34,7 @@
 
 - (void)goToGamingpageCrt {
     GZGamePageViewController *gamePageController=[[GZGamePageViewController alloc]init];
-    gamePageController.newFlat=1;
+    gamePageController.newProv=4;
     [self.navigationController pushViewController:gamePageController animated:YES];
     
 }

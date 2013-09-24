@@ -21,5 +21,5 @@
 
 @property (strong, nonatomic) UICollectionView *imgsCollectionView;
 @property(strong,nonatomic) NSString *flag;
-@property(assign,nonatomic) NSInteger newFlat;
+@property(assign,nonatomic) NSInteger newProv;
 @end
