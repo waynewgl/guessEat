@@ -276,6 +276,8 @@ static NSInteger indexOfImageInArray=0;
     
     GZDish *dish = [dishes_array objectAtIndex:indexPath.row];
     
+    DLog(@"the position of dish:%d",indexPath.row);
+    
     self.gamingController.dish_code = [dish.dish_id intValue];
     self.gamingController.province_id = self.newProv;
     
