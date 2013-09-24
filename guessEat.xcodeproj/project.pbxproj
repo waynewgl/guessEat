@@ -80,6 +80,7 @@
 		76D3CDC717E8559B00EA8828 /* GZAnswerStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 76D3CDC617E8559B00EA8828 /* GZAnswerStatus.m */; };
 		76E642F217DECCF900041856 /* ios_eat_v5 in Resources */ = {isa = PBXBuildFile; fileRef = 76E642F117DECCF900041856 /* ios_eat_v5 */; };
 		76E642F517DEF39E00041856 /* GZDishImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 76E642F417DEF39E00041856 /* GZDishImage.m */; };
+		76F064D317F13119002858CE /* ans_bg2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 76F064D217F13119002858CE /* ans_bg2.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -194,6 +195,7 @@
 		76E642F117DECCF900041856 /* ios_eat_v5 */ = {isa = PBXFileReference; lastKnownFileType = file; name = ios_eat_v5; path = resources/ios_eat_v5; sourceTree = "<group>"; };
 		76E642F317DEF39E00041856 /* GZDishImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GZDishImage.h; sourceTree = "<group>"; };
 		76E642F417DEF39E00041856 /* GZDishImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GZDishImage.m; sourceTree = "<group>"; };
+		76F064D217F13119002858CE /* ans_bg2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ans_bg2.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -383,6 +385,7 @@
 		76B2FDE417BCC6C900B9282A /* images */ = {
 			isa = PBXGroup;
 			children = (
+				76F064D217F13119002858CE /* ans_bg2.jpg */,
 				76D2221917E6DDA80093276A /* ans_bg1.jpg */,
 				76B2FE3317BCE0E000B9282A /* indicator-active.png */,
 				76B2FE3417BCE0E000B9282A /* indicator-active@2x.png */,
@@ -522,6 +525,7 @@
 			files = (
 				7686BF7E17B39FC000616237 /* InfoPlist.strings in Resources */,
 				7686BF8617B39FC000616237 /* Default.png in Resources */,
+				76F064D317F13119002858CE /* ans_bg2.jpg in Resources */,
 				7686BF8817B39FC000616237 /* Default@2x.png in Resources */,
 				7686BF8A17B39FC000616237 /* Default-568h@2x.png in Resources */,
 				048176BD17B8F99500DD13D8 /* GZGameTagController.xib in Resources */,
@@ -679,6 +683,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "guessEat/guessEat-Prefix.pch";
 				INFOPLIST_FILE = "guessEat/guessEat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3ACFFEB-9EEA-488A-83E6-AD2DE7C85894";
 				WRAPPER_EXTENSION = app;
@@ -692,6 +697,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "guessEat/guessEat-Prefix.pch";
 				INFOPLIST_FILE = "guessEat/guessEat-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "B3ACFFEB-9EEA-488A-83E6-AD2DE7C85894";
 				WRAPPER_EXTENSION = app;

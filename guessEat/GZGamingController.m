@@ -111,15 +111,16 @@
     
     DLog(@"now we have row %d and column %d", row*40+15, column*40+210);
     
-    CGRect btnFrame = CGRectMake(15 , column*40+280, 40, 40);//your button frame
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [button setTag:0];
-    [button addTarget:self
+    CGRect btnFrame = CGRectMake(15 , column*40+280, 45, 45);//your button frame
+    UIButton *ans_button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    [ans_button setTag:0];
+    [ans_button setBackgroundImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
+    [ans_button addTarget:self
                action:@selector(ans_circleHandler:)
      forControlEvents:UIControlEventTouchDown];
-    [button setTitle:[ans_sec_arr objectAtIndex:0]  forState:UIControlStateNormal];
-    [button setFrame:btnFrame];
-    [self.avoidScrollView addSubview:button];
+    [ans_button setTitle:[ans_sec_arr objectAtIndex:0]  forState:UIControlStateNormal];
+    [ans_button setFrame:btnFrame];
+    [self.avoidScrollView addSubview:ans_button];
     
     for (int i = 1; i < ans_sec_arr.count; i++)
     {
@@ -137,23 +138,24 @@
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
         // Dlog(@"now we have row %d and column %d", row*40+15, column*40+210);
-        CGRect btnFrame = CGRectMake(row*40+15, column*40+280, 40, 40);//your button frame
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [button setTag:i];
-        [button addTarget:self
+        CGRect btnFrame = CGRectMake(row*40+15, column*40+280, 45, 45);//your button frame
+        UIButton *anss_button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [anss_button setBackgroundImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
+        [anss_button setTag:i];
+        [anss_button addTarget:self
                    action:@selector(ans_circleHandler:)
          forControlEvents:UIControlEventTouchDown];
-        [button setTitle:[ans_sec_arr objectAtIndex:i] forState:UIControlStateNormal];
-        [button setFrame:btnFrame];
-        button.hidden=true;
-        [self.avoidScrollView addSubview:button];
+        [anss_button setTitle:[ans_sec_arr objectAtIndex:i] forState:UIControlStateNormal];
+        [anss_button setFrame:btnFrame];
+        anss_button.hidden=true;
+        [self.avoidScrollView addSubview:anss_button];
         
         [UIView animateWithDuration:2.5
                          animations: ^ {
-                             [button setAlpha:1.0];
+                             [anss_button setAlpha:1.0];
                          }
                          completion: ^ (BOOL finished) {
-                             button.hidden=false;
+                             anss_button.hidden=false;
                          }];
         
         [UIView commitAnimations];

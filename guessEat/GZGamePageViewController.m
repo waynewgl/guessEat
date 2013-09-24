@@ -256,7 +256,7 @@ static NSInteger indexOfImageInArray=0;
     DLog(@"Be clicked item at indexPath: %d row: %d in page %d", indexPath.section, indexPath.row,self.pageIndicator.currentPage);
     self.gamingController = [[GZGamingController alloc]init];
     self.gamingController.dish_code = indexPath.row;
-    self.gamingController.province_id = 1;
+    self.gamingController.province_id = self.newFlat;
     
     NSError *Error;
     NSString *dishFile_data = [NSString stringWithContentsOfFile:[[NSBundle mainBundle] pathForResource:WORDS_FILE_NAME ofType:@"txt"]encoding:NSUTF8StringEncoding error:& Error];  
