@@ -111,7 +111,7 @@
     
     DLog(@"now we have row %d and column %d", row*40+15, column*40+210);
     
-    CGRect btnFrame = CGRectMake(15 , column*40+280, 45, 45);//your button frame
+    CGRect btnFrame = CGRectMake(15 , column*40+280, 40, 40);//your button frame
     UIButton *ans_button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     [ans_button setTag:999];
     [ans_button setBackgroundImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
@@ -138,7 +138,7 @@
         [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
         
         // Dlog(@"now we have row %d and column %d", row*40+15, column*40+210);
-        CGRect btnFrame = CGRectMake(row*40+15, column*40+280, 45, 45);//your button frame
+        CGRect btnFrame = CGRectMake(row*40+15, column*40+280, 40, 40);//your button frame
         UIButton *anss_button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [anss_button setBackgroundImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
         [anss_button setTag:i];
