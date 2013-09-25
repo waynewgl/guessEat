@@ -25,7 +25,6 @@ static NSString *kCellIdentifer = @"CELL_ID";
 
 static NSString *reuseIdentifier = @"RGMPageReuseIdentifier";
 static NSInteger numberOfPages = 3;
-static NSInteger indexOfImageInArray=0;
 
 
 @implementation GZGamePageViewController{
@@ -63,6 +62,24 @@ static NSInteger indexOfImageInArray=0;
     
 }
 
+
+-(void)fetchDishesFromDatabase:(NSInteger)province_id{
+    
+    
+    dishes_array = [[GZDatabaseHelper sharedInstance] queryFromDataBase:province_id];
+    
+    
+    [self.imgsCollectionView reloadData];
+    
+}
+
+-(NSArray *)fetchDishesFromDBThroughProvinceID{
+    NSArray *dish_array=[[NSArray alloc] init];
+    GZImageController *imageCrt=[[GZImageController alloc] init];
+    dish_array=[imageCrt fetchDishFromDBwithProvince_id:self.newProv] ;
+    return dish_array;
+    
+}
 
 
 
@@ -123,7 +140,16 @@ static NSInteger indexOfImageInArray=0;
     /* ################################################################### */
     
     // item 的大小
-    flowLayout.itemSize = CGSizeMake(50.0f, 50.0f);
+    
+    if (SYSTEM_VERSION_GREATER_THAN(@"6.0")){
+        
+        flowLayout.itemSize = CGSizeMake(60.0f, 60.0f);
+    }
+    else{
+        
+        flowLayout.itemSize = CGSizeMake(50.0f, 50.0f);
+
+    }
     
     // UICollectionView 的滑动方向
     flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
@@ -146,8 +172,12 @@ static NSInteger indexOfImageInArray=0;
     flowLayout.footerReferenceSize = CGSizeMake(0.0f, 0.0f);
     
     // 调整 section 的边距. (top, left, bottom, right)
-    flowLayout.sectionInset = UIEdgeInsetsMake(20.0f, 27.0f, 35.0f, 27.0f);
     
+    if(SYSTEM_VERSION_GREATER_THAN(@"6.0"))
+        flowLayout.sectionInset = UIEdgeInsetsMake(20.0f, 27.0f, 105.0f, 27.0f);
+    else
+        flowLayout.sectionInset = UIEdgeInsetsMake(20.0f, 27.0f, 55.0f, 27.0f);
+
     /* ################################################################### */
     
     _imgsCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(10.0f,
@@ -155,9 +185,10 @@ static NSInteger indexOfImageInArray=0;
                                                                              self.view.bounds.size.width - 20.0f,
                                                                              self.view.bounds.size.height - 400.0f)
                                              collectionViewLayout:flowLayout];
+    
     _imgsCollectionView.dataSource = self;
     _imgsCollectionView.delegate = self;
-    _imgsCollectionView.backgroundColor = [UIColor grayColor];
+    _imgsCollectionView.backgroundColor = [UIColor lightGrayColor];
     
     [self.imgsCollectionView registerClass:[GZCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifer];
     return _imgsCollectionView;
@@ -169,18 +200,6 @@ static NSInteger indexOfImageInArray=0;
 {
     self.pageIndicator.currentPage = idx;
 }
-
-
--(void)fetchDishesFromDatabase:(NSInteger)province_id{
-
-    
-    dishes_array = [[GZDatabaseHelper sharedInstance] queryFromDataBase:province_id];
-    
-    
-    [self.imgsCollectionView reloadData];
-    
-}
-
 
 
 #pragma mark - UICollectionViewDataSource
@@ -216,13 +235,6 @@ static NSInteger indexOfImageInArray=0;
     return reusableView;
 }
 
--(NSArray *)fetchDishesFromDBThroughProvinceID{
-    NSArray *dish_array=[[NSArray alloc] init];
-    GZImageController *imageCrt=[[GZImageController alloc] init];
-    dish_array=[imageCrt fetchDishFromDBwithProvince_id:self.newProv] ;
-    return dish_array;
-    
-}
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -231,15 +243,12 @@ static NSInteger indexOfImageInArray=0;
     if (indexPath.section % 2 == 0) {
         cell.backgroundColor = [UIColor yellowColor];
     } else {
-        cell.backgroundColor = [UIColor orangeColor];
+        cell.backgroundColor = [UIColor redColor];
     }
-    
-    
-    
-       
+  
     //for images display
-    NSArray *dishArray=[self fetchDishesFromDBThroughProvinceID];
-    DLog(@"final imageArray length: %d",[dishArray count]);
+    //NSArray *dishArray=[self fetchDishesFromDBThroughProvinceID];
+    //DLog(@"final imageArray length: %d",[dishArray count]);
     
     UIImage *img = [UIImage imageNamed:@"img.png"];
     //UIImage *imgage=dishArray[indexOfImageInArray];

@@ -113,7 +113,7 @@
     
     CGRect btnFrame = CGRectMake(15 , column*40+280, 45, 45);//your button frame
     UIButton *ans_button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    [ans_button setTag:0];
+    [ans_button setTag:999];
     [ans_button setBackgroundImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
     [ans_button addTarget:self
                action:@selector(ans_circleHandler:)
@@ -224,7 +224,12 @@
 
             UIButton *ans_btn = [UIButton buttonWithType:UIButtonTypeCustom];
             [ans_btn addTarget:self action:@selector(ans_buttonHandler:)  forControlEvents:UIControlEventAllEvents];
-            ans_btn.frame = CGRectMake(i*40 +90, 240, 30, 30);
+            
+            if (SYSTEM_VERSION_GREATER_THAN(@"6.0"))
+                ans_btn.frame = CGRectMake(i*40 +90, 300, 30, 30);
+            else    
+                ans_btn.frame = CGRectMake(i*40 +90, 240, 30, 30);
+            
             [ans_btn setBackgroundImage:[UIImage imageNamed:@"ans_bg1.jpg"] forState:UIControlStateNormal];
             [ans_btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             NSNumber *ans_btn_tag= [NSNumber numberWithInt: i+ANSWER_TAG];
@@ -297,6 +302,12 @@
         ans.ans_to_filled=false;
         DLog(@"answer section clicked. %d with value text is %@ ", ans_btn.tag, btn_str);
         [ans_btn setBackgroundColor:[UIColor clearColor]];
+        
+        UIButton *res_ans_btn = (UIButton*)[self.view viewWithTag:[ans.repond_to_btnTag intValue]];//display the button clicked by users and set to hidden
+        DLog(@"reset hidden button to be displayed %d",[ans.repond_to_btnTag intValue]);
+
+        [res_ans_btn setHidden:NO];
+
     }
 }
 
@@ -315,10 +326,13 @@
             check_btn_sta=true;//if  one btn's text is not filled, then find this btn 
             btn_tobe_filled = [anss.ans_btn_tag intValue];
             DLog(@"now the btn tag is %d",btn_tobe_filled);
-            anss.ans_to_filled=true;
+            anss.ans_to_filled=true;   // this is to determine whether the answer fields are filled or not
+            anss.repond_to_btnTag = [NSNumber numberWithInt:ans_cir_btn.tag];//record the current clicked button by user
+            DLog(@"what is the clicked button tag %@", anss.repond_to_btnTag);
             break;
         }
     }
+    
     
     Boolean shake_btn=false;
     
@@ -328,6 +342,7 @@
         if([btn.titleLabel.text isEqual:@""]==false || btn.titleLabel.text==nil){
             
             [btn setTitle:ans_selected forState:UIControlStateNormal];
+            [ans_cir_btn setHidden:YES];//hide the clicked button
             int btn_tobe_comp = 0 ;            
             NSString *final_ans=@"";
             for (int i=0;i<[ans_grp_array count];i++){
