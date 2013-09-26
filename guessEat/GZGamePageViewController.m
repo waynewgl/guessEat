@@ -45,7 +45,7 @@ static NSInteger numberOfPages = 3;
     UIImage *imageActive = [UIImage imageNamed:@"indicator-active.png"];
     
     self.pageIndicator = [[RGMPageControl alloc] initWithItemImage:image activeImage:imageActive];
-    self.pageIndicator .numberOfPages = numberOfPages;
+    self.pageIndicator.numberOfPages = numberOfPages;
     [self.pageIndicator  addTarget:self action:@selector(pageIndicatorValueChanged:) forControlEvents:UIControlEventValueChanged];
     [self.view addSubview:self.pageIndicator ];    
     

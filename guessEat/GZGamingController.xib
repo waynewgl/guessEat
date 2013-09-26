@@ -36,6 +36,7 @@
                         <scrollView autoresizesSubviews="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="SAC-fU-2YI" customClass="RGMPagingScrollView">
                             <rect key="frame" x="38" y="120" width="245" height="161"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="datasource" destination="-1" id="sNM-lG-4OU"/>
                                 <outlet property="delegate" destination="-1" id="fGY-X2-gFc"/>

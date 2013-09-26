@@ -59,36 +59,7 @@ static NSInteger numberOfPages = 3;
 
     
     [self.imgScrollView registerClass:[RGMPageView class] forCellReuseIdentifier:reuseIdentifier];
-    
-    UIImage *image = [UIImage imageNamed:@"indicator.png"];
-    UIImage *imageActive = [UIImage imageNamed:@"indicator-active.png"];
-    
-    self.imgIndicator = [[RGMPageControl alloc] initWithItemImage:image activeImage:imageActive];
-    [self.imgIndicator addTarget:self action:@selector(pageIndicatorValueChanged:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:self.imgIndicator];
-    
-    
-    
-    // comment out for horizontal scrolling and indicator orientation (defaults)
-    self.imgScrollView.scrollDirection = RGMScrollDirectionHorizontal;
-    self.imgIndicator.orientation = RGMPageIndicatorHorizontal;
-    
-    CGRect imgScrollViewframe;
 
-    
-    if(SYSTEM_VERSION_GREATER_THAN(@"6.0")){
-
-        imgScrollViewframe = CGRectMake(self.imgScrollView.frame.origin.x, self.imgScrollView.frame.origin.y-60, self.imgScrollView.frame.size.width, self.imgScrollView.frame.size.height);
-        
-        self.imgScrollView.frame=imgScrollViewframe;
-        
-    }
-    else{
-        
-        imgScrollViewframe = CGRectMake(self.imgScrollView.frame.origin.x, self.imgScrollView.frame.origin.y-40, self.imgScrollView.frame.size.width, self.imgScrollView.frame.size.height);
-        
-        self.imgScrollView.frame=imgScrollViewframe;
-    }
     //this is test for the imageArray
     //GZImageController *imageCrt=[[GZImageController alloc] init];
     //NSArray *imageArray=[imageCrt fetchDishFromDBwithProvince_id:5];
@@ -96,6 +67,7 @@ static NSInteger numberOfPages = 3;
     self.dish_imageView.image=[UIImage imageNamed:@"1-0.jpg"];
     [self fetchDishFromDatabaseForDish:self.dish_code withProvince_id:self.province_id];
     [self setUpGamingSection];
+    [self setUpImgGallerySection];
 
 }
 
@@ -105,9 +77,7 @@ static NSInteger numberOfPages = 3;
     [super viewDidLayoutSubviews];
     
     CGRect bounds = self.view.bounds;
-    
     [self.imgIndicator sizeToFit];
-    
     CGRect frame = self.imgIndicator.frame;
     const CGFloat inset = 20.0f;
     
@@ -115,7 +85,6 @@ static NSInteger numberOfPages = 3;
         case RGMPageIndicatorHorizontal: {
             
             if(SYSTEM_VERSION_GREATER_THAN(@"6.0")){
-                
                 frame.origin.x = floorf((bounds.size.width - frame.size.width) / 2.5f);
                 frame.origin.y = self.imgScrollView.bounds.origin.y+110;
                 frame.size.width = MIN(frame.size.width, bounds.size.width);
@@ -148,6 +117,7 @@ static NSInteger numberOfPages = 3;
 
 - (IBAction)pageIndicatorValueChanged:(RGMPageControl *)sender
 {
+    
     [self.imgScrollView setCurrentPage:sender.currentPage animated:YES];
 }
 
@@ -162,33 +132,57 @@ static NSInteger numberOfPages = 3;
 
 #pragma mark - RGMPagingScrollView data source
 
-
 - (NSInteger)pagingScrollViewNumberOfPages:(RGMPagingScrollView *)pagingScrollView
 {
- 
-    self.imgIndicator.numberOfPages = dish_img_count;
     return dish_img_count;
 }
 
 - (UIView *)pagingScrollView:(RGMPagingScrollView *)pagingScrollView viewForIndex:(NSInteger)idx
 {
-    
     NSString *images_file = [NSString stringWithFormat:@"%@",[ self.dish_img_gallery  objectAtIndex:idx]];
     UIImage *dish_img = [UIImage imageWithContentsOfFile:images_file];
     [self.dish_imageView setImage:dish_img];
-    
-    
-            
     DLog(@"we get img ..... %@",images_file);
-        
-    
-
     return self.dish_imageView;
 }
 
+#pragma mark - gaming methods
+
+-(void)setUpImgGallerySection{
+    
+    
+    UIImage *image = [UIImage imageNamed:@"indicator.png"];
+    UIImage *imageActive = [UIImage imageNamed:@"indicator-active.png"];
+    
+    self.imgIndicator = [[RGMPageControl alloc] initWithItemImage:image activeImage:imageActive];
+    [self.imgIndicator addTarget:self action:@selector(pageIndicatorValueChanged:) forControlEvents:UIControlEventValueChanged];
+    self.imgIndicator.numberOfPages = dish_img_count;
+    self.imgIndicator.orientation = RGMPageIndicatorHorizontal;
+    
+    [self.view addSubview:self.imgIndicator];
+    
+    // comment out for horizontal scrolling and indicator orientation (defaults)
+    self.imgScrollView.scrollDirection = RGMScrollDirectionHorizontal;
+    
+    CGRect imgScrollViewframe;
+    
+    if(SYSTEM_VERSION_GREATER_THAN(@"6.0")){
+        
+        imgScrollViewframe = CGRectMake(self.imgScrollView.frame.origin.x, self.imgScrollView.frame.origin.y-60, self.imgScrollView.frame.size.width, self.imgScrollView.frame.size.height);
+        
+        self.imgScrollView.frame=imgScrollViewframe;
+        
+    }
+    else{
+        
+        imgScrollViewframe = CGRectMake(self.imgScrollView.frame.origin.x, self.imgScrollView.frame.origin.y-40, self.imgScrollView.frame.size.width, self.imgScrollView.frame.size.height);
+        
+        self.imgScrollView.frame=imgScrollViewframe;
+    }
+    
+}
 
 -(void)setUpGamingSection{
-    
 
     uint32_t rnd_words = arc4random_uniform([self.ans_words count]) ; //random words string from array  
     DLog(@"total count int answrod  %d  random word array %d " ,[self.ans_words count], rnd_words);
