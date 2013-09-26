@@ -17,7 +17,7 @@
 
 
 @property (nonatomic, strong) IBOutlet RGMPagingScrollView *pagingScrollView;
-@property (nonatomic, strong) IBOutlet RGMPageControl *pageIndicator;
+@property (nonatomic, strong)  RGMPageControl *pageIndicator;
 
 @property (strong, nonatomic) UICollectionView *imgsCollectionView;
 @property(strong,nonatomic) NSString *flag;

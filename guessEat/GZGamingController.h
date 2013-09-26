@@ -12,11 +12,16 @@
 @class TPKeyboardAvoidingScrollView;
 @class GZDatabaseController;
 @class GZDish;
+@class RGMPagingScrollView;
+@class RGMPageControl;
 
 
 @interface GZGamingController : UIViewController <WYPopoverControllerDelegate>{
 
 }
+
+@property (nonatomic, strong) IBOutlet RGMPagingScrollView *imgScrollView;
+@property (nonatomic, strong) RGMPageControl *imgIndicator;
 
 
 @property(nonatomic,weak) IBOutlet TPKeyboardAvoidingScrollView *avoidScrollView;
@@ -32,6 +37,7 @@
 @property(nonatomic,strong)  GZDatabaseController *databaseCrt;
 @property(nonatomic,strong)  GZDish *dish;
 @property(nonatomic,strong)  NSArray *ans_words;
+@property(nonatomic,strong)  NSArray *dish_img_gallery;
 
 
 @property(nonatomic,weak) IBOutlet UIButton *tip_btn;

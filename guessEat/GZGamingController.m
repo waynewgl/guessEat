@@ -17,8 +17,14 @@
 #import "GZAnswerStatus.h"
 #import "NSMutableArray+Shuffle.h"
 #import "UIView+I7ShakeAnimation.h"
+#import "RGMPageControl.h"
+#import "RGMPagingScrollView.h"
+#import "RGMPageView.h"
 
 #define ANSWER_TAG 100
+
+static NSString *reuseIdentifier = @"RGMPageReuseIdentifier";
+static NSInteger numberOfPages = 3;
 
 @interface GZGamingController ()
 {
@@ -32,6 +38,8 @@
     NSMutableArray *ans_grp_array;
     NSString *word_data;
     NSMutableArray *ans_sec_arr;
+    
+    NSInteger dish_img_count;
     
 }
 
@@ -50,6 +58,21 @@
     [super viewDidLoad];
 
     
+    [self.imgScrollView registerClass:[RGMPageView class] forCellReuseIdentifier:reuseIdentifier];
+    
+    UIImage *image = [UIImage imageNamed:@"indicator.png"];
+    UIImage *imageActive = [UIImage imageNamed:@"indicator-active.png"];
+    
+    self.imgIndicator = [[RGMPageControl alloc] initWithItemImage:image activeImage:imageActive];
+    [self.imgIndicator addTarget:self action:@selector(pageIndicatorValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:self.imgIndicator];
+    
+    
+    
+    // comment out for horizontal scrolling and indicator orientation (defaults)
+    self.imgScrollView.scrollDirection = RGMScrollDirectionHorizontal;
+    self.imgIndicator.orientation = RGMPageIndicatorHorizontal;
+    
     //this is test for the imageArray
     //GZImageController *imageCrt=[[GZImageController alloc] init];
     //NSArray *imageArray=[imageCrt fetchDishFromDBwithProvince_id:5];
@@ -60,6 +83,81 @@
 
 }
 
+
+- (void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    CGRect bounds = self.view.bounds;
+    
+    [self.imgIndicator sizeToFit];
+    
+    CGRect frame = self.imgIndicator.frame;
+    const CGFloat inset = 20.0f;
+    
+    switch (self.imgIndicator.orientation) {
+        case RGMPageIndicatorHorizontal: {
+            frame.origin.x = floorf((bounds.size.width - frame.size.width) / 2.0f);
+            frame.origin.y = self.imgScrollView.bounds.origin.y+30;
+            frame.size.width = MIN(frame.size.width, bounds.size.width);
+            break;
+        }
+        case RGMPageIndicatorVertical: {
+    
+            frame.origin.x = bounds.origin.x + inset;
+            frame.origin.y = floorf((bounds.size.height - frame.size.height) / 2.0f);
+            frame.size.height = MIN(frame.size.height, bounds.size.height);
+            break;
+        }
+    }
+    
+    self.imgIndicator.frame = frame;
+}
+
+
+
+#pragma mark - RGMPagingScrollViewDelegate
+
+
+- (IBAction)pageIndicatorValueChanged:(RGMPageControl *)sender
+{
+    [self.imgScrollView setCurrentPage:sender.currentPage animated:YES];
+}
+
+
+
+- (void)pagingScrollView:(RGMPagingScrollView *)pagingScrollView scrolledToPage:(NSInteger)idx
+{
+    self.imgIndicator.currentPage = idx;
+}
+
+
+
+#pragma mark - RGMPagingScrollView data source
+
+
+- (NSInteger)pagingScrollViewNumberOfPages:(RGMPagingScrollView *)pagingScrollView
+{
+ 
+    self.imgIndicator.numberOfPages = dish_img_count;
+    return dish_img_count;
+}
+
+- (UIView *)pagingScrollView:(RGMPagingScrollView *)pagingScrollView viewForIndex:(NSInteger)idx
+{
+    
+    NSString *images_file = [NSString stringWithFormat:@"%@",[ self.dish_img_gallery  objectAtIndex:idx]];
+    UIImage *dish_img = [UIImage imageWithContentsOfFile:images_file];
+    [self.dish_imageView setImage:dish_img];
+    
+    
+            
+    DLog(@"we get img ..... %@",images_file);
+        
+    
+
+    return self.dish_imageView;
+}
 
 
 -(void)setUpGamingSection{
@@ -206,18 +304,18 @@
     NSString *imagePath = [NSString stringWithFormat:@"%@/%@/%@", IMAGE_DIRECTORY,self.dish.dish_province,self.dish.dish_name];
     DLog(@"image path : %@",imagePath);
     
-    NSArray *images_files= [[NSBundle mainBundle] pathsForResourcesOfType:@"" inDirectory:imagePath];
+    self.dish_img_gallery= [[NSBundle mainBundle] pathsForResourcesOfType:@"" inDirectory:imagePath];
     
-    if ([images_files count] >0){
+    dish_img_count = [self.dish_img_gallery count];
+    
+    [self.imgScrollView reloadData];
+    
+    if ([self.dish_img_gallery count] >0){
         //DLog(@"the image amout is: %d",[images_files count]);
         
         // initialise array for storing tags in the answer buttons section  
         ans_grp_array = [[NSMutableArray alloc]initWithCapacity:5];
-        
-        NSString *images_file = [NSString stringWithFormat:@"%@",[images_files  objectAtIndex:0]];
-        
-        UIImage *dish_img = [UIImage imageWithContentsOfFile:images_file];
-        [self.dish_imageView setImage:dish_img];
+
         NSInteger s = [self.dish.dish_name length];
         //DLog(@"now we get dish name to be displayed %@ with dish length %d",self.dish.dish_name, s);
         for(int i=0; i<s; ++i) {

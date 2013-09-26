@@ -44,13 +44,10 @@ static NSInteger numberOfPages = 3;
     UIImage *image = [UIImage imageNamed:@"indicator.png"];
     UIImage *imageActive = [UIImage imageNamed:@"indicator-active.png"];
     
-    RGMPageControl *indicator = [[RGMPageControl alloc] initWithItemImage:image activeImage:imageActive];
-    indicator.numberOfPages = numberOfPages;
-    [indicator addTarget:self action:@selector(pageIndicatorValueChanged:) forControlEvents:UIControlEventValueChanged];
-    [self.view addSubview:indicator];
-    self.pageIndicator = indicator;
-    
-    
+    self.pageIndicator = [[RGMPageControl alloc] initWithItemImage:image activeImage:imageActive];
+    self.pageIndicator .numberOfPages = numberOfPages;
+    [self.pageIndicator  addTarget:self action:@selector(pageIndicatorValueChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:self.pageIndicator ];    
     
     // comment out for horizontal scrolling and indicator orientation (defaults)
     self.pagingScrollView.scrollDirection = RGMScrollDirectionHorizontal;
@@ -83,12 +80,6 @@ static NSInteger numberOfPages = 3;
 
 
 
-- (IBAction)pageIndicatorValueChanged:(RGMPageControl *)sender
-{
-    [self.pagingScrollView setCurrentPage:sender.currentPage animated:YES];
-}
-
-
 - (void)viewDidLayoutSubviews
 {
     [super viewDidLayoutSubviews];
@@ -117,6 +108,24 @@ static NSInteger numberOfPages = 3;
     
     self.pageIndicator.frame = frame;
 }
+
+
+#pragma mark - RGMPagingScrollViewDelegate
+
+
+- (IBAction)pageIndicatorValueChanged:(RGMPageControl *)sender
+{
+    [self.pagingScrollView setCurrentPage:sender.currentPage animated:YES];
+}
+
+
+
+- (void)pagingScrollView:(RGMPagingScrollView *)pagingScrollView scrolledToPage:(NSInteger)idx
+{
+    self.pageIndicator.currentPage = idx;
+}
+
+
 
 #pragma mark - RGMPagingScrollView data source
 
@@ -192,13 +201,6 @@ static NSInteger numberOfPages = 3;
     
     [self.imgsCollectionView registerClass:[GZCollectionViewCell class] forCellWithReuseIdentifier:kCellIdentifer];
     return _imgsCollectionView;
-}
-
-#pragma mark - RGMPagingScrollViewDelegate
-
-- (void)pagingScrollView:(RGMPagingScrollView *)pagingScrollView scrolledToPage:(NSInteger)idx
-{
-    self.pageIndicator.currentPage = idx;
 }
 
 
