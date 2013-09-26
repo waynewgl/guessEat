@@ -73,6 +73,22 @@ static NSInteger numberOfPages = 3;
     self.imgScrollView.scrollDirection = RGMScrollDirectionHorizontal;
     self.imgIndicator.orientation = RGMPageIndicatorHorizontal;
     
+    CGRect imgScrollViewframe;
+
+    
+    if(SYSTEM_VERSION_GREATER_THAN(@"6.0")){
+
+        imgScrollViewframe = CGRectMake(self.imgScrollView.frame.origin.x, self.imgScrollView.frame.origin.y-60, self.imgScrollView.frame.size.width, self.imgScrollView.frame.size.height);
+        
+        self.imgScrollView.frame=imgScrollViewframe;
+        
+    }
+    else{
+        
+        imgScrollViewframe = CGRectMake(self.imgScrollView.frame.origin.x, self.imgScrollView.frame.origin.y-40, self.imgScrollView.frame.size.width, self.imgScrollView.frame.size.height);
+        
+        self.imgScrollView.frame=imgScrollViewframe;
+    }
     //this is test for the imageArray
     //GZImageController *imageCrt=[[GZImageController alloc] init];
     //NSArray *imageArray=[imageCrt fetchDishFromDBwithProvince_id:5];
@@ -97,9 +113,20 @@ static NSInteger numberOfPages = 3;
     
     switch (self.imgIndicator.orientation) {
         case RGMPageIndicatorHorizontal: {
-            frame.origin.x = floorf((bounds.size.width - frame.size.width) / 2.0f);
-            frame.origin.y = self.imgScrollView.bounds.origin.y+30;
-            frame.size.width = MIN(frame.size.width, bounds.size.width);
+            
+            if(SYSTEM_VERSION_GREATER_THAN(@"6.0")){
+                
+                frame.origin.x = floorf((bounds.size.width - frame.size.width) / 2.5f);
+                frame.origin.y = self.imgScrollView.bounds.origin.y+110;
+                frame.size.width = MIN(frame.size.width, bounds.size.width);
+            }
+            else{
+                
+                frame.origin.x = floorf((bounds.size.width - frame.size.width) / 2.5f);
+                frame.origin.y = self.imgScrollView.bounds.origin.y+30;
+                frame.size.width = MIN(frame.size.width, bounds.size.width);
+            }
+
             break;
         }
         case RGMPageIndicatorVertical: {
